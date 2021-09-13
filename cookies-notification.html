@@ -1,0 +1,94 @@
+<style>
+  .app-cookies {
+    position: fixed;
+    width: 100%;
+    max-width: 684px;
+    height: 128px;
+    background: #272727;
+    border-radius: 4px;
+    display: flex;
+    padding: 0 10px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .app-cookies__content span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+
+  .app-cookies__content a {
+    font-size: 15px;
+    line-height: 30px;
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .app-cookies__actions button {
+    width: 101px;
+    height: 37px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 1.08px;
+    text-transform: uppercase;
+    color: #282320;
+    background: #BCBCBC;
+  }
+
+  button.actions-btn__ok {
+    background: #f0ad4e;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15);
+    margin-top: 10px;
+  }
+
+  .app-cookies__actions button:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 737px) {
+    .app-cookies {
+      flex-direction: column;
+      height: auto;
+      left: 0;
+      bottom: 0;
+    }
+  }
+</style>
+
+<div class="app-cookies">
+  <div class="app-cookies__content">
+    <span
+      >Este website utiliza cookies de terceiros para garantir o seu
+      funcionamento e efetuar estatísticas de navegação considerando seus
+      direitos e interesses.</span
+    >
+    <a href="/cookies.html">Política de Cookies.</a>
+  </div>
+
+  <div class="app-cookies__actions">
+    <button
+      type="button"
+      class="actions-btn__ok"
+      onclick="window.acceptCookies()"
+    >
+      Aceitar
+    </button>
+
+    <button
+      type="button"
+      class="actions-btn__cancel"
+      onclick="window.declineCookies()"
+    >
+      Recusar
+    </button>
+  </div>
+</div>

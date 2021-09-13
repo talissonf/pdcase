@@ -1,0 +1,55 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+	color: #000;
+	font-weight: 400;
+	font-size: 16px;
+	padding: 20px; 
+}
+
+figure,
+p{margin-bottom: 30px;}
+
+figure {text-align: center;}
+figure img {margin: 0 auto;}
+
+.content-page {
+	text-align: center;
+}
+
+@media print {    
+	.no-print, .no-print * {
+		display: none !important;
+	}
+}
+
+.btn-print {
+	display:inline-block;
+	padding-top: 5px;
+	color: #2897ca !important;
+	background-color: #fff !important;
+	border-radius: 0 10px;
+	border-color: #ddd;
+	margin-top: -25px;
+}
+
+.btn-print i {margin-left: 5px; }
+
+.footer-impressao {
+	display: block;
+	padding: 10px 10px 0 10px; 
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.table.table-print tr td {padding: 20px !important;}
+.table.table-print tr td h4 {margin-bottom: 20px;font-weight: bold;}
+.table.table-print tr td h4 small {font-size: 18px; color: #000;}
+.table.table-print tr td .list-group .list-group-item {font-size: 13px;}
+
+
+@media print {
+    table.table-print { 
+        page-break-after: always; 
+    }
+}

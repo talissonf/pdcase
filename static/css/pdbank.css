@@ -1,0 +1,91 @@
+.ac-container {
+	margin: 10px auto 30px;
+	text-align: left;
+	width: 620px;
+	border-radius: 10px;
+}
+
+.ac-container label {
+	background: -moz-linear-gradient(center top, #fff 1%, #eaeaea 100%)
+		repeat scroll 0 0 rgba(0, 0, 0, 0);
+	box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3), 1px 0 0 0
+		rgba(255, 255, 255, 0.9) inset, 0 2px 2px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	display: block;
+	font-size: 15px;
+	height: 30px;
+	line-height: 33px;
+	padding: 5px 20px;
+	position: relative;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+	z-index: 20;
+	border-radius: 10px;
+}
+
+.ac-container label:hover {
+	background: none repeat scroll 0 0 #fff
+}
+
+.ac-container input:checked+label, .ac-container input:checked+label:hover
+	{
+	background: none repeat scroll 0 0 #f4df26;
+	box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3), 0 2px 2px
+		rgba(0, 0, 0, 0.1);
+	color: #060606;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6)
+}
+
+.ac-container label:hover:after, .ac-container input:checked+label:hover:after
+	{
+	content: "";
+	height: 24px;
+	position: absolute;
+	right: 13px;
+	top: 7px;
+	width: 24px;
+	border-radius: 10px;
+}
+
+.ac-container input {
+	display: none
+}
+
+.ac-container article {
+	height: 0;
+	margin-top: -1px;
+	overflow: hidden;
+	position: relative;
+	transition: height .2s ease-in-out 0s, box-shadow .6s linear 0s;
+	z-index: 10
+}
+
+.ac-container article p {
+	padding: 3px;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8)
+}
+
+.ac-container input:checked ~ article {
+	box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3);
+	transition: height .2s ease-in-out 0s, box-shadow .1s linear 0s
+}
+
+.ac-container input:checked ~ article.ac-small {
+	height: 140px
+}
+
+.ac-container input:checked ~ article.ac-medium {
+	height: 220px
+}
+
+.ac-container input:checked ~ article.ac-large {
+	height: 260px
+}
+
+.ac-container input:checked ~ article.ac-xlarge {
+	height: 310px
+}
+
+.ac-container input:checked ~ article.ac-xlarge p {
+	text-align: justify;
+	font-size: 14px
+}

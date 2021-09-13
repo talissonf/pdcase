@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Faça parte da nossa equipe | PD Case</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="author" content="Izabely Furtado" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, sistema, sistema de informação, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="Entre em contato, juntos poderemos formar parcerias"
+    />
+    <link rel="canonical" href="https://www.pdcase.com/contato.html" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <script type="text/javascript" src="./menuProperties.js"></script>
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- Styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      $(function () {
+        $("#rodape").load("rodape.html");
+
+        $("#header").load("header.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+
+    <script>
+      var url = "/api-pdcase/api/";
+      /*
+      $(document).ready(function () {
+        $("#vagas").html("");
+        $("#cmbCargo").html("");
+        $("#vagasAberto").html("Vagas em aberto");
+
+        $.support.cors = true;
+
+        // REST Vagas
+        $.ajax({
+          url: url + "vagas",
+          type: "GET",
+          dataType: "json",
+          error: function (request, status, error) {
+            alert(request.responseText);
+          },
+          success: function (data) {
+            if (data.length > 0) {
+              var html_vagas = "";
+
+              //IE
+              for (var i = 0; i < data.length; i++) {
+                var element = data[i];
+
+                html_vagas += '<div class="row-fluid">';
+                html_vagas += ' <div class="span8 offset2 text-center">';
+                html_vagas +=
+                  "   <h2><strong> " + element.TITULO_VAGA + "</h2>";
+                html_vagas += "   <p> " + element.DESCRICAO + " </p>";
+                html_vagas +=
+                  '   <p><a class="btn-theme-blue" href="./vagas.html?id=' +
+                  element.ID_VAGA +
+                  '" " aria-expanded="false">saiba mais </a></p>';
+                html_vagas += " </div>";
+                html_vagas += "</div>";
+                html_vagas += "<br />";
+              }
+              $("#vagas").html(html_vagas);
+            } else {
+              $("#vagasAberto").html(
+                "No momento não temos vagas em aberto, envie seu currículo que entraremos em contato quando tivermos uma oportunidade compativel com seu perfil!"
+              );
+            }
+          },
+        });
+
+        //REST cargos
+        $.ajax({
+          url: url + "Vagas/cargos",
+          type: "GET",
+          dataType: "json",
+          error: function (request, status, error) {
+            alert(request.responseText);
+          },
+          success: function (data) {
+            if (data.length > 0) {
+              var html_cargos =
+                "<option selected>cargo de interesse...</option>";
+
+              //IE
+              for (var i = 0; i < data.length; i++) {
+                var element = data[i];
+                html_cargos +=
+                  '<option value="' +
+                  element.ID_VAGA +
+                  '">' +
+                  element.TITULO_VAGA +
+                  "</option>";
+              }
+
+              html_cargos += '<option value="0">Outros...</option>';
+              $("#cmbCargo").html(html_cargos);
+            }
+          },
+        });
+      });
+      */
+      function enviarEmail() {
+        if (event) {
+          event.preventDefault();
+        }
+
+        var IdVaga = "";
+        var IdCargoEnteresse = $("#formCv select[name=cargo]").val();
+        var Nome = $("#formCv input[name=name]").val();
+        var Email = $("#formCv input[name=email]").val();
+        var Linkedin = $("#formCv input[name=linkedin]").val();
+        // var Telefone = $("#formCv input[name=tel]").val();
+        var Descricao = $("#formCv textarea[name=message]").val();
+        var Curriculo = $(".input-ghost")[0].files[0];
+
+        if (
+          !IdCargoEnteresse ||
+          !Nome ||
+          !Email ||
+          !Linkedin ||
+          !Descricao ||
+          !Curriculo
+        ) {
+          alert("Campos obrigatórios não preenchidos!!!");
+          return;
+        }
+
+        var Sendmodel = new FormData();
+        Sendmodel.append("IdVaga", IdVaga);
+        Sendmodel.append("IdCargoEnteresse", IdCargoEnteresse);
+        Sendmodel.append("Nome", Nome);
+        Sendmodel.append("Email", Email);
+        Sendmodel.append("Linkedin", Linkedin);
+        Sendmodel.append("Descricao", Descricao);
+        Sendmodel.append("Curriculo", Curriculo);
+
+        $.ajax({
+          url: url + "email/SendCurriculo",
+          type: "POST",
+          contentType: false,
+          processData: false,
+          data: Sendmodel,
+          beforeSend: function () {
+            $("#btnEnviarEmail").prop("value", "Enviando...");
+            $("#btnEnviarEmail").addClass("disabled");
+          },
+
+          success: function (data, textStatus, xhr) {
+            $("#formCv")[0].reset();
+            $("#btnEnviarEmail").prop("value", "Enviar");
+            $("#btnEnviarEmail").prop("disabled", true);
+            $("#btnEnviarEmail").removeClass("disabled");
+
+            alert("Email enviado com sucesso!!!");
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            $("#btnEnviarEmail").prop("value", "Enviar");
+            $("#btnEnviarEmail").removeClass("disabled");
+
+            if (xhr.responseJSON && xhr.responseJSON.ExceptionMessage) {
+              alert(xhr.responseJSON.ExceptionMessage);
+            } else {
+              alert("Ocorreu um erro, tente novamente mais tarde.");
+            }
+          },
+        });
+
+        return false;
+      }
+    </script>
+    <style>
+      .form-group.btn-group {
+        display: flex;
+      }
+
+      .form-group.btn-group label {
+        margin: 3px 10px;
+      }
+
+      .btn.btn-form {
+        background: #f0ad4e;
+        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+        font-size: 27px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1.08px;
+        text-transform: uppercase;
+        color: #282320;
+      }
+
+      .btn.btn-form[disabled] {
+        opacity: 0.5;
+        cursor: alias;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./credito-comercial.html';"
+          class="light"
+          style="
+            background: url(./editando/banner_mobile.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="">
+        <div class="widnr second">
+          <div class="row-fluid">
+            <div class="span8 offset2 text-center">
+              <h1>Faça parte da PD Case</h1>
+              <h6>
+                É apaixonado por tecnologia? Gosta de trabalhar em equipe e
+                desenvolver soluções? Venha fazer parte da nossa equipe!
+              </h6>
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de Contato -->
+        <div class="row-fluid">
+          <div class="span8 offset2">
+            <h2 style="text-align: center; margin-top: 36px">
+              Envie seu curriculo
+            </h2>
+            <h5 style="text-align: center">
+              Cadastre seu currículo…. entraremos em contato quando tivermos uma
+              oportunidade que se enquadre no seu perfil!
+            </h5>
+            <form
+              id="formCv"
+              name="formCv"
+              class="form"
+              method="POST"
+              action=""
+              onsubmit="enviarEmail()"
+            >
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="Seu nome"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="email"
+                  class="form-control"
+                  placeholder="Seu email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="linkedin"
+                  class="form-control"
+                  placeholder="Seu linkedin"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  rows="4"
+                  placeholder="Resumo"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <select class="form-control" id="cmbCargo" name="cargo">
+                  <option selected>cargo de interesse...</option>
+                  <option value="1">Analista de requisitos</option>
+                  <option value="2">Desenvolvedor Java</option>
+                  <option value="3">Gerente de projetos</option>
+                  <option value="3">Analista de testes</option>
+                  <option value="4">Outros...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group input-file" name="Fichier1">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Arquivo..."
+                    id="fileCurriculo"
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary btn-choose" type="button">
+                      Anexe seu curriculo
+                    </button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group btn-group">
+                <input type="checkbox" class="user-actions" id="privacy" />
+
+                <label for="privacy" class="form-label"
+                  >Li e estou ciente da
+                  <a href="/privacidade.html">Política de Privacidade</a> e
+                  proteção de Dados da PD Case.</label
+                >
+              </div>
+
+              <div class="form-group btn-group">
+                <input type="checkbox" class="user-actions" id="lgpd" />
+
+                <label for="lgpd"
+                  >Estou ciente de que os dados tratados são necessários para
+                  análise de minha candidatura a vagas de trabalho na PD
+                  Case.</label
+                >
+              </div>
+
+              <div class="form-group text-center">
+                <button
+                  type="submit"
+                  name="btnEnviarEmail"
+                  id="btnEnviarEmail"
+                  class="btn btn-form"
+                  disabled
+                >
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Fim Formulario de Contato -->
+      </div>
+      <br />
+
+      <!-- Rodapé -->
+      <div id="rodape"></div>
+      <div id="notification" style="display: none"></div>
+    </div>
+    <script src="./js/modernizr.custom.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script>
+      $(document).ready(function () {
+        const $inputs = document.querySelectorAll(".user-actions");
+        var data = [];
+        for (var i = 0; i < $inputs.length; i++) {
+          const $inp = $inputs[i];
+          $inp.addEventListener("change", function (e) {
+            var isValid = true;
+            for (var j = 0; j < $inputs.length; j++) {
+              console.log($inputs[j].checked);
+              if (!$inputs[j].checked) {
+                isValid = false;
+              }
+            }
+
+            const btn = document.getElementById("btnEnviarEmail");
+            btn.disabled = isValid ? false : true;
+          });
+        }
+      });
+
+      $(function () {
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+      });
+
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "303px";
+        document.getElementById("main").style.marginLeft = "303px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+
+      function bs_input_file() {
+        $(".input-file").before(function () {
+          if (!$(this).prev().hasClass("input-ghost")) {
+            var element = $(
+              "<input type='file' class='input-ghost' style='visibility:hidden; height:0'>"
+            );
+            element.attr("name", $(this).attr("name"));
+            element.change(function () {
+              element
+                .next(element)
+                .find("input")
+                .val(element.val().split("\\").pop());
+            });
+            $(this)
+              .find("button.btn-choose")
+              .click(function () {
+                element.click();
+              });
+            $(this).find("input").css("cursor", "pointer");
+            $(this)
+              .find("input")
+              .mousedown(function () {
+                $(this).parents(".input-file").prev().click();
+                return false;
+              });
+            return element;
+          }
+        });
+      }
+      $(function () {
+        bs_input_file();
+      });
+    </script>
+  </body>
+</html>

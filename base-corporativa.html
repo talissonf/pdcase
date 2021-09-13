@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Base corporativa | PD Case</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="author" content="Izabely Furtado" />
+    <meta http-equiv="contact" content="izabely.correa@pdcase.com.br" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, sistema, case, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="Os dados de uso comum dos sistema de Negócios são prioritariamente cataloagados numa única base de dados, permitindo assim centralizar a manutenção, e evitar a redundância em banco de dados distintos."
+    />
+    <link rel="canonical" href="https://www.pdcase.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="canonical" href="https://www.pdcase.com/base-corporativa.html" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <script type="text/javascript" src="./menuProperties.js"></script>
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+        $("#rodape").load("rodape.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+    <!-- SLIDE -->
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./canais-digitais.html';"
+          class="light"
+          style="
+            background: url(./editando/canaisDigitais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./captacoes-de-mercado.html';"
+          class="light"
+          style="
+            background: url(./editando/captacoesMercado.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./controladoria.html';"
+          class="light"
+          style="
+            background: url(./editando/controladoria.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./emprestimos.html';"
+          class="light"
+          style="
+            background: url(./editando/emprestimos.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./gestao-de-risco.html';"
+          class="light"
+          style="
+            background: url(./editando/gestaoRisco.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./conheca-seu-cliente.html';"
+          class="light"
+          style="
+            background: url(./editando/conhecaSeuCliente.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./servicos-bancarios.html';"
+          class="light"
+          style="
+            background: url(./editando/servicosBancarios.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./suporte-e-apoio-cadastral.html';"
+          class="light"
+          style="
+            background: url(./editando/suporte.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./informativos-e-sistemas-legais.html';"
+          class="light"
+          style="
+            background: url(./editando/infoSisLegais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./portal-de-credito.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credito.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+      <div id="hero-statement">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div id="slide-title"></div>
+      <!-- slide controls -->
+      <div class="slide-nav-prev">
+        <div id="slide-prev" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+      <div class="slide-nav-next">
+        <div id="slide-next" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO SLIDE -->
+
+    <div id="main">
+      <article id="node-2000" class="node node-product-page clearfix">
+        <div id="vaibudega"></div>
+        <div class="widnr second">
+          <div class="row-fluid">
+            <div class="span8 offset2 text-center">
+              <h1>Base Corporativa</h1>
+              <p>
+                Os dados de uso comum dos sistema de Negócios são
+                prioritariamente cataloagados numa única base de dados,
+                permitindo assim centralizar a manutenção, e evitar a
+                redundância em banco de dados distintos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-8">
+            <img
+              src="./images/cadpessoas.png"
+              alt="Cadastro de Pessoas"
+              title="Cadastro de Pessoas"
+            />
+          </div>
+          <div class="coluna-1"></div>
+          <div class="coluna-3 direita" style="padding-right: 0.1%">
+            <br />
+            <h2>Informação</h2>
+
+            <p>
+              Tipicamente são mantidos informações definidas por empresas
+              reguladores, como DNE – Diretório Nacional de Endereços(Correios),
+              classificações de ocupações(CBO), Atividade de Empresas(IBGE), ou
+              mesmo padrões do Banco Central para tratamento complementar de
+              informaçoes Bancárias.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Integração</h2>
+            <p>
+              A integração de busca e validações é feitas através de micro
+              Serviços acessiveis a qualquer sistema, com a manutenção dos dados
+              feitas por importação de dados via arquivo, Web Service, ou ainda
+              por digitação em transação de retaguarda.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/businessteste.png"
+              alt="Integração"
+              title="Integração"
+            />
+          </div>
+        </div>
+
+        <script src="./js/modernizr.custom.js"></script>
+        <script src="js/jquery.dlmenu.js"></script>
+        <script>
+          $(function () {
+            $("#dl-menu").dlmenu({
+              animationClasses: {
+                classin: "dl-animate-in-2",
+                classout: "dl-animate-out-2",
+              },
+            });
+          });
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "303px";
+            document.getElementById("main").style.marginLeft = "303px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+        </script>
+      </article>
+
+      <div id="rodape"></div>
+
+			<div id="notification" style="display: none;"></div>
+    </div>
+  </body>
+</html>

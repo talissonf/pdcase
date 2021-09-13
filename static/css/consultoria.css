@@ -1,0 +1,77 @@
+.second {
+	
+}
+
+.second h2 {
+	font-family: "GraphikLight", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	font-size: 40px;
+	text-transform: none;
+	line-height: 47px;
+}
+
+.second p {
+	font-family: "GraphikLight", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+}
+
+.second .underline {
+	border-bottom: 3px solid #F46F25;
+}
+
+.second .graphic {
+	background: url("/sites/default/files/laptop.jpg") center bottom
+		no-repeat;
+	height: 550px;
+}
+
+.second .g {
+	position: relative;
+}
+
+.second .g.g1 {
+	left: 107px;
+	top: -44px;
+}
+
+.second .g.g2 {
+	left: -113px;
+	top: 214px;
+}
+
+.second .g.g3 {
+	left: 244px;
+	top: 64px;
+}
+
+.second .g.g4 {
+	left: 137px;
+	top: 254px;
+}
+
+.second .g.g5 {
+	left: -120px;
+	top: 337px;
+}
+
+@
+-moz-document url-prefix () { #banner {
+	background: url("./images/home/bg_lion13.png") no-repeatfixed00;
+	padding: 60px 0;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#banner h1 {
+	background: none;
+	color: #edce60;
+}
+
+#banner p {
+	padding-top: 160px;
+	color: #fff;
+}
+}

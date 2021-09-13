@@ -1,0 +1,109 @@
+element.style {
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.proof {
+    background: #fff;
+    background-size: cover;
+    font-family: "GraphikRegular",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.25em;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 1399px)
+.widnr {
+    width: 100% !important;
+}
+
+@media (max-width: 767px)
+.proof-squares .words .caption-first {
+    min-height: 100%;
+}
+
+.proof-squares .words .caption-first {
+    font-size: 18px;
+    line-height: 20px;
+    min-height: 20px;
+    text-transform: uppercase;
+    color: #f4d923;
+}
+
+.proof-squares {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border: 5px solid #f4d923;
+    background: rgba(255,255,255,0.8);
+    text-align: center;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+Style Attribute {
+    visibility: visible;
+    animation-delay: 1s;
+    animation-name: fadeIn;
+}
+
+.proof-squares .logo img {
+    margin: 0 auto;
+    max-height: 75px;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+img {
+    max-width: 100%;
+    width: auto\9;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+.widnr {
+    background: #FFF;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+div {
+    display: block;
+}
+
+.row:before, .row:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+@media (max-width: 767px)
+[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.span4 {
+    width: 308px;
+}
+[class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 28px;
+}
+user agent stylesheet
+div {
+    display: block;
+}

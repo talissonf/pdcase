@@ -1,0 +1,41 @@
+.lightboxValores {
+	margin-bottom:20px;
+    background:url(../images/valores.png) 50% 0 no-repeat;
+    padding-top:200px;
+    font-size:12px;
+    color:#777;
+    font-weight:normal;
+    text-transform:uppercase;
+    word-spacing:5px;
+    letter-spacing:.125em;
+    position:relative;
+    opacity:1;
+}
+
+.lightboxMissao {
+	margin-bottom:20px;
+    background:url(../images/missao.png) 50% 0 no-repeat;
+    padding-top:200px;
+    font-size:12px;
+    color:#777;
+    font-weight:normal;
+    text-transform:uppercase;
+    word-spacing:5px;
+    letter-spacing:.125em;
+    position:relative;
+    opacity:1;
+}
+
+.lightboxVisao {
+	margin-bottom:20px;
+    background:url(../images/Visao.png) 50% 0 no-repeat;
+    padding-top:200px;
+    font-size:12px;
+    color:#777;
+    font-weight:normal;
+    text-transform:uppercase;
+    word-spacing:5px;
+    letter-spacing:.125em;
+    position:relative;
+    opacity:1;
+}

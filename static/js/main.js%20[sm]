@@ -1,0 +1,208 @@
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
+/* Google Tag Manager */
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WX3M4LF');
+/* End Google Tag Manager */
+
+
+//função para checar browser/useragent
+var getBrowser = function() {
+	var queryWhichBrowserIs = function() {
+		var UserAgentMatch = function(ua) {
+			ua = ua.toLowerCase();
+			var uamatch = 	/(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+							/(msie) ([\w.]+)/.exec( ua ) ||
+							/(edge)[ \/]([\w.]+)/.exec( ua ) ||
+							/(trident)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+							/(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+							/(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+							ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+							[];
+			return {
+				browser: uamatch[ 1 ] || "",
+				version: uamatch[ 2 ] || "0"
+			};
+		}
+
+		if (typeof navigator.userAgent !== "undefined") {
+			matched = UserAgentMatch( navigator.userAgent );
+			browser = {};
+			if ( matched.browser ) {
+				browser[ matched.browser ] = true;
+				browser.version = matched.version;
+			}
+
+			//Trident é engine do IE (+11)
+			if (browser.trident) {
+				browser.msie = true;
+			}
+
+			//internet explorer edge
+			if (browser.edge) {
+				browser.safari = false;
+				browser.chrome = false;
+				browser.msie = true;
+			}
+
+			//Chrome é Webkit, mas Webkit tambémpode ser Safari.
+			if (browser.chrome) {
+				browser.webkit = true;
+			} else if (browser.webkit && !browser.edge) {
+				browser.safari = true;
+			}
+
+			//adicional para mobile (só adicionando o boolean em caso positivo)
+			var isIphone = /iphone/i.test(navigator.userAgent.toLowerCase()),
+				isIpad = /ipad/i.test(navigator.userAgent.toLowerCase()),
+				isAndroid = /android/i.test(navigator.userAgent.toLowerCase()),
+				isSamsung = /samsungbrowser/i.test(navigator.userAgent.toLowerCase()),
+				isWindowsPhone = /windows phone/i.test(navigator.userAgent.toLowerCase()) || /iemobile/i.test(navigator.userAgent.toLowerCase());
+
+			if (isIphone) browser.iphone = true;
+			if (isIpad) browser.ipad = true;
+
+			//se for iphone ou ipad adiciona o ios também
+			if (browser.iphone || browser.ipad) {
+				browser.ios = true;
+			}
+			if (isSamsung) browser.samsung = true;
+			if (isAndroid) browser.android = true;
+			if (isWindowsPhone) browser.windowsphone = true;
+
+			//todos os mobiles
+			if (browser.iphone || browser.ipad || browser.android || browser.windowsphone || browser.samsung) {
+				browser.mobile = true;
+			}
+
+			return browser;
+		} else {
+			return {unknown:true};
+		}
+
+	};
+
+	return queryWhichBrowserIs();
+};
+
+
+
+
+var isDeprecatedBrowser = function() {
+	var userBrowser = getBrowser();
+	//IE do 11 para baixo
+	if (userBrowser.msie && parseInt(userBrowser.version) <= 11) {
+		return true;
+	}
+
+	else {
+		return false;
+	}
+};
+
+//função para verificar browsers incompativeis
+var isIncompatibleBrowser = function () {
+	var userBrowser = getBrowser();
+
+	//IE abaixo do 10
+	if (userBrowser.msie && parseInt(userBrowser.version) < 9) {
+		return true;
+	}
+
+	//Firefox abaixo do 12
+	else if (userBrowser.mozilla && userBrowser.version < 12) {
+		return true;
+	}
+
+	//Chrome abaixo do 20
+	else if (userBrowser.webkit && userBrowser.chrome && parseInt(userBrowser.version) < 20) {
+		return true;
+	}
+
+	//Safari abaixo do 6 no macOS (o de windows nao é mais suportado) e não no iOS
+	else if (userBrowser.webkit && userBrowser.safari && parseFloat(userBrowser.version) < 536.25 && !userBrowser.ios) {
+		return true;
+	}
+
+	//outros browsers baseados em webkit
+	else if (userBrowser.webkit && !userBrowser.chrome && !userBrowser.safari && parseFloat(userBrowser.version) < 533) {
+		return true;
+	}
+
+	//opera
+	else if (userBrowser.opera && parseInt(userBrowser.version) < 12) {
+		return true;
+	}
+
+	else {
+		return false;
+	}
+};
+
+
+
+if (isIncompatibleBrowser()) {
+    var defaultLocale = 'pt-br';
+	var userLanguage = (navigator ? (navigator.language == defaultLocale || navigator.language == 'en' || navigator.language == 'es' ? navigator.language : defaultLocale) : defaultLocale);
+
+	var imgPath = URIbaseContext + 'static/img/details';
+
+	var translateLang = {
+		'pt-br': {
+			'INCOMPATIBLE_BROWSER_TITLE': "O seu navegador é incompatível",
+			'INCOMPATIBLE_BROWSER_DESC': "<p>O BTG Pactual <em>digital</em> foi construído utilizando as tecnologias mais modernas. Isso faz com que seja mais seguro e fácil de usar, mas infelizmente o seu navegador não suporta estas tecnologias.</p><p>Para ter acesso a tudo o que o BTG Pactual <em>digital</em> oferece, atualize o seu navegador ou instale um desses listados abaixo:</p>"
+		},
+		'en': {
+			'INCOMPATIBLE_BROWSER_TITLE': "Your browser is incompatible",
+			'INCOMPATIBLE_BROWSER_DESC': "<p>The BTG Pactual <em>digital</em> was built using the latest technologies. This makes safer and easier to use, but unfortunately your browser does not support these technologies.</p><p>To access all of the BTG Pactual <em>digital</em> provides, update your browser or install one of those listed below:</p>"
+		},
+		'es': {
+			'INCOMPATIBLE_BROWSER_TITLE': "Su navegador no es compatible",
+			'INCOMPATIBLE_BROWSER_DESC': "<p>El BTG Pactual <em>digital</em> fue construido utilizando las últimas tecnologías. Esto hace más seguro y más fácil de usar, pero desafortunadamente su navegador no soporta estas tecnologías.</p><p>Para tener acceso a todo lo que ofrece BTG Pactual <em>digital</em>, actualizar su navegador o instalar uno de ellos se enumeran a continuación:</p>"
+		}
+	};
+
+
+	var browserUnsCont = '<div class="centerBox content clearfix">' +
+		'<div class="btgLogo"><img src="'+imgPath+'/btg_digital_logo_fallback.png" /></div>' +
+		'<h2>' + translateLang[userLanguage].INCOMPATIBLE_BROWSER_TITLE + '</h2>' +
+		translateLang[userLanguage].INCOMPATIBLE_BROWSER_DESC +
+		'<ul class="browsersList unstyled clearfix">' +
+		'<li><a href="https://www.google.com/chrome/" target="_blank"><img src="' + imgPath + '/browser-chrome-128px.jpg" /><strong>Google Chrome</strong></a></li>' +
+		'<li><a href="https://www.mozilla.org/pt-BR/firefox/new/" target="_blank"><img src="' + imgPath + '/browser-firefox-128px.jpg" /><strong>Mozilla Firefox</strong></a></li>' +
+		'<li><a href="https://www.apple.com/br/safari/" target="_blank"><img src="' + imgPath + '/browser-safari-128px.jpg" /><strong>Safari</strong></a></li>' +
+		'<li><a href="http://windows.microsoft.com/pt-br/internet-explorer/download-ie" target="_blank"><img src="' + imgPath + '/browser-internet_explorer-128px.jpg" /><strong>Internet Explorer</strong></a></li>' +
+		'</ul>' +
+		'</div>';
+
+	document.body.innerHTML = "<div class='browserUnsupported'>"+browserUnsCont+"</div>" ;
+}
+else {
+    require(['core', 'general-services', 'directives'], function (app) {
+		angular.bootstrap(document, ['core']);
+	});
+}

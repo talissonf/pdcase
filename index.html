@@ -1,0 +1,1562 @@
+﻿	<!DOCTYPE html>
+	<html>
+	<head>
+			<title>PD Case | Fábrica de software, Outsourcing e consultoria </title>
+			<meta charset="utf-8">
+			<meta name="author" content="PD Case Informática">
+			<meta name="keywords" content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, case, sistema de informação, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos">
+			<meta name="description" content="A PD Case é uma empresa com experiência em grandes projetos, outsourcing e fábrica de software. Oferece soluções bancarias adequadas às particularidades de seus clientes. " >
+		<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+			<link rel="canonical" href="https://www.pdcase.com/site"/>
+		<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" id="style-css" href='./css/TheFox/style.min.css' type='text/css' media="all" />
+			<link rel="stylesheet" id="style_end-css" href='./css/style_end.min.css' type='text/css'media="all" />
+			<link rel="stylesheet" id="Link2" href='./css/tela_toda.min.css' type='text/css' media="screen and (min-width: 1300px)" />
+			<link rel="stylesheet" id="Link1" href='./css/custom.min.css' type='text/css' media="all" />
+		<script src="./js/jquery.min.js?v=1.7.2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+		<link rel="stylesheet" id="media-queries-css" href='./css/TheFox/media-queries_wide.min.css' type='text/css' media="all" />
+		<link rel="stylesheet" id="js_frontend-css" href='./css/TheFox/thefox_js_composer.min.css' type='text/css' media="all" />
+		<!-- Styles -->
+			<link type="text/css" rel="stylesheet" href="./css/magento.min.css" media="all" />
+		<link href="assets/css/main.min.css" rel="stylesheet">
+		<!-- Styles -->
+
+			<link href="./css/global.min.css" rel="stylesheet">
+			<link href="./css/home.min.css" rel="stylesheet">
+			<link href="./css/section.css" rel="stylesheet">
+			<link href="./css/prodserv.min.css" rel="stylesheet">
+		<!-- Custom Styling -->
+		<link rel="stylesheet" data-type="vc_shortcodes-custom-css" href='./css/index3.min.css' type='text/css' />
+		<link rel="stylesheet" type="text/css" href="./css/default.min.css" />
+		<meta name="google-site-verification" content="bPJHATEEdXlA6-QxcktRDngTevrirUSYn09f343QXzA" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+			<script async src="https://www.googletagmanager.com/gtag/js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+			<script>
+					$(function(){
+						$("#rodape").load("rodape.html");
+						$("#header").load("header.html");
+						$("#notification").load("cookies-notification.html")
+						if (!Cookies.get('CookieConsent')) {
+							console.log(Cookies.get('CookieConsent'))
+							document.getElementById("notification").style.display = 'block'
+						}
+					});
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'UA-139247637-1');
+					gtag('consent', 'default', {
+						'ad_storage': 'denied',
+						'analytics_storage': 'denied'
+					});
+
+					window.acceptCookies = function () {
+						Cookies.set('CookieConsent', 1)
+						gtag('consent', 'update', {
+							'ad_storage': 'granted',
+							'analytics_storage': 'granted'
+						});
+						document.getElementById("notification").style.display = 'none'
+					}
+
+					window.declineCookies = function () {
+						Cookies.set('CookieConsent', 0)
+						document.getElementById("notification").style.display = 'none'
+					}
+
+			</script>
+
+	<script type="application/javascript">
+		function enviarEmail() {
+			if (event) {
+				event.preventDefault();
+			}
+
+			$.ajax({
+				url: "https://www.pdcase.com/envioemail/envio.aspx",
+				type: "GET",
+				data: $('#formEmail').serialize(),
+					beforeSend: function(){
+										$("#btnEnviarEmail").prop('value', 'Enviando...');
+										$("#btnEnviarEmail").addClass('disabled');
+								},
+
+				success: function (data) {
+					$('#formEmail')[0].reset();
+					$("#btnEnviarEmail").prop('value', 'Enviar');
+									$("#btnEnviarEmail").removeClass('disabled');
+
+
+							if(data != 'Null'){
+								$('.recebeDados').html("<center>Email enviado com sucesso. Aguarde, entraremos em contato!!!</center>");
+								alert( "Email enviado com sucesso!!!" );
+							}
+							else{
+								$('.recebeDados').html('<center>Campos obrigatórios não preenchidos!!!</center>');
+								alert( "Campos obrigatórios não preenchidos!!!" );
+
+							}
+						},
+				statusCode: {
+					404: function() {
+						alert("Página não encontrada.");
+					}
+				}
+			}).done(function() {
+			});
+
+
+			return false;
+		}
+
+	</script>
+
+	</head>
+	<body>
+			<div id="header" style="z-index:999999;" class="demo-2"></div>
+		<div id="jpreOverlay" class="dark_loader tf_complex_loader">
+			<div id="jpreLoader">
+				<div id="jpreBar">
+				</div>
+			</div>
+			<div class="thefox_bigloader">
+				<div class="thefox_loader_line">
+					<div class="loader_tophalf">
+					</div>
+					<div class="loader_inner">
+					</div>
+					<div class="loader_bottomhalf">
+					</div>
+					<div class="loader_button">
+					</div>
+				</div>
+				<div class="thefox_loader_logo_bg">
+				</div>
+				<div class="thefox_loader_logo">
+					<img src="./images/pdcaselogotransp.png" data-pagespeed-url-hash="1864168008" alt="Outsourcing" title="Outsourcing" />
+				</div>
+				<div id="jprePercentage">
+					0%
+
+				</div>
+				<p class= "jprePercentage" style="position: relative; text-align:center; bottom: -87%; color:#ccc">
+					Conhecimento Aplicado à Tecnologia</p>
+			</div>
+				<img class="pre_dummy_img" src="./images/loader.gif" alt = "Carregando" data-pagespeed-url-hash="2749754879" />
+			</div>
+			<div id="header_container" >
+				<!-- header -->
+
+				<header onclick="openNav()" class="header_shadow nav_type_1 sticky_header  header_to_shrink clearfix"
+					style="height: 0px; width: 100%; background-color:Black">
+					<a style="position: absolute; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 99999999999999999999" href='./index.html'
+									onclick="location.href = './index.html';">
+								<img src='./images/logo-footer.png' class='img-responsive'/>
+					</a>
+				</header>
+				<!-- header END-->
+				<h1 style="display:none;">Fábrica de software, Outsourcing e consultoria</h1>
+			</div>
+			<div id="main">
+				<a id="sec1"></a>
+
+				<div class="" >
+					<div class="vc_span12 wpb_column vc_column_container ">
+						<div class="vc_column-inner ">
+							<div class="wpb_wrapper">
+								<script>
+								var j$ = jQuery; j$.noConflict(); "use strict"; j$(window).load(function () {
+												1
+												j$("#passa1 .rd_testimonials").carouFredSel({ responsive: true, width: "100%", scroll: { items: 1, duration: 0.17 }, auto: false, prev: "#passa1_left", next: "#passa1_right", pagination: "#passa1_pager", height: "variable", swipe: { onTouch: true, onMouse: true }, items: { height: "variable", visible: { min: 1, max: 1}} });
+										});
+								</script>
+								<div class="rd_testimonials_ctn rd_tm_3 " id="passa1">
+									<div class="rd_testimonials">
+																	<div class="rd_testimonial espaco">
+											<div id="banner4">
+																							<div class="banner-title">
+																									<span class="conhecimento">Conhecimento</span> <br />
+																									<span class="aplicado">Aplicado à</span><br />
+																									<span class="tecnologia">Tecnologia</span>
+																							</div>
+																							<div class="banner-subtitle">
+																									<span class="me">PD Case - Desde 1991 fornecendo produtos e serviços </span>
+																									<span class="what">Que utilizam tecnologia como um meio de valorização do </span>
+																									<span class="where">conhecimento do cliente</span>
+																							</div>
+																					</div>
+										</div>
+																			<div class="rd_testimonial espaco">
+											<div id="banner2">
+												<div class="banner-title">
+																									<span class="conhecimento">Completo</span> <br /><span class="aplicado">Eficiente</span>
+																									<br /><span class="tecnologia">Personalizado</span>
+																							</div>
+																							<div class="banner-subtitle">
+																									<span class="me">Nossos produtos e serviços atendem de forma completa</span>
+																									<span class="what">E eficiente às necessidades tecnológicas </span>
+																									<span class="where">Específicas de cada empresa</span>
+																							</div>
+											</div>
+										</div>
+										<div class="rd_testimonial espaco">
+											<div id="banner3">
+												<div class="banner-title">
+													<span class="conhecimento">Melhores resultados</span><br/>
+													<span class="aplicado">em  prazo, custo</span><br/>
+													<span class="tecnologia">e &nbsp; qualidade</span>
+												</div>
+												<div class="banner-subtitle">
+													<span class="me">Obtemos os melhores resultados em termos de prazo, qualidade e custo</span><span
+														class="what">Através da adoção de processos reconhecidos e certificados pelo mercado</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tm_nav">
+										<div class="tm_l_nav" id="passa1_left">
+										</div>
+										<div class="tm_r_nav" id="passa1_right">
+										</div>
+									</div>
+									<div id="passa1_pager" class="rd_tm_pager">
+									</div>
+								</div>
+							</div>
+													<center>
+													<button class="prodserv2" onclick="location.href = './produtos.html';" >Mercado Financeiro</button>
+													<button class="prodserv2" onclick="location.href = './agencia-de-fomento.html';" >Agências de Fomento</button>
+													<button class="prodserv2" onclick="location.href = './portal-de-credito.html';" >Portal de Crédito</button>
+													<button class="prodserv2" onclick="location.href = './gestao-de-risco.html';" >Gestão de Riscos</button>
+													<button class="prodserv2" onclick="location.href = './canais-digitais.html';" >Mercado Digital <br />Mobile/Web</button>
+													<button class="prodserv2" onclick="location.href = './informativos-e-sistemas-legais.html';" >Compliance e Informes Legais</button>
+													<button class="prodserv2" onclick="location.href = './consultoria.html';" >Consultoria / Outsourcing</button>
+													<button class="prodserv2" onclick="location.href = './porte-cobol.html';" >Porte Cobol</button>
+													</center>
+					</div>
+				</div>
+
+				<a id="sec3"></a>
+				<div class="vc_row-fluid " >
+					<div class="vc_span12 vc_column_container " style="padding-top:0%">
+						<div class="vc_column-inner " style="padding-top:0%">
+							<div class="wpb_wrapper" style="padding-top:0%">
+
+								<script>							    var j$ = jQuery; j$.noConflict(); "use strict"; j$(window).load(function () {
+												1
+												j$("#passa3 .rd_testimonials").carouFredSel({ responsive: true, width: "100%", scroll: { items: 1, duration: 4000 }, auto: false, prev: "#passa3_left", next: "#passa3_right", pagination: "#passa3_pager", height: "variable", swipe: { onTouch: true, onMouse: false }, items: { height: "variable", visible: { min: 1, max: 1}} });
+										});</script>
+								<div class="rd_testimonials_ctn rd_tm_3 " id="passa3" style="padding-left: 0%; padding-top:0%; ">
+									<div class="rd_testimonials" >
+
+										<div class="rd_testimonial" >
+
+					<div class="vc_span12 wpb_column vc_column_container ">
+						<div class="vc_column-inner" style="padding-left: 4%; ">
+							<div class="wpb_wrapper" style="padding-left: 0%; ">
+								<h2>
+									Nossas soluções e serviços para sua empresa<br />
+								<!--     <a style="font-weight: bold;" >Clique aqui ou passe lateralmente para saber mais</a> -->
+								</h2><br />
+
+								<div style="padding-left: 5%;" class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1419055470221">
+									<div class="wpb_column vc_column_container vc_span6" style="padding-right:4%; ">
+										<div class="vc_column-inner vc_custom_1436688162486" style="padding-bottom:0px !important">
+											<div class="wpb_wrapper">
+												<div class="rd_pie_02 rd_pie_chart " id="Div25">
+													<img alt="Soluções bancárias" title="Soluções bancárias" src="./images/solucoesbancarias.png" >
+													<h3 style="color: #676056; margin:0px;" class="rd_pc_heading">
+														Soluções</h3>
+													<p style="color: #676056; text-align:justify; margin:0px;" class="rd_pc_text">
+														Nossas soluções são aderentes a sua necessidade podendo ser customizadas com flexibilidade.
+
+														Atendem a todas resoluções dos órgãos reguladores  do mercado financeiro sendo compatíveis para Bancos comerciais e de desenvolvimento de todo porte, agências de crédito ou fundos de investimento de projetos de indeterminadas categorias, sejam eles de inovação, pesquisa, linha de crédito específica.
+														<br /><br />
+													</p>
+													<a style="font-weight: bold;" href="./produtos.html" onclick="location.href = './produtos.html';">SAIBA MAIS</a>
+													<br /><br />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span6" style="padding-right:5%; padding-left:1%">
+										<div class="vc_column-inner vc_custom_1419055453331" style="padding-bottom:3px !important;">
+											<div class="wpb_wrapper">
+												<div class="rd_pie_02 rd_pie_chart " id="Div26">
+													<img alt="Serviços" title="Serviços" src="./images/pdcaseservicos.png">
+													<h3 style="color: #676056; margin:0px;" class="rd_pc_heading">
+														Serviços</h3>
+													<p style="color: #676056; text-align:justify; margin:0px" class="rd_pc_text">
+														Proporcionar a sua empresa alcançar suas metas e obter maior lucratividade é o nosso propósito.
+														Oferecendo soluções completas baseadas em nossa vasta experiência além de serviços
+														customizados para agregar valor ao negócio.
+
+														Disponibilizamos para sua empresa uma equipe de especialistas alinhando o conhecimento a
+														tecnologia de ponta, desde o planejamento até o desenvolvimento.
+													<br /><br />
+													</p>
+													<a onclick="location.href = './servicos.html';" style="font-weight: bold;" >SAIBA MAIS</a>
+												<br /><br />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+										</div>
+
+
+										<div class="rd_testimonial">
+											<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+						<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2 class="vc_custom_heading vc_custom_1487016672308" onclick="window.location='./servicos.html">
+									Serviços<br />
+								</h2>
+
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div33">
+														<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+															<img alt="emotion" title = "emotion" src="./images/emo20.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Consultoria</h3>
+															<p>
+																Especialistas em tecnologia com conhecimento de negócio que irá lhe garantir segurança em seus projetos.<br />
+																<a style="font-weight: bold;" href="./consultoria.html" onclick="location.href = './consultoria.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div34">
+													<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+														<img alt="emotion" title = "emotion" src="./images/emo25.png">
+													</div>
+													<div class="list_desc">
+														<h3>Fábrica de Software</h3>
+														<p>
+															Utilizamos padrões e processos bem definidos a fim de garantir produtos de qualidade em cada fase.<br />
+															<a style="font-weight: bold;" href="./fabrica-de-software.html" onclick="location.href = './fabrica-de-software.html';">SAIBA MAIS</a>
+														</p>
+													</div>
+												</div>
+												<div class="list_item_ctn" id="Div35">
+													<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+														<img alt="emotion" title = "emotion"src="./images/emo22.png">
+													</div>
+													<div class="list_desc">
+														<h3>
+															Aplicativos Móveis</h3>
+														<p style="margin-bottom: 0">
+															Criamos uma vertente especializada em soluções Mobile nas plataformas IOS e Android.<br />
+															<a style="font-weight: bold;" href="./pdMobile.html" onclick="location.href = './pdMobile.html';">SAIBA MAIS</a>
+														</p>
+													</div>
+												</div>
+
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/servicospdcase.jpg" class="vc_single_image-img attachment-full"
+																alt="Serviços pd case" title="Serviços pd case" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+													<div class="list_item_ctn" id="Div36">
+													<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+														<img alt="emotion" title = "emotion" src="./images/emo23.png">
+													</div>
+													<div class="list_desc">
+														<h3>Outsourcing</h3>
+														<p>
+															Terceirização com mão de obra especializada<br />
+															<a style="font-weight: bold;" href="#" onclick="location.href = './mpsBR.html';">SAIBA MAIS</a>
+														</p>
+													</div>
+												</div>
+												<div class="list_item_ctn" id="Div37">
+													<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+														<img alt="emotion" title = "emotion" src="./images/emo24.png">
+													</div>
+													<div class="list_desc">
+														<h3>
+															Integração e Migração</h3>
+														<p>
+															Serviços de Integração e Migração de Plataformas<br />
+															Mainframe, Oracle e Sql Server<br />
+															<a style="font-weight: bold;" href="#" >SAIBA MAIS</a>
+														</p>
+													</div>
+												</div>
+												<div class="list_item_ctn" id="Div39" style="margin-bottom: 0">
+													<div class="list_icn" style="background: white; box-shadow: 0px 0px 8px #676767;">
+														<img alt="emotion" title = "emotion" src="./images/emo21.png">
+													</div>
+													<div class="list_desc" style="margin-bottom: 0">
+														<h3>
+															Gestão de Processos</h3>
+														<p style="margin-bottom: 0">
+															Possuímos um processo bem estruturado, claro, ágil, seguro e evolutivo
+															visando a geração eficiente de produtos com qualidade e gestão eficiente do controle de mudanças.<br />
+															<a style="font-weight: bold;" href="./gestao-de-processos.html" onclick="location.href = './gestao-de-processos.html';">SAIBA MAIS</a>
+														</p>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div40">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>
+									</div>
+					<div class="rd_testimonial">
+							<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+									<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2 class="vc_custom_heading vc_custom_1487016672308">
+									PD Soluções<br />
+								</h2>
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div38" style="margin: 0px;">
+														<div class="list_icn" style="background: #00546c;">
+															<img alt="emotion" title = "emotion" src="./images/emo13.png">
+														</div>
+														<div class="list_desc">
+															<h3 style="color: black;">
+																PD BANK</h3>
+															<p style="color: black;">
+																Conjunto de soluções corporativas que visam atender ao "CORE BUSINESS" dos bancos.<br />
+																<a style="font-weight: bold" onclick="location.href = './pdBank.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div41" style="margin: 0px;">
+														<div class="list_icn" style="background: #f8b600">
+															<img alt="emotion" title ="emotion" src="./images/emo15.png">
+														</div>
+														<div class="list_desc">
+															<h3 style="color: black;">
+																PD POSITIVO</h3>
+															<p style="color: black;">
+																A PD Case possui uma solução de compliance que adequa as instituições a lei do Cadastro
+																Positivo.<br />
+																<a style="font-weight: bold" href="./pdPositivo.html" onclick="location.href = './pdPositivo.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div42" style="margin: 0px;">
+														<div class="list_icn" style="background: #8dccdb">
+															<img alt="emotion" title= "emotion" src="./images/emo17.png">
+														</div>
+														<div class="list_desc" style="margin-bottom: 0">
+															<h3 style="color: black">
+																PD CRÉDITO</h3>
+															<p style="color: black; margin-bottom: 0">
+																Possui um conjunto de módulos funcionais para gerenciamentos
+																de processos de crédito<br />
+																<a style="font-weight: bold" href="./portal-de-credito.html" onclick="location.href = './portal-de-credito.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/prodservpdcase.png" class="vc_single_image-img attachment-full"
+																alt="Soluções e serviços" title="Soluções e serviços" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+													<div class="list_item_ctn" id="Div43" style="margin: 0px;">
+														<div class="list_icn" style="background: #009dad;">
+															<img alt="PD Gar" title="PD Gar" src="./images/emo14.png">
+														</div>
+														<div class="list_desc">
+															<h3 style="color: black;">
+																PD GAR</h3>
+															<p style="color: black;">
+																Gestão de Ativos Reutilizáveis.<br />
+																<a style="font-weight: bold" href="./pdGAR.html" onclick="location.href = './pdGAR.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div44" style="margin: 0px;">
+														<div class="list_icn" style="background: #f8b600;">
+															<img alt="PD CTA" title ="PD CTA" src="./images/emo16.png">
+														</div>
+														<div class="list_desc">
+															<h3 style="color: black;">
+																PD CTA</h3>
+															<p style="color: black;">
+																O Sistema Centralizador de Transferência de Arquivos pode substituir os aplicativos
+																PSTAW10 e PSTAC10 do BACEN.<br />
+																<a style="font-weight: bold" href="./pdCTA.html" onclick="location.href = './pdCTA.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div45" style="margin: 0px;">
+														<div class="list_icn" style="background: #00546c;">
+															<img alt="PD SRC" title="PD SRC" src="./images/emo18.png">
+														</div>
+														<div class="list_desc" style="margin-bottom: 0">
+															<h3 style="color: black;">
+																PD SRC</h3>
+															<p style="color: black; margin-bottom: 0">
+																O Sistema e Recuperação de Crédito é utilizado por áreas gestoras, gerentes das
+																áreas de negócio (agências), cobradoras de crédito, Call Center e diretoria.<br />
+																<a style="font-weight: bold" href="./pdSRC.html" onclick="location.href = './pdSRC.html';">SAIBA MAIS</a>
+															</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div47">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>
+
+
+										</div>
+
+									</div>
+
+
+									<div class="tm_nav">
+										<div class="tm_l_nav" id="passa3_left">
+										</div>
+										<div class="tm_r_nav" id="passa3_right">
+										</div>
+									</div>
+									<div id="passa3_pager" class="rd_tm_pager">
+									</div>
+								</div>
+							</div>
+							<a href="#sec4" style="padding-left: 48%;">
+								<img alt="abaixo" src="./images/abaixo.png"></a>
+						</div>
+					</div>
+				</div>
+
+				<a id="sec4"></a>
+
+				<div class="vc_row-fluid sectiontest">
+					<div class="vc_span12 wpb_column vc_column_container " style="padding-top:0%">
+						<div class="vc_column-inner " style="padding-top:0%">
+							<div class="wpb_wrapper" style="padding-top:0%">
+								<script>
+									var j$ = jQuery; j$.noConflict(); "use strict"; j$(window).load(function ()
+									{
+												1
+												j$("#passa2 .rd_testimonials").carouFredSel({ responsive: true, width: "100%", scroll: { items: 1, duration: 4000 }, auto: false, prev: "#passa2_left", next: "#passa2_right", pagination: "#passa2_pager", height: "variable", swipe: { onTouch: true, onMouse: false }, items: { height: "variable", visible: { min: 1, max: 1}} });
+										});
+								</script>
+								<div class="rd_testimonials_ctn rd_tm_3 " id="passa2" style="padding-left: 0%; padding-top:0%; ">
+									<div class="rd_testimonials" style="padding-left: 0%; padding-top:0%" >
+
+										<div class="rd_testimonial espaco2">
+											<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+						<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2>
+									Especialidade e Diferenciais<br />
+									<a style="font-weight: bold;" onclick="location.href = './empresa.html';">Clique aqui ou passe lateralmente para saber mais</a>
+
+								</h2>
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div4">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Quem somos" title="Quem somos" src="./images/emo9.png">
+														</div>
+														<div class="list_desc" >
+															<h3>
+																Quem somos</h3>
+															<p>
+																Fundada em 1991, a PD Case oferece produtos e
+																serviços que utilizam a tecnologia como um
+																meio de valorização do conhecimento do cliente.</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div5">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Valores" title="Valores" src="./images/emo10.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Valores</h3>
+															<p style="color: #6e6e70; padding-bottom: 13px;">
+															Compromisso com princípios éticos e legais.<br />
+															Compromisso e responsabilidade com os clientes.<br />
+															Transparência e eficiência operacional.<br />
+															Respeito pela individualidade e diversidade.<br />
+															Incentivo a inovação e ao empreendedorismo interno.<br />
+															Responsabilidade social. </p>
+														</div>
+													</div>
+
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/cafe2.png" class="vc_single_image-img attachment-full"
+																alt="" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+													<div class="list_item_ctn" id="Div7">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Missão" title="Missão" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Missão </h3>
+															<p>
+																Fornecer soluções de alto valor agregado e que contribuam
+																para a competitividade dos nossos clientes, aliando o conhecimento de negócio e
+																valorizando-o acima da tecnologia.</p>
+														</div>
+
+													</div>
+
+													<div class="list_item_ctn" id="Div8">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Areas" title="Areas" src="./images/emo10.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Áreas de Atuação</h3>
+															<p>
+																Projetos de Consultoria em TI<br />
+																Fábrica de Projetos de Software<br />
+																Soluções para o Mercado Financeiro e para Agências de Fomentos e Bancos de Desenvolvimento<br />
+																Outsourcing com mão de obra especializada<br />
+																Serviços de Integração e Migração de Plataformas<br />
+																</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div10">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>
+				</div>
+				<div class="rd_testimonial espaco2" style="padding-left: 0%;">
+					<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+						<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2 class="vc_custom_heading vc_custom_1487016672308">
+									Conheça a PD Case<br />
+									<a style="font-weight: bold;" onclick="location.href = './empresa.html';">Clique aqui ou passe lateralmente para saber mais</a>
+								</h2>
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div3">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Compromisso" title="Compromisso" src="./images/emo9.png">
+														</div>
+														<div class="list_desc" >
+															<h3>
+																Criatividade e Compromisso</h3>
+															<p>
+																Desenvolvemos soluções web, mobile, ou em plataformas windows e mainframe para o
+																mercado digital.
+
+														</div>
+													</div>
+
+													<div class="list_item_ctn" id="Div12">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="MPSBR" title="MPSBR" src="./images/emo10.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																MPS-SW Nível C</h3>
+															<p>
+																Processo de Desenvolvimento de Software avaliado
+																MPS-BR Nível C. Com excelência no processo de desenvolvimento, manutenção e suporte de software</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div13">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Parcerias" title="Parcerias" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Parcerias</h3>
+															<p>
+																Contamos com uma rede de parceiros que são referência mundial no setor de tecnologia.</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/cafe2.png" class="vc_single_image-img attachment-full"
+																alt="" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+
+
+
+													<div class="list_item_ctn" id="Div11">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="Ranking" title="Ranking" src="./images/emo9.png">
+														</div>
+														<div class="list_desc" >
+															<h3>
+																Ranking</h3>
+															<p>
+																Estamos entre as maiores empresas de serviços de tecnologia
+																de MG. Com uma carteira de contratos  															que representa algo em torno de 120 milhões de reais.</p>
+														</div>
+													</div>
+																									<div class="list_item_ctn" id="Div14">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="test" src="./images/emo10.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																MPS-SV Nível G</h3>
+															<p>
+																Processo de Atendimento e serviços avaliado ao MPS-BR Nível G.
+																															Com excelência nos processos de gerência de incidentes, de
+																															nível de serviços e de operação de serviços.
+																															</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div15">
+														<div class="list_icn" style="background: #93673b;">
+															<img alt="equipe capacitada" title ="Equipe capacitada" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Equipe Capacitada</h3>
+															<p>
+																Com mais de 200 Colaboradores <br />
+																Capacitados em Java, Microsoft e Mainframe</p>
+														</div>
+													</div>
+
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div16">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>				</div>
+
+																			<div class="rd_testimonial espaco2" style="padding-left: 0%;">
+
+											<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+						<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2 class="vc_custom_heading vc_custom_1487016672308">
+									Processos Certificados pelo MPS-SW - Nível C<br />
+									<a style="font-weight: bold;" onclick="location.href = './empresa.html';">Clique aqui ou passe lateralmente para saber mais</a>
+								</h2>
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div19">
+														<div class="list_icn" style="background: #93673b; margin-top:0px">
+															<img alt="Processos" title = "Processos" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Estruturado, Maduro e Moderno</h3>
+															<p >
+																Nossos processos de trabalho são estruturados com base em diversas áreas de conhecimento organizadas e modeladas de acordo com os padrões de mercado, tendo sido testados e aprimorados ao longo dos anos e agregam as melhores e mais modernas práticas e tendências para a execução de projetos.</p>
+														</div>
+													</div>
+													<div class="list_item_ctn" id="Div20">
+														<div class="list_icn" style="background: #93673b; margin-top:0px" >
+															<img alt="Principais pilares" title="Principais pilares" src="./images/emo9.png">
+														</div>
+														<div class="list_desc" >
+															<h3>
+																Principais pilares</h3>
+															<p style="margin-bottom:0px;">
+																Gerência de projetos, Requisitos de Software, Arquitetura e Configuração, Garantia da Qualidade e Testes, Reutilização, Treinamento e Capacitação, Gestão do Conhecimento.
+																</p>
+
+														</div>
+													</div>
+
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/cafe2.png" class="vc_single_image-img attachment-full"
+																alt="" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+													<div class="list_item_ctn" id="Div21">
+														<div class="list_icn" style="background: #93673b; margin-top:0px">
+															<img alt="Processo" title="Processo" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Processo de Desenvolvimento</h3>
+															<p >
+																Construído para suportar a execução de projetos de diversos portes, provêm uma base sólida
+																para maximizar a chance sucesso dos projetos nos pilares de custo, prazo e qualidade.
+																Processo maduro e adaptativo.</p>
+														</div>
+													</div>
+
+													<div class="list_item_ctn" id="Div22">
+														<div class="list_icn" style="background: #93673b; margin-top:0px">
+															<img alt="Manutenção e suporte" title="Manutenção e suporte" src="./images/emo10.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Processo de Manutenção e Suporte</h3>
+															<p style="margin-bottom:0px;">
+																Visando sustentar a atuação em ambientes de alta criticidade para o
+																negócio, os processos de manutenção agregam práticas de gestão
+																baseadas em ITIL e COBIT para gerir o fluxo de requisições e
+																incidentes e práticas de gestão ágeis aplicáveis para a execução
+																de demandas  de alta criticidade para o negócio como manutenções
+																corretivas e compliance.
+
+	</p>
+														</div>
+													</div>
+
+
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div31">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>
+
+
+
+										</div>
+
+										<div class="rd_testimonial espaco2">
+
+											<div class="vc_span12 wpb_column vc_column_container " style="padding-left: 0%; padding-top:0%">
+						<div class="vc_column-inner" style="padding-left: 4%; padding-top:0%">
+							<div class="wpb_wrapper" style="padding-left: 0%; padding-top:0%">
+								<h2 class="vc_custom_heading vc_custom_1487016672308">
+									Processos Certificados pelo MPS-SV - Nível G<br />
+									<a style="font-weight: bold;" onclick="location.href = './empresa.html';">Clique aqui ou passe lateralmente para saber mais</a>
+								</h2>
+								<div class="vc_row wpb_row vc_inner vc_row-fluid " style="padding-left: 4%; margin-bottom:0px">
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546009146" style="padding-left: 10%; padding-top: 5px" >
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_right" >
+													<div class="list_item_ctn" id="Div23">
+														<div class="list_icn" style="background: #93673b; margin-top:0px" >
+															<img alt="emotion" tile ="emotion" src="./images/emo9.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Gerência da Operação do Serviço (GOS)</h3>
+															<p >
+																O propósito do processo Gerência da Operação do Serviço é estabelecer e manter planos que definem as atividades, recursos e responsabilidades da operação de um ou mais serviços a serem realizados de forma a atender aos requisitos acordados para a operação do serviço. Também tem o propósito de prover informações sobre o andamento da execução do serviço permitindo a realização de correções, quando houver desvios significativos em seu desempenho. (MR-MPS-SV – versão 2015).</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_left   vc_custom_1418543824479">
+													<div class="wpb_wrapper">
+														<div class="vc_single_image-wrapper   vc_box_border_grey">
+															<img width="892" height="1378" src="./images/cafe2.png" class="vc_single_image-img attachment-full"
+																alt="" data-pagespeed-url-hash="3011686929" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_span4">
+										<div class="vc_column-inner vc_custom_1418546014420" style="text-align:left; padding-top:5px">
+											<div class="wpb_wrapper">
+												<!-- lists -->
+												<div class="rd_list_5 rd_list_left" >
+
+																									<div class="list_item_ctn" id="Div24">
+
+																											<div class="list_icn" style="background: #93673b; margin-top:0px">
+															<img alt="Gerencia de Nivel de Serviço" title ="Gerencia de Nivel de Serviço" src="./images/emo8.png">
+														</div>
+														<div class="list_desc" >
+															<h3>
+																Gerência de Nível de Serviço (GNS)</h3>
+															<p style="margin-bottom:0px;">
+																O propósito do processo Gerência de Nível de Serviço é garantir que os objetivos dos acordos de nível de serviço para cada cliente sejam definidos e atendidos.</p>
+														</div>
+													</div>
+
+																									<div class="list_item_ctn" id="Div28">
+
+																											<div class="list_icn" style="background: #93673b; margin-top:0px">
+															<img alt="Gerencia de incidentes" title = "Gerencia de incidentes" src="./images/emo8.png">
+														</div>
+														<div class="list_desc">
+															<h3>
+																Gerência de Incidentes e Solicitações de Serviços (GIS)</h3>
+															<p >
+																O propósito do processo Gerência de Incidentes e de Solicitações de Serviço é restaurar os serviços acordados, quando ocorrer um incidente, e tratar as solicitações de serviços para que tanto o incidente quanto as solicitações estejam conforme o Acordo de Nível de Serviço (ANS) estabelecido.</p>
+														</div>
+													</div>
+												</div>
+												<!-- lists END-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="parallax_wrap" id="Div30">
+						<div class="parallax_bg parallax_fixed">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tm_nav">
+										<div class="tm_l_nav" id="passa2_left">
+										</div>
+										<div class="tm_r_nav" id="passa2-right">
+										</div>
+									</div>
+									<div id="passa2_pager" class="rd_tm_pager">
+									</div>
+								</div>
+							</div>
+							<a href="#sec6" style="padding-left: 48%;">
+								<img alt="abaixo" src="./images/abaixo.png"></a>
+						</div>
+					</div>
+				</div>
+
+				<a id="sec6"></a>
+				<div class="vc_row-fluid" style="padding-top:15px !important">
+					<div class="vc_span12 wpb_column vc_column_container " >
+						<div class="vc_column-inner " style="padding:0px; margin:0px;">
+							<div class="wpb_wrapper"  style="padding:0px; margin:0px;">
+								<h2 style="font-size: 26px; text-align: center; font-family: Arial; font-weight: bold;  padding:0px; margin:0px;
+									font-style: normal; margin-bottom: 0px !important; padding-top:0px;">
+									NOSSOS CLIENTES E PARCEIROS<br />
+
+									<a style="font-weight: bold;" onclick="location.href = './clientes.html';">Clique aqui ou passe lateralmente para saber mais</a>
+									</h2>
+								<div class="wpb_text_column wpb_content_element  width-800 vc_custom_1470279584430 " style="margin-bottom: 7px !important;">
+									<div class="wpb_wrapper" id="Div18">
+										<p style="text-align: center;">
+											<span style="color: #767389;">A PD Case prima pelo relacionamento com seus clientes buscando soluções práticas, de vanguarda, com foco em resultados reais. Conheça alguns:</span>
+										</p>
+									</div>
+								</div>
+								<script>							    var j$ = jQuery; j$.noConflict(); "use strict"; j$(window).load(function () {
+												1
+												j$("#passa4 .rd_testimonials").carouFredSel({ responsive: true, width: "100%", scroll: { items: 1, duration: 1000 }, auto: true, prev: "#passa4_left", next: "#passa4_right", pagination: "#passa4_pager", height: "variable", swipe: { onTouch: true, onMouse: false }, items: { height: "variable", visible: { min: 1, max: 1}} });
+										});</script>
+								<div class="rd_testimonials_ctn rd_tm_3 " id="passa4">
+									<div class="rd_testimonials">
+										<div class="rd_testimonial">
+											<div class="tm_text">
+
+												<img class="" src="./images/clientes/cli3.jpg" alt = "Banestes" title= "Banestes" style="height:33px" />
+												<img class="" src="./images/clientes/cli1.jpg" alt = "Banco da amazonia" title= "Banco da amazonia" style="height:33px" />
+												<img class="" src="./images/clientes/cli2.png" alt = "Banese" title= "Banese" style="height:33px" />
+												<img class="" src="./images/clientes/cli5.jpg" alt = "Banco regional de desenvolvimento do extremo sul" title= "Banco regional de desenvolvimento do extremo sul" style="height:33px" />
+												<img class="" src="./images/clientes/cli8.png" alt = "Banco do nordeste" title= "Banco do nordeste" style="height:33px" />
+												<img class="" src="./images/clientes/cli9.jpg" alt = "Banco de desenvolvimento do Espirito Santo" title= "Banco de desenvolvimento do Espirito Santo" style="height:33px" />
+												<img class="" src="./images/clientes/cli18.png" alt = "Banco de brasilia" title= "Banco de brasilia" style="height:33px" />
+												<img class="" src="./images/clientes/cli22.jpg" alt = "Banpara" title= "Banpara" style="height:33px" />
+																							<img class="" src="./images/clientes/cli23.png" alt = "Agencia de desenvolvimento de roraima" title= "Agencia de desenvolvimento de roraima" style="height:33px" />
+																							<img class="" src="./images/clientes/cli24.png" alt = "Baneses" title= "Baneses" style="height:33px" />
+
+
+											</div>
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Setor Financeiro</div>
+												<div class="tm_info">
+													<span style="color: #333333; font-size:13px">“A PD CASE oferece projetos de sistemas corporativos resultantes de práticas sedimentadas no mercado”</span>
+
+												</div>
+												<div class="tm_image">
+													<img class="" src="./images/emo55.png" width="250" height="250" title="Financeiro" alt= "Financeiro"
+														data-pagespeed-url-hash="1202489453" />
+												</div>
+											</div>
+										</div>
+
+										<div class="rd_testimonial">
+											<div class="tm_text">
+												<img class="" src="./images/clientes/cli30.png" alt = "Governo do pará" title = "Governo do pará" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli11.png" alt = "Governo do Maranhão" title = "Governo do Maranhão" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli14.jpg" alt = "TRT" title = "TRT" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli12.gif" alt = "Tribunal de contas" title = "Tribunal de contas" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli15.png" alt = "TRT" title = "TRT" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli10.jpg" alt = "Governo do estado do ceara" title = "Governo do estado do ceara" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli16.png" alt = "Prodabel" title = "Prodabel" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli25.jpg" alt = "Policia Militar de Minas Gerais - PMMG" title = "Policia Militar de Minas Gerais - PMMG" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli26.png" alt = "CDTN" title = "CDTN" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli31.png" alt = "Secretaria da fazenda" title = "Secretaria da fazenda" style="height:33px" />
+
+
+											</div>
+
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Setor Público</div>
+												<div class="tm_info">
+													<span style="color: #333333; font-size:13px">“Nossas equipes podem dimensionar e avaliar estratégias de construção e implantação.”</span>
+												</div>
+												<div class="tm_image">
+													<img class="" src="./images/emo555.png" width="250" height="250"
+														title="Público" alt="Público" data-pagespeed-url-hash="1186663029" />
+												</div>
+											</div>
+										</div>
+										<div class="rd_testimonial">
+											<div class="tm_text">
+												<img class="" src="./images/clientes/cli211.png" alt = "CEMIG" title = "CEMIG" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli20.jpg" alt = "hydro" title = "hydro" style="height:33px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<img class="" src="./images/clientes/cli19.png" alt = "magnesita" title = "magnesita" style="height:33px" />
+											</div>
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Setor Privado</div>
+
+												<div class="tm_info">
+
+													<span style="color: #333333; font-size:13px">“A PD CASE fornece interfaces ajustadas às necessidades gerenciais da alta direção.” </span>
+												</div>
+												<div class="tm_image">
+													<img class="" src="./images/emo5555.png" width="250" height="245"
+														title="Privado" data-pagespeed-url-hash="4186211888" />
+												</div>
+											</div>
+										</div>
+																			<div class="rd_testimonial">
+											<div class="tm_text" >
+												<a onclick="location.href = './parceiros.html';">
+																	<img src="images/clientes/cli39.jpg" alt = "Universidade de vila velha" title = "Universidade de vila velha" style="height:33px"/>
+																							</a>
+											</div>
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Setor Educacional</div>
+												<div class="tm_info">
+													<span style="color: #333333; font-size:13px">“A PD CASE participa ativamente nos cursos referentes as áreas de atuação que proporciona aos seus alunos mais uma excelente base para um profissional de TI. ” </span>
+												</div>
+												<div class="tm_image">
+													<img class="" src="./images/emo5555.png" width="250" height="245"
+														title="Educacional" alt ="Educacional" data-pagespeed-url-hash="4186211888" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tm_nav">
+										<div class="tm_l_nav" id="passa4_left">
+										</div>
+										<div class="tm_r_nav" id="passa4_right">
+										</div>
+									</div>
+									<div id="passa4_pager" class="rd_tm_pager">
+									</div>
+								</div>
+							</div>
+							<a href="#onde" style="padding-left: 48%;">
+								<img alt="abaixo" src="./images/abaixo.png"></a>
+						</div>
+					</div>
+				</div>
+				<a id="onde"></a>
+					<div id="nossos-servicos" class="">
+					<div class="wpb_column vc_column_container ">
+						<div class="vc_column-inner ">
+							<div class="wpb_wrapper">
+								<br />
+								<h2 style="font-size: 26px; text-align: center; font-family: Arial; font-weight: bold;
+									font-style: normal; margin-bottom: 0px !important" class="vc_custom_heading vc_custom_1487016672308">
+									Onde Estamos</h2>
+								<div class="wpb_text_column wpb_content_element  width-800 vc_custom_1470269356389 ">
+									<div class="wpb_wrapper" id="ct_xmpjbq02b11myaxmzyip">
+										<p style="text-align: center;">
+											<span style="color: #767389;">Para atender as demandas de serviços em todo o território
+												nacional, a PD Case estabeleceu sua matriz em MINAS GERAIS e escritórios regionais
+												em BELÉM, FORTALEZA E VITÓRIA, atuando ainda em projetos em outros estados.
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+													<div class="vc_row wpb_row vc_row-fluid vc_custom_1418533833927 full-width-content ">
+															<div class="vc_span2 wpb_column vc_column_container ">
+																	<div class="vc_column-inner vc_custom_1418541859320">
+																			<div class="wpb_wrapper">
+																					<div class="wpb_single_image wpb_content_element vc_align_center   vc_custom_1482980721883">
+																							<div class="wpb_wrapper">
+																											<div class="vc_single_image-wrapper   vc_box_border_grey">
+																													<img class="vc_single_image-img " src="./images/mapa-ce.jpg" width="184" height="164"
+																															alt="Desenvolvimento e Consultoria" title="Desenvolvimento e Consultoria" data-pagespeed-url-hash="2444445668" />
+																											</div>
+																							</div>
+																							<h2 style="font-size: 18px; color: #2c3e50; text-align: center; font-family: Lato;
+													font-weight: 700; font-style: normal" class="vc_custom_heading vc_custom_1482955526362">
+																									Fortaleza - CE
+																							</h2>
+																							<div class="vc_empty_space" style="height: 12px">
+																									<span class="vc_empty_space_inner"></span>
+																							</div>
+																							<div class="wpb_text_column wpb_content_element  vc_custom_1485384074099 ">
+																									<div class="wpb_wrapper" id="ct_ofa7wf4mzgpzgkgykc8y">
+																											<p style="text-align: center; color: #767389; font-size:12px">
+																													Telefone: (85) 8814-0065<br />
+																													Endereço:
+																													<br />
+																													Av. Dom Luís, 500 - Meireles, Fortaleza,
+																													Shopping Aldeota Expansão, sala 1528<br />
+																													CEP 60.160-230
+																											</p>
+																									</div>
+																							</div>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+															<div class="vc_span2 wpb_column vc_column_container ">
+																	<div class="vc_column-inner vc_custom_1418541870548">
+																			<div class="wpb_wrapper">
+																					<div class="wpb_single_image wpb_content_element vc_align_center   ">
+																							<div class="wpb_wrapper">
+																											<div class="vc_single_image-wrapper   vc_box_border_grey">
+																													<img class="vc_single_image-img " src="./images/mapa-es.jpg" width="184" height="164"
+																															alt="Soluções bancarias e aplicações web" title="Soluções bancarias e aplicações web" data-pagespeed-url-hash="3396497851" />
+																											</div>
+																							</div>
+																							<h2 style="font-size: 18px; color: #2c3e50; text-align: center; font-family: Lato;
+													font-weight: 700; font-style: normal" class="vc_custom_heading vc_custom_1482955526362">
+																									Vitória - ES
+																							</h2>
+																							<div class="vc_empty_space" style="height: 6px">
+																									<span class="vc_empty_space_inner"></span>
+																							</div>
+																							<div class="wpb_text_column wpb_content_element  vc_custom_1485384074099 ">
+																									<div class="wpb_wrapper" id="ct_ofa7wf4mzgpzgkgykc8y">
+																											<p style="text-align: center; color: #767389; font-size:12px">
+																													Telefone: (27) 3314-1141<br />
+																													Endereço:
+																													<br />
+																													Av. Des. José Batalha, 90 Sala 100<br />
+																													Ed. Itália - Consolação<br />
+																													CEP 29.045-530
+																											</p>
+																									</div>
+																							</div>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+															<div class="vc_span2 wpb_column vc_column_container ">
+																	<div class="vc_column-inner vc_custom_1418541885152">
+																			<div class="wpb_wrapper">
+																					<div class="wpb_single_image wpb_content_element vc_align_center   vc_custom_1436833106389">
+																							<div class="wpb_wrapper">
+																											<div class="vc_single_image-wrapper   vc_box_border_grey">
+																													<img class="vc_single_image-img " src="./images/mapa-mg.jpg" width="184" height="164"
+																															alt="Fabrica de software e outsourcing" title="Fabrica de software e outsourcing" data-pagespeed-url-hash="1693799606" />
+																											</div>
+												</div>
+																							<h2 style="font-size: 18px; color: #2c3e50; text-align: center; font-family: Lato;
+													font-weight: 700; font-style: normal" class="vc_custom_heading vc_custom_1482955526362">
+																									Belo Horizonte - MG
+																							</h2>
+																							<div class="vc_empty_space" style="height: 12px">
+																									<span class="vc_empty_space_inner"></span>
+																							</div>
+																							<div class="wpb_text_column wpb_content_element  vc_custom_1485384074099 ">
+																									<div class="wpb_wrapper" id="ct_ofa7wf4mzgpzgkgykc8y">
+																											<p style="text-align: center; color: #767389; font-size:12px">
+																													Telefone: (31) 3505-1940<br />
+																													Endereço:
+																													<br />
+																													Alameda Oscar Niemayer, 891<br />
+																													Sala 708 - Vila da Serra<br />
+																													CEP 34.006-065
+																											</p>
+																									</div>
+																							</div>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+															<div class="vc_span2 wpb_column vc_column_container ">
+																	<div class="vc_column-inner vc_custom_1418541885152">
+																			<div class="wpb_wrapper">
+																					<div class="wpb_single_image wpb_content_element vc_align_center   vc_custom_1436833106389">
+																							<div class="wpb_wrapper">
+																											<div class="vc_single_image-wrapper   vc_box_border_grey">
+																													<img class="vc_single_image-img " src="./images/mapa-ma.jpg" width="184" height="164"
+																															alt="Outsourcing e desenvolvimento" title="Outsourcing e desenvolvimento" data-pagespeed-url-hash="1693799606" />
+																											</div>
+																							</div>
+																							<h2 style="font-size: 18px; color: #2c3e50; text-align: center; font-family: Lato;
+													font-weight: 700; font-style: normal" class="vc_custom_heading vc_custom_1482955526362">
+																									São Luís – MA
+																							</h2>
+																							<div class="vc_empty_space" style="height: 12px">
+																									<span class="vc_empty_space_inner"></span>
+																							</div>
+																							<div class="wpb_text_column wpb_content_element  vc_custom_1485384074099 ">
+																									<div class="wpb_wrapper" id="ct_ofa7wf4mzgpzgkgykc8y">
+																											<p style="text-align: center; color: #767389; font-size:12px">
+																													Telefone: (98) 3227-1260<br />
+																													Endereço:
+																													<br />
+																													Avenida Colares Moreira, Edifício Golden Tower, Salas 906/908, Renascença II<br />
+																													CEP 65.075-441
+																											</p>
+																									</div>
+																							</div>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+															<div class="vc_span2 wpb_column vc_column_container ">
+																	<div class="vc_column-inner vc_custom_1418541885152">
+																			<div class="wpb_wrapper">
+																					<div class="wpb_single_image wpb_content_element vc_align_center   vc_custom_1436833106389">
+																							<div class="wpb_wrapper">
+																											<div class="vc_single_image-wrapper   vc_box_border_grey">
+																													<img class="vc_single_image-img " src="./images/mapa-pa.jpg" width="184" height="164"
+																															alt="Soluções bancarias e fábrica de software" title="Soluções bancarias e fábrica de software" data-pagespeed-url-hash="1693799606" />
+																											</div>
+																							</div>
+																							<h2 style="font-size: 18px; color: #2c3e50; text-align: center; font-family: Lato;
+													font-weight: 700; font-style: normal" class="vc_custom_heading vc_custom_1482955526362">
+																									Belém - PA
+																							</h2>
+																							<div class="vc_empty_space" style="height: 12px">
+																									<span class="vc_empty_space_inner"></span>
+																							</div>
+																							<div class="wpb_text_column wpb_content_element  vc_custom_1485384074099 ">
+																									<div class="wpb_wrapper" id="ct_ofa7wf4mzgpzgkgykc8y">
+																											<p style="text-align: center; color: #767389; font-size:12px">
+																													Telefone: (91) 3223-0619<br />
+																													Endereço:
+																													<br />
+																													Av. Assis Vasconcelos, 265<br />
+																													3º andar Edifício Victor VI<br />
+																													CEP 66.010-010
+																											</p>
+																									</div>
+																							</div>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+													</div>
+							<a href="#ct_ofa7wf4mzgpzgkgykc8y" style="padding-left: 48%;">
+								<img alt="abaixo" src="./images/abaixo.png"></a>
+						</div>
+					</div>
+				</div>
+
+				<a id="sec10"></a>
+				<div class="vc_row-fluid">
+					<div class="vc_span12 wpb_column vc_column_container ">
+						<div class="vc_column-inner ">
+							<div class="wpb_wrapper">
+								<h2 style="text-align: center;">
+									<br />O Que Dizem Sobre Nós</h2>
+								<div class="wpb_text_column wpb_content_element  width-800 vc_custom_1470279584430 ">
+									<div class="wpb_wrapper" id="ct_pkk1xm9193r59dx4ojuy">
+										<p style="text-align: center;">
+											<span style="color: #767389;">Cada vez que desenvolvemos um projeto, nossa meta é sempre
+												a excelência. Garantindo sempre a melhor qualidade em nossos serviços, buscamos
+												a satisfação de nossos clientes e funcionários.</span>
+										</p>
+									</div>
+								</div>
+								<script>
+								var j$ = jQuery; j$.noConflict(); "use strict"; j$(window).load(function () {
+												1
+												j$("#tm_pdxt3zn6vqn4sfwtcw5w .rd_testimonials").carouFredSel({ responsive: true, width: "100%", scroll: { items: 1, duration: 2000 }, auto: false, prev: "#tm_pdxt3zn6vqn4sfwtcw5w_left", next: "#tm_pdxt3zn6vqn4sfwtcw5w_right", pagination: "#tm_pdxt3zn6vqn4sfwtcw5w_pager", height: "variable", swipe: { onTouch: true, onMouse: false }, items: { height: "variable", visible: { min: 1, max: 1}} });
+										});</script>
+								<div class="rd_testimonials_ctn rd_tm_3 " id="tm_pdxt3zn6vqn4sfwtcw5w">
+									<div class="rd_testimonials">
+										<div class="rd_testimonial">
+											<div class="tm_text">
+												<span style="color: #333333;">“Empresa de Tecnologia informação.”</span>
+											</div>
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Catharina Malta</div>
+												<div class="tm_info">
+													<img alt="estrelas" src="./images/estrelas.png" />
+												</div>
+												<div class="tm_image">
+													<img class="" src="./images/colaborador1.jpg" width="250" height="250" alt="PD Case colaboradores"
+														title="PD Case colaboradores" data-pagespeed-url-hash="1186663029" />
+												</div>
+											</div>
+										</div>
+										<div class="rd_testimonial">
+											<div class="tm_text">
+												<span style="color: #333333;">“Ótimo lugar para trabalhar” </span>
+											</div>
+											<div class="tm_author_info">
+												<div class="tm_author">
+													Jobert Dias</div>
+												<div class="tm_info">
+													<img alt="estrelas" src="./images/estrelas.png" />
+												</div>
+												<div class="tm_image">
+													<picture>
+														<img src="./images/colaborador.jpg" width="250" height="245" alt="PD Case colaboradores"
+														title="PD Case colaboradores"/>
+													</picture>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tm_nav">
+										<div class="tm_l_nav" id="tm_pdxt3zn6vqn4sfwtcw5w_left">
+										</div>
+										<div class="tm_r_nav" id="tm_pdxt3zn6vqn4sfwtcw5w_right">
+										</div>
+									</div>
+									<div id="tm_pdxt3zn6vqn4sfwtcw5w_pager" class="rd_tm_pager">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="recebeDados"></div>
+				<div class="clearfixx container">
+
+					<div class="text-center">
+						<h2 style="margin-top: 36px; font-style: normal;
+					font-weight: normal;
+					font-size: 27px;
+					line-height: 36px;
+					letter-spacing: 1.08px;
+					text-transform: uppercase;
+
+					color: #282320;
+					">Contato</h2>
+
+						<span>comercial@pdcase.com.br
+						</span>
+					</div>
+				</div>
+
+				<div id="rodape"></div>
+				<a id="to_top">
+					<img alt="seta pra cima" src="./images/seta-top.png"></a>
+
+
+			<div id="notification" style="display: none;"></div>
+			</div>
+
+			<script src='./css/TheFox/customjs.js'></script>
+			<script src='./css/TheFox/custom_woo_js.js'></script>
+			<script src='./css/TheFox/smoothscroll.js'></script>
+			<script src="./menuProperties.js"></script>
+
+			<!-- NECESSARIO PARA O MENU -->
+			<link rel="stylesheet" type="text/css" href="./css/component.min.css" />
+					<script src="./js/modernizr.custom.js"></script>
+			<script src="js/jquery.dlmenu.js"></script>
+			<script>
+					$(function () {
+							$('#dl-menu').dlmenu({
+									animationClasses: { classin: 'dl-animate-in-2', classout: 'dl-animate-out-2' }
+							});
+					});
+					function openNav() {
+							document.getElementById("mySidenav").style.width = "303px";
+							document.getElementById("main").style.marginLeft = "303px";
+					}
+
+					function closeNav() {
+							document.getElementById("mySidenav").style.width = "0";
+							document.getElementById("main").style.marginLeft = "0";
+					}
+			</script>
+	</body>
+
+	</html>

@@ -1,0 +1,475 @@
+define(['core'], function (app) {
+    /*
+    ######  ### ######  ####### ####### ### #     # #######  #####
+    #     #  #  #     # #          #     #  #     # #       #     #
+    #     #  #  #     # #          #     #  #     # #       #
+    #     #  #  ######  #####      #     #  #     # #####    #####
+    #     #  #  #   #   #          #     #   #   #  #             #
+    #     #  #  #    #  #          #     #    # #   #       #     #
+    ######  ### #     # #######    #    ###    #    #######  #####
+    */
+    var spinnerLoaderDirectiveInjectParams = [];
+    var spinnerLoaderDirective = function () {
+        //diretiva simples de spinner do material design
+        /*
+            Exemplo de uso:
+            <spinner-loader></spinner-loader>
+        */
+
+        return {
+            restrict: 'E',
+            transclude: true,
+            template:   '<div class="spinnerLoaderSvg">'+
+                            '<svg class="circular" viewBox="25 25 50 50">'+
+                                '<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>'+
+                            '</svg>'+
+                        '</div>',
+            link: function ($scope, $element, $attrs) {
+            }
+        };
+    };
+    spinnerLoaderDirective.$inject = spinnerLoaderDirectiveInjectParams;
+    app.directive('spinnerLoader', spinnerLoaderDirective);
+
+
+      var loaderOnContentDirectiveInjectParams = ['$timeout','$compile'];
+      var loaderOnContentDirective =  function ($timeout,$compile) {
+        /*
+        * Insere loader nos elementos "loader" para pequenas partes de conteúdo
+        *
+        * <loader-on-content loader-type="big" loader-align="centered" loading-reason="Carregando"></loader-on-content>
+        *
+        * loader-type		-> se nada for passado o padrão é "small". Opção é "big" ou "mini".
+        * loader-align 	-> padrão é "any" (herda o alinhamento do parent). Opção é "centered".
+        * loading-reason	-> Pode ser passado um texto ou uma key para translate (já faz o translate automaticamente)
+        *
+        *
+        */
+
+        return {
+          restrict: 'E',
+          scope: {
+            loadingReason: '@?',
+            loaderType: '@?',
+            loaderAlign: '@?'
+          },
+          template: '<div class="loadingOnContent" ng-class="[((loaderType | isEmpty) ? \'small\' : loaderType), ((loaderAlign | isEmpty) ? \'any\' : loaderAlign)]">'+
+          '<div class="loader"><spinner-loader></spinner-loader></div>'+
+          '<span class="loadingReason" ng-if="!(loadingReason | isEmpty)">{{loadingReason}}...</span>'+
+          '</div>',
+          link: function($scope, element, $attrs) {
+
+
+            //quando o elemento for removido, remove esse escopo do DOM
+            element.on('$destroy', function () {
+              $scope.$destroy();
+            });
+          }
+        }
+      };
+      loaderOnContentDirective.$inject = loaderOnContentDirectiveInjectParams;
+      app.directive('loaderOnContent', loaderOnContentDirective);
+
+
+
+
+    var fullpageSectionsDirectiveInjectParams = ['$timeout'];
+    var fullpageSectionsDirective = function ($timeout) {
+        //apenas para startar o fullpageJS
+        /*
+            Exemplo de uso:
+            apenas adicionar o atributo fullpage-sections ao elemento container que irá receber o fullpageJS
+        */
+
+        return {
+            restrict: 'A',
+            link: function ($scope, $element, $attrs) {
+                require(['jquery-fullpage'], function () {
+        			$element.fullpage();
+
+                    //helpers com click para avançar no próximo slide/section
+                    $('.knowmorebt a').on('click', function(e){
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionDown();
+                    });
+                });
+            }
+        };
+    };
+    fullpageSectionsDirective.$inject = fullpageSectionsDirectiveInjectParams;
+    app.directive('fullpageSections',fullpageSectionsDirective);
+
+    var svgInlineDirectiveInjectParams = [];
+    var svgInlineDirective = function () {
+        //diretiva para embed de svg
+        /*
+            Exemplo de uso:
+            <svg svg-inline url="static/img/details/btg_pactual_digital_logo.svg"></svg>
+            Obs.: se tiver ID e classes ele manterá
+        */
+
+        return {
+            restrict: 'A',
+            scope: {
+                url: '@'
+            },
+            link: function ($scope, $element, $attrs) {
+                var imgID = $attrs['id'];
+                var imgClass = $attrs['class'];
+                $.get($scope.url, function(data) {
+                    // obtem só a partir da tag SVG
+                    var $svg = $(data).find('svg');
+
+                    // dá um replace no id do svg pelo id fornecido no elemento
+                    if(typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // adiciona as classes do elemento no svg
+                    if(typeof imgClass !== 'undefined' && imgClass != "") {
+                        $svg = $svg.attr('class', imgClass+' replaced-svg');
+                    }
+
+                    // remove as tags invalidas do svg
+                    $svg = $svg.removeAttr('xmlns:a');
+
+                    // por fim altera o svg pelo obtido
+                    $element.replaceWith($svg);
+
+                    //especificando xml, pois o svg é um xml
+                }, 'xml');
+            }
+        };
+    };
+    svgInlineDirective.$inject = svgInlineDirectiveInjectParams;
+    app.directive('svgInline',svgInlineDirective);
+
+
+    var owlCarouselDirectiveInjectParams = [];
+    var owlCarouselDirective = function () {
+        //apenas para startar o owlCarousel
+        /*
+            Exemplo de uso:
+            apenas adicionar o atributo owl-carousel ao elemento container que irá receber o owlCarousel
+        */
+
+        return {
+            restrict: 'A',
+            link: function ($scope, $element, $attrs) {
+                require(['owl-carousel'], function () {
+
+                    //adiciona a classe do container
+                    if (!$element.hasClass('owl-carousel')) {
+                        $element.addClass('owl-carousel');
+                    }
+                    //starta o carousel
+                    var thisOwlCarousel = $element;
+                    $element.owlCarousel({
+                        loop:false,
+                        slideBy: "page",
+                        margin:10,
+                        navRewind: false,
+                        navText:["<i class='icon-arrow-left turquoise-version'></i>","<i class='icon-arrow-right turquoise-version'></i>"],
+                        responsiveClass:true,
+                        responsive:{
+                            0:{
+                                items:1,
+                                loop:true,
+                                nav:true,
+                                dots:false
+                            },
+                            759:{
+                                items:3,
+                                loop:true,
+                                nav:true,
+                                dots:false
+                            },
+                            820:{
+                                items:3,
+                                nav:true,
+                                loop:false
+                            }
+                        }
+                    });
+
+                    //quando destruir o elemento
+                    $element.on('$destroy', function () {
+                        $scope.$destroy();
+                    });
+                    $scope.$on('$destroy', function () {
+                        if (angular.isDefined(thisOwlCarousel)) thisOwlCarousel.trigger('destroy.owl.carousel');
+                    });
+                });
+            }
+        };
+    };
+    owlCarouselDirective.$inject = owlCarouselDirectiveInjectParams;
+    app.directive('owlCarousel',owlCarouselDirective);
+
+
+    var modalDialogDirectiveInjectParams = ['$rootScope','$timeout','$compile'];
+    var modalDialogDirective = function ($rootScope,$timeout,$compile) {
+        //DIRETIVA MODAL
+        /*
+            Exemplo de Uso:
+            <modal-dialog ng-show="booleanoMostraOuNao" dialog-title="Titulo da Modal" width="50%" on-close="funcaoCallbackAoFechar()">
+                Conteudo da Modal
+            </modal-dialog>
+
+        */
+        return {
+            restrict: 'E',
+            scope: {
+                show: '=ngShow',
+                isClosable: '=',
+                dialogTitle: '@',
+                onClose: '&?',
+                disableAnimate: '='
+            },
+            templateUrl: angular.btgUtilities.URIbaseContext + 'views/templates/modal.html',
+            transclude: true,
+            link: function ($scope, $element, $attrs) {
+                //executa detach e joga no body para evitar o empilhamento de conteudo dos modais (quando um modal criar outro)
+                $element.detach().appendTo('body');
+                $scope.show = false;
+                $scope.dialogStyle = {};
+
+                $scope.hasButtons = $element.find('.modal-button-toolbar').length > 0;
+                $scope.qtButtons = $element.find('.modal-button-toolbar').children().length;
+
+
+                var adjustModalSizes = function(){
+                    //permite definir uma largura como atributo da diretiva  && ($rootScope.mediaQueries["$res-large-desktop"]() || $rootScope.mediaQueries["$res-minor-desktop-and-tablet-landscape"]())
+                    if ($attrs.width) {
+                        $scope.dialogStyle.width = $attrs.width;
+                    }
+                    //permite definir uma altura como atributo da diretiva
+
+                    if ($attrs.height) {
+                        $scope.dialogStyle.height = $attrs.height;
+                    }
+
+                };
+                adjustModalSizes();
+
+                //ajusta a posição vertical no mobile quando aberto (o timeout serve para só aplicar isso no proximo ciclo digest)
+                var adjustModalPosition = function(){
+                    var thisModal = $element.find('.ng-modal-dialog');
+                    if ($scope.show) {
+                        $timeout(function(){
+                            var thisModalHeight = thisModal.outerHeight(),
+                                viewportHeight = $(window).height();
+
+                            var freeSpaceOnScreen = viewportHeight-thisModalHeight;
+                            var marginVertToApply = freeSpaceOnScreen/2;
+
+                            thisModal.css({
+                                'marginBottom': marginVertToApply > 0 ? marginVertToApply+'px' : '',
+                                'marginTop':marginVertToApply > 0 ? marginVertToApply+'px' : ''
+                            });
+                        });
+                    }
+                    else {
+                        thisModal.css({
+                            'marginBottom': '',
+                            'marginTop': ''
+                        });
+                    }
+                };
+
+
+                //dialogTitle - permite definir um título para a modal como atributo da diretiva
+                if ($attrs.title) {
+                    $scope.dialogStyle.title = $compile($attrs.title)($scope);
+                }
+                //esconde a modal (x)
+                $scope.hideModal = function () {
+                    $scope.show = false;
+                };
+
+                //onClose - permite definir uma função no atributo on-close que será chamda quando a modal fechar
+                var watchShowModal = $scope.$watch('show', function (newVal, oldVal) {
+                    if (newVal && !oldVal) {
+                        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                        adjustModalPosition();
+                    } else {
+                        document.getElementsByTagName("body")[0].style.overflow = "";
+                    }
+                    if ((!newVal && oldVal) && ($scope.onClose != null)) {
+                        return $scope.onClose();
+                    }
+                });
+
+                //ao redimensionar, executa também as funções de ajustar posição vertical
+                var watchModalWindowResize = $rootScope.$on('viewPort_changed',function(){
+                    $timeout(function(){
+                        adjustModalPosition();
+                    },50);
+                });
+
+
+                $element.on('$destroy', function () {
+                    $scope.$destroy();
+                });
+                $scope.$on('$destroy', function () {
+                    if (angular.isDefined(watchShowModal)) watchShowModal();
+                    if (angular.isDefined(watchModalWindowResize)) watchShowModal();
+                });
+            }
+        };
+    };
+    modalDialogDirective.$inject = modalDialogDirectiveInjectParams;
+    app.directive('modalDialog',modalDialogDirective);
+
+
+
+    var overlayBlockScreenDirectiveInjectParams = ['$rootScope','$timeout','$compile'];
+    var overlayBlockScreenDirective = function ($rootScope,$timeout,$compile) {
+        //DIRETIVA MODAL Overlay BlockScreen
+        /*
+            Exemplo de Uso:
+            <overlay-block-screen ng-show="booleanoMostraOuNao" close-button="false" message-title="Titulo da Mensagem" message-type="success" on-close="funcaoCallbackAoFechar()">
+                Conteudo da Modal
+            </overlay-block-screen>
+
+
+            message-type pode ser: success, error ou info
+        */
+        return {
+            restrict: 'E',
+            scope: {
+                show: '=ngShow',
+                showDefaultCloseButton: '=closeButton',
+                showMessageTypeIcon: '@messageType',
+                messageTitle: '@messageTitle',
+                onClose: '&?'
+            },
+            templateUrl: angular.btgUtilities.URIbaseContext + 'views/templates/overlay_block_screen.html',
+            transclude: true,
+            link: function ($scope, $element, $attrs) {
+                $scope.show = false;
+                $scope.showMessageTypeIcon = ($scope.showMessageTypeIcon == 'success' || $scope.showMessageTypeIcon == 'error' || $scope.showMessageTypeIcon == 'info') ? $scope.showMessageTypeIcon : null;
+
+                //ajusta a posição vertical no mobile quando aberto (o timeout serve para só aplicar isso no proximo ciclo digest)
+                var adjustOverlayModalPosition = function(){
+                    if ($scope.show) {
+                        $timeout(function(){
+                            var thisModal = $element.find('.overlay-block-screen_container');
+                            var thisModalHeight = thisModal.outerHeight(),
+                                viewportHeight = $(window).height();
+
+                                var freeSpaceOnScreen = viewportHeight-thisModalHeight;
+                                var marginVertToApply = freeSpaceOnScreen/2;
+
+                                thisModal.css({
+                                    'marginBottom': marginVertToApply > 0 ? marginVertToApply+'px' : '',
+                                    'marginTop':marginVertToApply > 0 ? marginVertToApply+'px' : ''
+                                });
+                        });
+                    }
+                };
+
+                //esconde a modal (x)
+                $scope.hideModal = function () {
+                    $scope.show = false;
+                };
+
+                //onClose - permite definir uma função no atributo on-close que será chamda quando a modal fechar
+                var watchShowOverlayBlockScreen = $scope.$watch('show', function (newVal, oldVal) {
+                    if (newVal && !oldVal) {
+                        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                        adjustOverlayModalPosition();
+                    } else {
+                        document.getElementsByTagName("body")[0].style.overflow = "";
+                    }
+                    if ((!newVal && oldVal) && ($scope.onClose != null)) {
+                        return $scope.onClose();
+                    }
+                });
+
+                //ao redimensionar, executa também as funções de ajustar posição vertical
+                var watchOverlayModalWindowResize = $rootScope.$on('viewPort_changed',function(){
+                    $timeout(function(){
+                        adjustOverlayModalPosition();
+                    },50);
+                });
+
+
+                $element.on('$destroy', function () {
+                    $scope.$destroy();
+                });
+                $scope.$on('$destroy', function () {
+                    if (angular.isDefined(watchShowOverlayBlockScreen)) watchShowOverlayBlockScreen();
+                    if (angular.isDefined(watchOverlayModalWindowResize)) watchOverlayModalWindowResize();
+                });
+            }
+        };
+    };
+    overlayBlockScreenDirective.$inject = overlayBlockScreenDirectiveInjectParams;
+    app.directive('overlayBlockScreen',overlayBlockScreenDirective);
+
+
+    var inputDirectiveInjectParams = ['$filter','$timeout','$compile'];
+    var inputDirective = function ($filter,$timeout,$compile) {
+        return {
+            restrict: 'E',
+            require: '?ngModel',
+            link: function ($scope, $element, $attrs, ngModelCtrl) {
+                if ($attrs.type != 'radio' && $attrs.type != 'checkbox') {
+
+                    //remove placeholder inputado pela ui-mask nos IEs, Firefox e Chrome abaixo da 45 (bug da manipulação do placeholder)
+                    if (    angular.btgUtilities.browser.mozilla ||
+                            angular.btgUtilities.browser.msie ||
+                            (angular.btgUtilities.browser.chrome && parseFloat(angular.btgUtilities.browser.version) < 45)
+                        ) {
+                        $timeout(function(){
+                            $element.removeAttr('placeholder');
+
+                            if($filter('isEmpty')($element.val())) {
+                                $timeout(function(){
+                                    $element[0].value = '';
+                                });
+                            }
+                        });
+                    }
+
+
+                    if ($element.next('.control-label').length > 0) {
+                        //classe auxiliar para informar quando o campo nao estiver vazio (utilizando applyAsync para bindar pós models tb)
+                        var checkIfIsNotEmpty = function(el) {
+                            $scope.$applyAsync(function(){
+                                if (!$filter('isEmpty')(el.val())) {
+                                    el.addClass('ng-notempty');
+                                }
+                                else {
+                                    el.removeClass('ng-notempty');
+                                }
+                            });
+                        };
+
+                        //checa no início
+                        checkIfIsNotEmpty($element);
+                        //checa em alterações do input através de binds de jquery
+                        $element.on('focus blur keydown', function(){
+                            checkIfIsNotEmpty($element);
+                        });
+                        //checa quando houver alteração na model externamente
+                        ngModelCtrl.$formatters.push(function(viewValue){
+                            checkIfIsNotEmpty($element);
+                            return viewValue;
+                        });
+                    }
+
+
+
+                    $element.on('$destroy', function () {
+                        $scope.$destroy();
+                    });
+                }
+            }
+        };
+    };
+    inputDirective.$inject = inputDirectiveInjectParams;
+    app.directive('input',inputDirective);
+
+
+});

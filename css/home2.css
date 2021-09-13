@@ -1,0 +1,474 @@
+/* Homepage */
+
+
+#content {
+	width: 100%;
+}
+
+#banner2 {
+	position: relative;
+	width: 870px;
+	margin: 0 auto 80px;
+}
+
+#banner2 .banner-title {
+	font-size: 45px;
+	text-align: center;
+	
+	display: block;
+	line-height: 140%;
+	font-weight: 900;
+	text-transform: uppercase;
+	
+	letter-spacing: 20px;
+}
+
+#banner2 .banner-title span {
+	background: url(../images/home/test41.gif) fixed;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+
+	-webkit-background-clip: text;
+	background-clip: text;
+
+	display: block;
+	width: 880px;
+	margin: 0 auto;
+}
+
+#banner2 .banner-title .conhecimento {
+	letter-spacing: 0.66em;
+    font-size: 75px;
+}
+
+#banner2 .banner-title .conhecimento1 {
+	letter-spacing: 0.00em;
+	font-size: 80px;
+}
+
+#banner2 .banner-title .responsabilidade {
+	letter-spacing: 0.000000010em;
+	font-size: 35px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+#banner2 .banner-title .aplicado {
+	letter-spacing: 0.52em;
+	font-size: 75px;
+}
+
+#banner2 .banner-title .tecnologia {
+	letter-spacing: 0.17274em;
+	font-size: 74px;
+}
+
+#banner2 .banner-title .tecnologia1 {
+	letter-spacing: 0.00em;
+	font-size: 82.5px;
+	
+}
+
+#banner2 .banner-subtitle {
+	text-align: center;
+	font-size: 11px;
+	line-height: 127px; /**/
+	letter-spacing: 0.8em;
+	text-transform: uppercase;
+	-webkit-text-stroke: 1px transparent;
+	-moz-text-stroke: 1px transparent;
+	padding-top: 40px; /**/
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: 0 -435px 0;
+	width: 870px;
+}
+
+#banner2 .banner-subtitle span {
+	display: block;
+}
+
+@media screen and (max-width: 1023px) {
+	a {
+		font-size: 11px;
+	}
+	#banner2 {
+		margin-bottom: 40px;
+	}
+	#banner2 .banner-title {
+		font-size: 100px;
+	}
+	#banner2 .banner-subtitle {
+		font-size: 16px;
+		padding-top: 70px; /**/
+		line-height: 137px; /**/
+		letter-spacing: 0.16em
+	}
+}
+
+@media screen and (max-width: 1022px) {
+	a {
+		font-size: 11px;
+	}
+	#banner2 .banner-title {
+		font-size: 90px;
+		width: 100%;
+		text-align: center;
+	}
+	#banner2 {
+		margin-bottom: 40px;
+		width: 100%;
+	}
+	#banner2 .banner-title {
+		font-size: 90px;
+	}
+	#banner2 .banner-subtitle {
+		font-size: 11px;
+		padding-top: 60px; /**/
+		line-height: 127px; /**/
+		width: 100%;
+		left: 0;
+		margin: 0;
+		letter-spacing: 0.16em
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	
+	
+}
+/*IPAD*/
+@media screen and (min-width: 641px) and (max-width: 800px) {
+	a {
+		font-size: 10px;
+	}
+	#banner2 .banner-title {
+		font-size: 80px;
+		width: 100%;
+		text-align: center;
+	}
+	#banner2 {
+		margin-bottom: 40px;
+		width: 100%;
+	}
+	#banner2 .banner-title {
+		font-size: 80px;
+	}
+	#banner2 .banner-subtitle {
+		font-size: 21px;
+        padding-top: 55px;
+        line-height: 218px;
+        width: 100%;
+        left: 0;
+        margin: 0;
+        letter-spacing: 0.01em;
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	#banner2 .banner-title .conhecimento {
+	    letter-spacing: 0.0em;
+	    font-size: 114px;
+	    padding-top: 35px;
+    }
+	
+	#banner2 .banner-title .aplicado {
+	    letter-spacing: 0.05em;
+	    font-size: 111px;
+    }
+
+    #banner2 .banner-title .tecnologia {
+	    letter-spacing: 0.0em;
+	    font-size: 74px;
+	    padding-bottom: 35px;
+    }
+
+   
+}
+
+body {
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+/*galaxy 5S*/
+@media screen and (min-width: 320px) and (max-width: 360px) {
+	a {
+		font-size: 9px;
+	}
+	#banner2 .banner-title {
+		font-size: 60px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner2 {
+		width: 100%;
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	#banner2 .banner-subtitle {
+		width: 100%;
+		font-size: 42px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding-left: 20px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 500;
+		padding-top: 0px;
+	}
+	#banner2 .banner-subtitle span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 92.4px;
+		margin-top: 92.4px;
+		width: 100%;
+	    background: url(../images/home/test41.gif) fixed;
+	    -webkit-text-fill-color: transparent;
+	    text-fill-color: transparent;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+	    display: block;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+	}
+	#banner2 .banner-subtitle span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 20px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner2 .banner-subtitle span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 20px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}
+/*iPhone 6*/
+@media screen and (min-width: 361px) and (max-width: 380px) {
+	a {
+		font-size: 9px;
+	}
+	#banner2 .banner-title {
+		font-size: 60px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner2 {
+		width: 100%;
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	#banner2 .banner-subtitle {
+		width: 100%;
+		font-size: 44px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding-left: 20px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 500;
+		padding-top: 0px;
+	}
+	#banner2 .banner-subtitle span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 99px;
+		margin-top: 99px;
+		width: 100%;
+	    background: url(../images/home/test41.gif) fixed;
+	    -webkit-text-fill-color: transparent;
+	    text-fill-color: transparent;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+	    display: block;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+	}
+	#banner2 .banner-subtitle span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 22px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner2 .banner-subtitle span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 22px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}
+/*Nexus 5x, nexus 6P e iPhone 6+ */
+@media screen and (min-width: 381px) and (max-width: 640px) {
+	a {
+		font-size: 9px;
+	}
+	#banner2 .banner-title {
+		font-size: 60px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner2 {
+		width: 100%;
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	#banner2 .banner-subtitle {
+		width: 95%;
+		font-size: 50px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding-left: 20px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 500;
+		padding-top: 0px;
+	}
+	#banner2 .banner-subtitle span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 113.5px;
+		margin-top: 113.5px;
+		width: 100%;
+	    background: url(../images/home/test41.gif) fixed;
+	    -webkit-text-fill-color: transparent;
+	    text-fill-color: transparent;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+	    display: block;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+	}
+	#banner2 .banner-subtitle span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 22px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner2 .banner-subtitle span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 22px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}
+
+@media screen and (min-width: 160px) and (max-width: 320px) {
+	a {
+		font-size: 9px;
+	}
+	#banner2 .banner-title {
+		font-size: 30px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner2 {
+		width: 100%;
+	}
+	#banner2 .banner-title span {
+		width: 100%;
+	}
+	#banner2 .banner-subtitle {
+		font-size: 36px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding-top: 25px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 200;
+	}
+	#banner2 .banner-subtitle span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 62px;
+		margin-top: 62px;
+		width: 100%;
+	    background: url(../images/home/test41.gif) fixed;
+	    -webkit-text-fill-color: transparent;
+	    text-fill-color: transparent;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+	    display: block;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+	}
+	#banner2 .banner-subtitle span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 20px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner2 .banner-subtitle span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 20px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}
+
+375 até 812

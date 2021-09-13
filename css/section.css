@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+.section2 {
+	background-image: url("../images/section_0_bg.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+.section12 {
+	background-image: url("../images/habilidades.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+.section2 h1{
+	font-family: "nudista-web-1", "Helvetica Neue", Arial, serif;
+	font-size: -webkit-xxx-large;
+	text-align: center;
+	text-transform: uppercase;
+	font: "Times New Roman"";
+}
+
+.section2 ul li{
+	font-family: "nudista-web-1", "Helvetica Neue", Arial, serif;
+	text-align: center;
+	text-transform: uppercase;
+	font: "Times New Roman"";
+}
+.section3 {
+	background-image: url("../images/section_4_bg.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+.section5 {
+	background-image: url("../images/sec.jpg");
+}
+.sectioncli {
+	background-image: url("../images/cli_sec.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+.sectiontest {
+	background-image: url("../images/secsec0.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*IPHONE 5*/
+@media screen and (max-width: 330px) 
+{
+    .sectiontest {
+	    background-repeat: no-repeat;
+	    background-size: cover;
+    }
+}
+/*outros parelhos*/
+@media screen and (min-width: 331px) and (max-width: 380px) 
+{
+    .sectiontest {
+	    background-repeat: no-repeat;
+	    background-size: cover;
+    }
+}
+/*outros parelhos*/
+@media screen and (min-width: 381px) and (max-width: 500px) 
+{
+    .sectiontest {
+	    
+	    background-repeat: no-repeat;
+	    background-size: cover;
+    }
+}
+.sectiontest {
+	background-color: #EBC79E;
+}
+html, body {
+	height:auto;
+}

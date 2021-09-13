@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestão de Crédito | PD Case</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Izabely Furtado" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, case, sistema de informação, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="A oferta de crédito é o foco determinante na rentabilidade e ganhos das instituições através da colocação de produtos com perfis diferenciados, ao mesmo tempo associando regras de limitantes na concentração da carteira           de crédito."
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link
+      rel="canonical"
+      href="https://www.pdcase.com/gestao-de-credito.html"
+    />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <script type="text/javascript" src="./menuProperties.js"></script>
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+        $("#rodape").load("rodape.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+
+    <!-- SLIDE -->
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./canais-digitais.html';"
+          class="light"
+          style="
+            background: url(./editando/canaisDigitais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./captacoes-de-mercado.html';"
+          class="light"
+          style="
+            background: url(./editando/captacoesMercado.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./controladoria.html';"
+          class="light"
+          style="
+            background: url(./editando/controladoria.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./emprestimos.html';"
+          class="light"
+          style="
+            background: url(./editando/emprestimos.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./gestao-de-risco.html';"
+          class="light"
+          style="
+            background: url(./editando/gestaoRisco.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./conheca-seu-cliente.html';"
+          class="light"
+          style="
+            background: url(./editando/conhecaSeuCliente.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./servicos-bancarios.html';"
+          class="light"
+          style="
+            background: url(./editando/servicosBancarios.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./suporte-e-apoio-cadastral.html';"
+          class="light"
+          style="
+            background: url(./editando/suporte.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./informativos-e-sistemas-legais.html';"
+          class="light"
+          style="
+            background: url(./editando/infoSisLegais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./portal-de-credito.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credito.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+
+        <div
+          onclick="window.location='./pdSRC.html';"
+          class="light"
+          style="
+            background: url(./editando/pdSGC_banner.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./credito-comercial.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credico.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+      <div id="hero-statement">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div id="slide-title"></div>
+      <!-- slide controls -->
+      <div class="slide-nav-prev">
+        <div id="slide-prev" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+      <div class="slide-nav-next">
+        <div id="slide-next" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO SLIDE -->
+    <br />
+
+    <div id="main">
+      <article id="node-2000" class="node node-product-page clearfix">
+        <div class="widnr second">
+          <div class="span8 offset2 text-center">
+            <h1>Gestão de Crédito</h1>
+            <p>
+              A oferta de crédito é o foco determinante na rentabilidade e
+              ganhos das instituições através da colocação de produtos com
+              perfis diferenciados, ao mesmo tempo associando regras de
+              limitantes na concentração da carteira de crédito.
+            </p>
+            <p>
+              A flexibilidade na definição de produtos através de linhas de
+              crédito permite diminuir o tempo de colocação de novas opções aos
+              clientes, através de controles num único processo de negócio.
+            </p>
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/credito3teste.png"
+              alt="Gerenciamento de Múltiplas Carteiras"
+              title="Gerenciamento de Múltiplas Carteiras"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Gerenciamento de Múltiplas Carteiras</h2>
+            <p>
+              Os parâmetros das linhas de crédito subsidiam desde o processo de
+              analise da proposta, passando pelas etapas de liberação até o
+              acompanhamento do andamento dos pagamentos.
+            </p>
+            <p>
+              Os ganhos pelo gerenciamento numa política única de gestão
+              resultam na visão global da carteira de crédito, onde as
+              informações são demonstradas na forma de estruturação dos produtos
+              de crédito.
+            </p>
+            <p>
+              A figura ilustra as etapas para definição de linhas de crédito.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <p>
+              Os parâmetros das linhas delimitam a entrada de informações,
+              quando no estágio de analise das propostas de crédito, que são a
+              base de alimentação das liberações de recursos.
+            </p>
+            <p>
+              Um mesmo cliente pode ter diversas destinações, por diferentes
+              linhas de crédito e fontes de recursos num mesmo contrato de
+              crédito. Cada destinação pode ter uma ou mais liberações de
+              valores.
+            </p>
+            <p>
+              Desde o processo de análise são permitidas simulações de
+              cronograma de pagamentos, de modo que possa ser escolhida a melhor
+              opção, sempre aplicando as regras definidas nas linhas de crédito.
+            </p>
+            <p>
+              As formas de cálculo podem adotar taxas pré ou posfixadas, ou
+              mesmo combinar os dois tipos numa única destinação, que determina
+              a composição dos saldos diários de acordo com apropriação dos
+              encargos contratuais.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/kyc1teste.png"
+              alt="Resultados"
+              title="Resultados"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/credito1teste.png"
+              alt="Fluxo de Liberação de Crédito"
+              title="Fluxo de Liberação de Crédito"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Fluxo de Liberação de Crédito</h2>
+            <p>
+              Todo o fluxo de liberação de crédito se baseia nas informações
+              mantidas no processo de
+              <a
+                style="color: Black"
+                href="analise-atendimento.html"
+                onclick="location.href = './analise-atendimento.html';"
+                >ANÁLISE & ATENDIMENTO</a
+              >
+              das propostas apresentadas pelos clientes. Sendo que somente a
+              propostas aprovadas pelos níveis de alçada de crédito são aptas a
+              ter o credito liberado.
+            </p>
+            <br /><br /><br /><br />
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Resultado</h2>
+            <p>
+              O acompanhamento das posições de crédito permite a visualização
+              das carteiras com as posições atualizadas dia-a-dia. Na forma
+              analítica podem ser utilizados extratos de contrato com visão de
+              cliente ou gerencial com informações de controles internos.
+            </p>
+            <p>
+              A carteira de crédito pode ser conciliada a qualquer momento
+              através da posição de saldos com a
+              <a
+                style="color: Black"
+                href="./gestao-contabil.html"
+                onclick="location.href = './gestao-contabil.html';"
+                >CONTABILIDADE</a
+              >, com visões de contas de ativos, carteira classificada e mapa de
+              provisão de crédito.
+            </p>
+            <br />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/gerencial2teste.png"
+              alt="Resultado"
+              title="Resultado"
+            />
+          </div>
+        </div>
+        <script src="./js/modernizr.custom.js"></script>
+        <script src="js/jquery.dlmenu.js"></script>
+        <script>
+          $(function () {
+            $("#dl-menu").dlmenu({
+              animationClasses: {
+                classin: "dl-animate-in-2",
+                classout: "dl-animate-out-2",
+              },
+            });
+          });
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "303px";
+            document.getElementById("main").style.marginLeft = "303px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+        </script>
+      </article>
+      <div id="rodape"></div>
+
+      <div id="notification" style="display: none"></div>
+    </div>
+  </body>
+</html>

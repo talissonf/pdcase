@@ -1,0 +1,272 @@
+/* Homepage */
+
+
+#content {
+	width: 100%;
+}
+
+#banner {
+	position: relative;
+	width: 870px;
+	margin: 0 auto 80px;
+}
+
+#banner h1 {
+	font-size: 90px;
+	text-align: center;
+	background: url(../images/home/bg_lion131.jpg) fixed;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	display: block;
+	line-height: 140%;
+	font-weight: 900;
+	text-transform: uppercase;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	letter-spacing: 20px;
+}
+
+#banner h1 span {
+	display: block;
+	width: 870px;
+	margin: 0 auto;
+}
+
+#banner h1 .conhecimento {
+	letter-spacing: 0.010em;
+}
+
+#banner h1 .responsabilidade {
+	letter-spacing: 0.000000010em;
+	font-size: 35px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+#banner h1 .aplicado {
+	letter-spacing: 0.202em;
+}
+
+#banner h1 .tecnologia {
+	letter-spacing: 0.194em;
+}
+
+#banner p {
+	text-align: center;
+	font-size: 11px;
+	line-height: 137px; /**/
+	letter-spacing: 0.5em;
+	text-transform: uppercase;
+	-webkit-text-stroke: 1px transparent;
+	-moz-text-stroke: 1px transparent;
+	padding-top: 70px; /**/
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: 0 -435px 0;
+	width: 870px;
+}
+
+#banner p span {
+	display: block;
+}
+
+@media screen and (max-width: 1023px) {
+	a {
+		font-size: 11px;
+	}
+	#banner {
+		margin-bottom: 40px;
+	}
+	#banner h1 {
+		font-size: 100px;
+	}
+	#banner p {
+		font-size: 16px;
+		padding-top: 70px; /**/
+		line-height: 137px; /**/
+		letter-spacing: 0.16em
+	}
+}
+
+@media screen and (max-width: 1022px) {
+	a {
+		font-size: 11px;
+	}
+	#banner h1 {
+		font-size: 90px;
+		width: 100%;
+		text-align: center;
+	}
+	#banner {
+		margin-bottom: 40px;
+		width: 100%;
+	}
+	#banner h1 {
+		font-size: 90px;
+	}
+	#banner p {
+		font-size: 11px;
+		padding-top: 60px; /**/
+		line-height: 127px; /**/
+		width: 100%;
+		left: 0;
+		margin: 0;
+		letter-spacing: 0.16em
+	}
+	#banner h1 span {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	a {
+		font-size: 10px;
+	}
+	#banner h1 {
+		font-size: 80px;
+		width: 100%;
+		text-align: center;
+	}
+	#banner {
+		margin-bottom: 40px;
+		width: 100%;
+	}
+	#banner h1 {
+		font-size: 80px;
+	}
+	#banner p {
+		font-size: 11px;
+		padding-top: 50px; /**/
+		line-height: 117px; /**/
+		width: 100%;
+		left: 0;
+		margin: 0;
+		letter-spacing: 0.16em
+	}
+	#banner h1 span {
+		width: 100%;
+	}
+}
+
+body {
+	background: #f4d923;
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+	a {
+		font-size: 9px;
+	}
+	#banner h1 {
+		font-size: 60px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner {
+		width: 100%;
+	}
+	#banner h1 span {
+		width: 100%;
+	}
+	#banner p {
+		width: 260px;
+		font-size: 42px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding: 0 30px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 500;
+	}
+	#banner p span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 30px;
+	}
+	#banner p span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 16px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner p span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 16px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}
+
+@media screen and (min-width: 160px) and (max-width: 320px) {
+	a {
+		font-size: 9px;
+	}
+	#banner h1 {
+		font-size: 30px;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	#banner {
+		width: 100%;
+	}
+	#banner h1 span {
+		width: 100%;
+	}
+	#banner p {
+		width: 160px;
+		font-size: 21px;
+		font-family: "nudista-web-1", "Helvetica Neue", Arial, sans-serif;
+		text-transform: uppercase;
+		margin: 0 auto 0;
+		line-height: 1;
+		padding: 0 30px;
+		text-transform: uppercase;
+		letter-spacing: -.035em;
+		text-align: left;
+		position: static;
+		color: #000000;
+		font-weight: 200;
+	}
+	#banner p span.me {
+		font-weight: 900; /*NEGRITO*/
+		margin-bottom: 30px;
+	}
+	#banner p span.what {
+		/*		font-weight:600;
+		font-size:16px;
+		letter-spacing:0;
+		line-height:2.5;
+*/
+		font-size: 11px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		margin: 0;
+	}
+	#banner p span.where {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 11px;
+		letter-spacing: 0;
+		line-height: 1.25;
+	}
+}

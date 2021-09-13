@@ -1,0 +1,1060 @@
+define(['core'], function (app) {
+  //criação de nó para gerenciar funções utilitárias no core do angular
+  angular.btgUtilities = {};
+  //URIbaseContext
+  angular.btgUtilities.URIbaseContext =  document.getElementsByTagName('base')[0].getAttribute("href");
+
+  angular.btgUtilities.browser = getBrowser();
+
+  /*
+  *
+  *
+  * Função básica para anchor scroll animado
+  *
+  * ps: passar o elemento selecionado do dom.
+  * uso: angular.btgUtilities.scrollTo(elemento);
+  * */
+  angular.btgUtilities.scrollTo = function(destinationElement, endCallback) {
+    if (destinationElement) {
+      var gutter = 10;
+      //se tiver jQuery/Animate
+      if (typeof angular.element().animate != "undefined") {
+        destinationElement = angular.element(destinationElement);
+        currentOffset = window.pageYOffset;
+
+        if (destinationElement.length > 0 && currentOffset != destinationElement.offset().top) {
+          $('html,body').animate({
+            scrollTop: (destinationElement.offset().top - ($('#header').is(':visible') ? $('#header').innerHeight() : $('html,body').offset().top)) - gutter
+          }, {
+            duration: 'slow',
+            // easing: 'easeInOutExpo',
+            complete: function() {
+              if (endCallback) {
+                endCallback();
+              }
+
+            }
+          });
+        }
+        else {
+          if (endCallback) {
+            endCallback();
+          }
+        }
+      }
+      // se não
+      else {
+        scrollDestination = angular.element(destinationElement).offset().top - ($('#header').is(':visible') ? $('#header').innerHeight() : $('html,body').offset().top) - gutter;
+        angular.element('html,body').scrollTop(scrollDestination);
+        if (endCallback) {
+          endCallback();
+        }
+      }
+    }
+  };
+
+  /*
+  Funções básicas para testar números
+  */
+  angular.btgUtilities.isInteger =  function(n){
+    return Number(n) === n && n % 1 === 0;
+  };
+
+  angular.btgUtilities.isFloat = function(n){
+    return Number(n) === n && n % 1 !== 0;
+  };
+
+  //regex validador de cpf
+  angular.btgUtilities.CPFvalidate = function (cpf) {
+    if (!cpf) return false;
+
+    cpf = cpf.toString().replace(/[^\d]+/g, '');
+    if (cpf == '') return false;
+    if (cpf.length != 11 ||
+      cpf == "00000000000" ||
+      cpf == "11111111111" ||
+      cpf == "22222222222" ||
+      cpf == "33333333333" ||
+      cpf == "44444444444" ||
+      cpf == "55555555555" ||
+      cpf == "66666666666" ||
+      cpf == "77777777777" ||
+      cpf == "88888888888" ||
+      cpf == "99999999999")
+      return false;
+      add = 0;
+      for (i = 0; i < 9; i++)
+      add += parseInt(cpf.charAt(i)) * (10 - i);
+      rev = 11 - (add % 11);
+      if (rev == 10 || rev == 11)
+      rev = 0;
+      if (rev != parseInt(cpf.charAt(9)))
+      return false;
+
+      add = 0;
+      for (i = 0; i < 10; i++)
+      add += parseInt(cpf.charAt(i)) * (11 - i);
+      rev = 11 - (add % 11);
+      if (rev == 10 || rev == 11)
+      rev = 0;
+      if (rev != parseInt(cpf.charAt(10)))
+      return false;
+      return true;
+    };
+
+
+
+
+    /*
+    *
+    * File Downloader
+    *  para possibilitar o download de arquivos em background (wr para a implementação lenta de buscar arquivos em ftp e não tendo caminho físico de arquivos)
+    * */
+    app.factory('fileDownloader',['$rootScope','$compile','$http','$q','$window','$filter','$timeout',function($rootScope,$compile,$http,$q,$window,$filter,$timeout){
+      var browserIsCompatibleWithBGDownload = (typeof Blob === typeof(Function) && !!new Blob) && !angular.btgUtilities.browser.ios; //testa se o browser é compativel com blob e não é ios (pois o mesmo não permite downloads em background);
+
+      var getDataFromURL = function(URL) {
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          loadingOnView: false,
+          url: URL,
+          headers:{'Accept': '*/*', 'Content-Type': '*/*'},
+          responseType: "arraybuffer"
+        }).success(function(data, status, header, config) {
+          if (typeof data != "undefined" && data != null) {
+            deferred.resolve({'data':data, 'status':status, 'header':header, 'config':config});
+          } else {
+            deferred.reject({'data':data, 'status':status, 'header':header, 'config':config});
+          }
+        }).error(function(data, status, header, config){
+          deferred.reject({'data':data, 'status':status, 'header':header, 'config':config});
+        });
+        return deferred.promise;
+      }
+
+
+      var dealWithTargetElement = {
+        lock: function(targetEl) {
+          if (targetEl) {
+            angular.element(targetEl)
+            .attr('disabled','disabled')
+            .addClass('disabled').addClass('loading');
+          }
+        },
+        unlock: function(targetEl) {
+          if (targetEl) {
+            angular.element(targetEl)
+            .removeAttr('disabled')
+            .removeClass('disabled').removeClass('loading');
+          }
+        }
+      }
+
+
+
+      return {
+        get: function(params) {
+          /*
+          * Aguarda:
+          * {
+          * 	url:URL_DO_ARQUIVO,
+          * 	errorMsg: MENSAGEM_DE_ERRO_PARA_TOASTER (opcional, para não exibir envie false)
+          * 	targetElement: ELEMENTO_CLICADO (opcional para block),
+          *  success: funcao de callback
+          *  error: funcao de callback
+          * }
+          *
+          * */
+
+          //precisa de ao menos a url definida
+          if (typeof params.url != "undefined" && params.url) {
+            //se o browser for compatível com o uso de blobs (e não for ios)
+            if (browserIsCompatibleWithBGDownload) {
+
+              //se houver target element definido, trava para impedir clique
+              dealWithTargetElement.lock(params.targetElement);
+
+
+              getDataFromURL(params.url).then(function(response){
+
+                //obtem os dados do arquivo
+                var filename = response.header()["content-disposition"].match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)[1].trim();
+                var filetype = response.header()["content-type"].trim();
+
+                //adiciona ele em blob
+                blob = new Blob([response.data], {type: filetype, encoding: 'raw'});
+
+                //disponibiliza para o usuário salvar
+                require(['filesaver'],function(){
+                  window.saveAs(blob, filename);
+                });
+
+                //destrava o targetElement
+                dealWithTargetElement.unlock(params.targetElement);
+
+                //chama função de callback (se houver)
+                if (typeof params.success == "function") {
+                  params.success();
+                }
+              },
+              function(error) {
+                dealWithTargetElement.unlock(params.targetElement);
+
+                if (!$filter('isEmpty')(params.errorMsg) || params.errorMsg != false) {
+                  $rootScope.downloadFileError = false;
+
+                  //exibe erro
+                  var downloadErrorModal = '<overlay-block-screen ng-show="$root.downloadFileError" message-type="info" message-title="Atenção">'+
+                  '<span>{{params.errorMsg ? params.errorMsg : ("Ocorreu um erro no download do arquivo. Tente novamente em instantes.")}}</span>'+
+                  '</overlay-block-screen>';
+                  downloadErrorModal = $compile(downloadErrorModal)($rootScope);
+                  angular.element('body').append(downloadErrorModal);
+                  $timeout(function(){
+                    $rootScope.downloadFileError = true;
+                  },100);
+                }
+
+                //chama função de callback (se houver)
+                if (typeof params.error == "function") {
+                  params.error();
+                }
+              });
+
+
+            }
+            //se o browser nao suporta o uso de blob, download "old school"
+            else {
+              $rootScope.avoidOcasionalClose.stop();
+              window.open(params.url, "_self");
+              $timeout(function(){
+                $rootScope.avoidOcasionalClose.start();
+                //chama função de callback (se houver), pois caso dê erro o usuário receberá o erro em http code.
+                if (typeof params.success == "function") {
+                  params.success();
+                }
+              },150);
+            }
+
+          }
+
+          //caso não tenha a url definida
+          else {
+            //fecha a mensagens existentes e exibe a mensagem de erro
+            if (params.loadingMsg != false || (!$filter('isEmpty')(params.errorMsg) || params.errorMsg != false)) {
+              $rootScope.downloadFileError = false;
+
+              //exibe erro
+              var downloadErrorModal = '<modal-dialog ng-show="$root.downloadFileError" message-title="Atenção">'+
+              '<span>{{params.errorMsg ? params.errorMsg : "Erro no Download"}}</span>'+
+              '<div class="buttonscontainer clearfix">'+
+              '<button class="btn btn-primary btn-large" ng-click="$root.downloadFileError=false">{{OK}}</button>'+
+              '</div>'+
+              '</modal-dialog>';
+              downloadErrorModal = $compile(downloadErrorModal)($rootScope);
+              angular.element('body').append(downloadErrorModal);
+              $timeout(function(){
+                $rootScope.downloadFileError = true;
+              },100);
+            }
+          }
+
+
+        }
+      }
+
+    }]);
+
+
+
+
+
+
+    /*
+    * Defaults do Highcharts/Highstock
+    * */
+
+    app.factory('HighchartsDefaults',['$rootScope','$filter','$timeout', function ($rootScope,$filter,$timeout) {
+      var defaultColors = {
+        shortColorPallete: ["#27b1a5","#d5a520","#008fd5", "#ec6400", "#ffd539", "#606060", "#02baf2", "#70822e"]
+      };
+
+
+      var defaultFonts = {
+        arialFontStack: 'Arial,"Helvetica Neue",Helvetica,sans-serif',
+        sourceSansFontStack: '"Source Sans Pro",Arial,Helvetica,sans-serif'
+      };
+
+
+      return {
+        colors: {
+          //configurações possíveis paletas de cores
+          shortColorPallete: defaultColors.shortColorPallete
+        },
+        fonts: {
+          arialFontStack: defaultFonts.arialFontStack,
+          sourceSansFontStack: defaultFonts.sourceSansFontStack
+        },
+        lang: function() {
+          // if (typeof $translate === "function") {
+          var langOptions = {
+            lang: {
+              decimalPoint: ",",
+              thousandsSep: ".",
+              downloadJPEG: "Baixar imagem JPEG",
+              downloadPDF: "Baixar documento PDF",
+              downloadPNG: "Baixar imagem PNG",
+              downloadSVG: "Baixar imagem SVG",
+              drillUpText:"<< Clique para voltar para o Início",
+              loading:"Carregando...",
+              noData:"Não há dados para exibir.",
+              printChart:"Imprimir Gráfico",
+              rangeSelectorFrom:"De",
+              rangeSelectorTo:"a",
+              resetZoom:"Tirar Zoom",
+              shortMonths:"Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez".split(","),
+              months:"Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro".split(","),
+              weekdays:"Domingo,Segunda-feira,Terça-feira,Quarta-feira,Quinta-feira,Sexta-feira,Sábado".split(","),
+            },
+            xAxis: {
+              dateTimeLabelFormats: {
+                millisecond: '%e de %B de %Y, %H:%M:%S.%L',
+                second:'%e de %B de %Y, %H:%M:%S',
+                minute:'%e de %B de %Y, %H:%M',
+                hour:  '%e de %B de %Y, %H:%M',
+                day:  '%e de %B de %Y',
+                week: ' %e.%b',
+                month: '%b/%Y',
+                year:  '%Y'
+              }
+            },
+            rangeSelector: {
+              buttons: [{type: 'month',count: 1,text: "Mês"},
+              {type: 'month',count: 3,text:"3m"},
+              {type: 'month',count: 6,text: "6m"},
+              {type: 'ytd',text: "YTD"},
+              {type: 'year',count: 1,text:"Ano"},
+              {type: 'all',text: "Tudo"}],
+              inputDateFormat:"%d/%m/%Y",
+              inputEditDateFormat:"%d/%m/%Y"
+            },
+            plotOptions: {
+              line: {
+                tooltip: {
+                  dateTimeLabelFormats: {
+                    millisecond: '%e de %B de %Y, %H:%M:%S.%L',
+                    second:'%e de %B de %Y, %H:%M:%S',
+                    minute:'%e de %B de %Y, %H:%M',
+                    hour:  '%e de %B de %Y, %H:%M',
+                    day:  '%e de %B de %Y',
+                    week: 'Semana de %A, %b %e, %Y',
+                    month: '%b/%Y',
+                    year:  '%Y'
+                  }
+                }
+              }
+            },
+            tooltip: {
+              xDateFormat: "%d/%m/%Y"
+            }
+          };
+
+          // }
+          /*Seta opções de lingua default*/
+          Highcharts.setOptions(langOptions);
+
+          /*aplica opções de linguagem nos charts ativos na tela*/
+          angular.forEach(Highcharts.charts, function(thisChart, thisChartIndex){
+
+            if (thisChart) {
+              //Executa o translate para o titulo do Gráfico
+              if ((thisChart.title && thisChart.title.textStr.indexOf('{{') > -1) || typeof thisChart.titleToTranslate !== 'undefined') {
+                var toTranslateChartTitleString;
+                if (typeof thisChart.titleToTranslate !== 'undefined') {
+                  toTranslateChartTitleString = thisChart.titleToTranslate;
+                } else {
+                  thisChart.titleToTranslate = thisChart.title.textStr;
+                  toTranslateChartTitleString = thisChart.title.textStr;
+                }
+                toTranslateChartTitleString = toTranslateChartTitleString.replace(/["{'}]+/g, '').trim();
+                thisChart.setTitle({text:toTranslateChartTitleString});
+              }
+
+
+              //Translate nos elementos das series
+              angular.forEach(thisChart.series, function(thisSerie, thisSerieIndex){
+                thisSerie.update({
+                  tooltip: {
+                    dateTimeLabelFormats: langOptions.plotOptions.line.tooltip.dateTimeLabelFormats,
+                    xDateFormat: langOptions.tooltip.xDateFormat
+                  }
+                });
+
+                //Executar o translate do angular caso seja necessário nos nomes das series
+
+                if (thisSerie.name.toLowerCase().indexOf('series ') < 0) {
+                  if ((thisSerie.name && thisSerie.name.indexOf('{{') > -1) || (thisSerie && typeof thisSerie.options.nameToTranslate !== 'undefined')) {
+                    var toTranslateSerieNameString;
+
+                    if (typeof thisSerie.options.nameToTranslate !== 'undefined') {
+                      toTranslateSerieNameString = thisSerie.options.nameToTranslate;
+                    } else {
+                      toTranslateSerieNameString = thisSerie.name;
+                      thisSerie.update({nameToTranslate:thisSerie.name}, false);
+                    }
+                    var toTranslateSerieNameString = toTranslateSerieNameString.replace(/["{'}]+/g, '').trim();
+
+                    thisSerie.update({name:toTranslateSerieNameString}, false);
+                  }
+                } else {
+
+                  angular.forEach(thisSerie.data, function(internalSerie, ix){
+                    if ((internalSerie.name && internalSerie.name.indexOf('{{') > -1) || (internalSerie.series && typeof internalSerie.series.options.nameToTranslate !== 'undefined')) {
+                      var toTranslateinternalSerieNameString;
+                      if (typeof internalSerie.series.options.nameToTranslate !== 'undefined') {
+                        toTranslateinternalSerieNameString = internalSerie.series.options.nameToTranslate;
+                      } else {
+                        toTranslateinternalSerieNameString = internalSerie.name;
+                        internalSerie.update({nameToTranslate:internalSerie.name}, false);
+                      }
+                      var toTranslateinternalSerieNameString = toTranslateinternalSerieNameString.replace(/["'{}]+/g, '').replace('translate', '').trim();
+                      internalSerie.series.update({name:toTranslateinternalSerieNameString}, false);
+                    }
+                  });
+                }
+              });
+            }
+          });
+
+
+        },
+
+        init: function() {
+          thisFactory = this;
+
+          var waitForHighcharts = $rootScope.$watch(function() {
+            return (typeof Highcharts != "undefined");
+          }, function (newVal) {
+            startHighchartsBinds();
+            //stop watching
+            waitForHighcharts();
+          });
+
+          function startHighchartsBinds() {
+
+            thisFactory.set();
+
+            //Binds para refresh do lang: ao mudar state, ao mudar lingua e ao detectar novos elementos do highcharts na tela
+
+            $rootScope.$on('$translatePartialLoaderStructureChanged', function (event) {
+              thisFactory.lang();
+            });
+
+            // $rootScope.$on('$translatePartialLoaderStructureChanged', function (event) {
+            //   thisFactory.lang();
+            // });
+            // $rootScope.$on('$translateChangeSuccess', function (event) {
+            //   thisFactory.lang();
+            // });
+
+
+            $rootScope.$watch(function() {
+              return angular.element('.highcharts-container').length
+            }, function (newItem, oldItem) {
+              if (newItem || typeof oldItem !== 'undefined') {
+                $timeout(function(){
+                  thisFactory.lang()
+                });
+
+              }
+
+            })
+          }
+        },
+
+        set: function() {
+          thisFactory = this;
+
+          //seta a opção primária de cores, sendo possível aplicar outras caso a caso utilizando o objeto colors dessa factory/service
+          Highcharts.getOptions().colors = defaultColors.shortColorPallete;
+          defaultColors.shortColorPalleteWithGradient = Highcharts.map(defaultColors.shortColorPallete, function (color) {
+            return {
+              radialGradient: {cx: 0.5,cy: 0.5,r: 1.2},
+              stops: [
+                [0, Highcharts.Color(color).brighten(0.25).get('rgb')],
+                [1, Highcharts.Color(color).brighten(-0.1).get('rgb')] // darken
+              ]
+            };
+          });
+
+          //seta path para pegar o workaround para gerar imagem em browsers que não suportam SVG (usa VML em alguns casos e canvas em outros)
+          var highchartsResPath = document.location.href.split(URIbaseContext)[0] + URIbaseContext + "static/js/libraries/highstock/";
+          Highcharts.setOptions({
+            global: {
+              VMLRadialGradientURL:highchartsResPath + "vml-radial-gradient.png",
+              canvasToolsURL:highchartsResPath + "canvas-tools.js"
+            }
+          });
+
+          //Objeto longo setando todos os defaults do Highcharts, sendo possível alterar no caso a caso no objeto específico que é enviado a cada gráfico
+          Highcharts.setOptions({
+            chart: {
+              animation: true,
+              backgroundColor: 'transparent',
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false,
+              spacing: [0,0,0,0],
+              reflow: true
+            },
+            credits: {
+              enabled: false
+            },
+            loading: {
+              labelStyle: {
+                color: '#FFF',
+                fontFamily: defaultFonts.sourceSansFontStack
+              },
+              style: {
+                "backgroundColor":Highcharts.Color('#000000').setOpacity(0.15).get('rgba'),
+                "opacity": 0.75
+              }
+            },
+            noData: {
+              style: {
+                fontSize: "14px",
+                fontFamily: defaultFonts.sourceSansFontStack,
+                fontWeight: "normal",
+                color: "#cccccc"
+              },
+              useHTML: true
+            },
+            drilldown: {
+              allowPointDrilldown: true,
+              activeAxisLabelStyle: {
+                cursor: 'pointer',
+                color: '#666',
+                fontWeight: 'normal',
+                textDecoration: 'none'
+              },
+              activeDataLabelStyle: {
+                cursor: 'pointer',
+                color: '#666',
+                fontWeight: 'normal',
+                textDecoration: 'none'
+              },
+              drillUpButton: {
+                relativeTo: 'spacingBox',
+                position: {
+                  y: 10,
+                  x: 0,
+                  align: 'center',
+                  verticalAlign: 'top'
+                },
+                theme: {
+                  fill: 'transparent',
+                  'stroke-width': 0,
+                  r: 0,
+                  style: {
+                    color: '#0088cc',
+                    cursor: 'pointer',
+                    fontFamily: defaultFonts.sourceSansFontStack,
+                    fontSize: '10px',
+                    textDecoration: 'none'
+                  },
+                  states: {
+                    hover: {
+                      fill: 'transparent',
+                      style: {
+                        color: '#6AABD6',
+                        textDecoration: 'underline'
+                      }
+                    },
+                    select: {
+                      fill: 'transparent',
+                      style: {
+                        color: '#6AABD6'
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            xAxis: {
+              type: 'datetime',
+              crosshair: {
+                width: 1,
+                color: '#25bdae'
+              },
+              useHTML: true,
+              gridLineColor: '#4d596a',
+              lineColor:'#4d596a',
+              lineWidth: 2,
+              minorGridLineColor:'#4d596a',
+              tickColor:'#4d596a',
+              showFirstLabel:true,
+              showLastLabel:true,
+              labels: {
+                style: {
+                  color: '#999999',
+                  fontFamily: defaultFonts.sourceSansFontStack,
+                  fontSize: '12px',
+                  fontWeight: 400
+                },
+                overflow: 'justify',
+                staggerLines: 2
+              }
+            },
+            navigator: {
+              enabled:true,
+              height:40,
+              margin:5
+            },
+            rangeSelector: {
+              buttonSpacing:0,
+              buttonPosition: {
+                y:0,
+                x:30
+              },
+              height:25,
+              buttonTheme: {
+                fill: 'transparent',
+                stroke:'#00afa3',
+                'stroke-width':1,
+                padding: 7,
+                style: {
+                  color: '#00afa3',
+                  fontFamily: defaultFonts.sourceSansFontStack,
+                  fontSize: '13.6px',
+                  lineHeight: '13.6px',
+                  fontWeight: 'normal'
+                },
+                states: {
+                  hover: {
+                    fill: 'transparent',
+                    stroke:'#00afa3',
+                    style: {
+                      color: '#fff',
+                      cursor: 'pointer'
+                    }
+                  },
+                  select: {
+                    fill: '#00afa3',
+                    stroke:'#00afa3',
+                    style: {
+                      color: '#fff',
+                      fontWeight: 'normal'
+                    }
+                  },
+                  disabled: {
+                    style: {
+                      color: Highcharts.Color('#00afa3').setOpacity(0.2).get('rgba'),
+                      fontWeight: 'normal'
+                    }
+                  }
+                }
+              },
+              inputStyle: {
+                color: '#999999',
+                fontFamily: defaultFonts.sourceSansFontStack,
+                fontSize: '11px',
+                fontWeight: 'normal'
+              },
+              inputPosition: {
+                align: "right",
+                verticalAlign: "top"
+              },
+              labelStyle: {
+                display:'none'
+              }
+            },
+            scrollbar: {
+              enabled: false
+            },
+            yAxis: {
+              lineWidth: 0,
+              opposite:false,
+              gridLineColor: '#4d596a',
+              labels: {
+                formatter: function(){
+                  var absValue = Math.abs(this.value);
+                  if (absValue >= 1000000) {
+                    absValue = Highcharts.numberFormat(absValue/1000000,2) + 'M';
+                  }
+                  else if (absValue < 1000000 && absValue >= 1000) {
+                    absValue = Highcharts.numberFormat(absValue/1000) + 'K';
+                  }
+                  return (this.value < 0 ? '-' : '') + absValue;
+                },
+                align: 'right',
+                x: 0,
+                y: -2,
+                style: {
+                  color: '#999999',
+                  fontFamily: defaultFonts.sourceSansFontStack,
+                  fontWeight: 400,
+                  fontSize: '12px'
+                },
+                overflow: 'justify'
+              },
+              offset: 10,
+              min: null,
+              title: {
+                text: null
+              }
+            },
+            plotOptions: {
+              series: {
+                showCheckbox: true,
+                events: {
+                  checkboxClick: function(event) {
+                    if(event.checked) {
+                      this.show();
+                    }
+                    else {
+                      this.hide();
+                    }
+                  },
+                  show: function(event) {
+                    if (this.checkbox)this.checkbox.checked=true;
+                  },
+                  hide: function(event) {
+                    if (this.checkbox)this.checkbox.checked=false;
+                  },
+                  legendItemClick: function(event) {
+                    if (this.checkbox)this.checkbox.checked=(this.visible);
+                  },
+                  afterAnimate: function(event) {
+                    if(this.checkbox) {
+                      if (this.visible){
+                        this.checkbox.checked=true;
+                        this.selected=true;//workaround para sobrepor a funcao padrao dos checks nas series
+                      }
+                      else {
+                        this.checkbox.checked=false;
+                        this.selected=false;//workaround para sobrepor a funcao padrao dos checks nas series
+                      }
+                    }
+                    if (this.legendSymbol)this.legendSymbol.hide();
+
+
+                  }
+                },
+                dataLabels: {
+                  style: {
+                    color: "#666",
+                    fontFamily: defaultFonts.sourceSansFontStack,
+                    fontSize: '0.95em',
+                    fontWeight: 'normal',
+                    textShadow: undefined
+                  }
+
+                },
+                states: {
+                  hover: {
+                    halo: {
+                      opacity: 0.2
+                    }
+                  }
+                },
+                marker: {
+                  lineColor: Highcharts.Color('#FFFFFF').setOpacity(0.75).get('rgba'),
+                  radius: 2.5,
+                  symbol: 'circle'
+                }
+              },
+              area: {
+                fillOpacity:0.15
+              },
+              areaspline: {
+                fillOpacity: 0.15,
+                states:{
+                  hover: {
+                    lineWidthPlus:0,
+                    halo: {
+                      size: 12,
+                      attributes: {
+                        'stroke-width': 1,
+                        'stroke-dasharray': 3,
+                        stroke: '#25bdae'
+                      }
+                    }
+                  }
+                },
+                marker: {
+                  states: {
+                    hover: {
+                      radiusPlus:3
+                    },
+                    select: {
+                      radiusPlus:3
+                    }
+                  }
+                }
+              },
+              column: {
+                borderWidth:0,
+                groupPadding: 0.1,
+                pointPadding: 0.05,
+                states: {
+                  hover: {
+                    brightness: 0.35
+                  }
+                }
+              },
+              flags: {
+                showInLegend: false,
+                tooltip: {
+                  pointFormat: '{point.text}',
+                },
+                style: {
+                  fontSize: '0px',
+                  lineHeight: '11px'
+                },
+                shape: 'url('+$rootScope.URIbaseContext+'static/img/details/highcharts_marker.png)',
+                stackDistance: 25,
+                title:'',
+                y:-10
+              },
+              line: {
+                states:{
+                  hover: {
+                    lineWidthPlus:0,
+                    halo: {
+                      size: 12,
+                      attributes: {
+                        'stroke-width': 1,
+                        'stroke-dasharray': 3,
+                        stroke: '#25bdae'
+                      }
+                    }
+                  }
+                },
+                marker: {
+                  states: {
+                    hover: {
+                      radiusPlus:3
+                    },
+                    select: {
+                      radiusPlus:3
+                    }
+                  }
+                }
+              },
+              spline: {
+                states:{
+                  hover: {
+                    lineWidthPlus:0,
+                    halo: {
+                      size: 12,
+                      attributes: {
+                        'stroke-width': 1,
+                        'stroke-dasharray': 3,
+                        stroke: '#25bdae'
+                      }
+                    }
+                  }
+                },
+                marker: {
+                  states: {
+                    hover: {
+                      radiusPlus:3
+                    },
+                    select: {
+                      radiusPlus:3
+                    }
+                  }
+                }
+              },
+              pie: {
+                borderWidth: 0,
+                dataLabels: {
+                  color: '#ffffff',
+                  connectorWidth: 0,
+                  formatter: function(){
+                    var pointColor = this.point.color;
+                    if (typeof pointColor == 'object') {
+                      pointColor = pointColor.stops[0][1];
+                    }
+                    return '<span style="color:'+pointColor+';text-transform:uppercase">'+this.point.name+'</span>'
+                  },
+                  useHTML: true
+                },
+                point: {
+                  events: {
+                    legendItemClick: function () {
+                      //alteração no comportamento de ao clicar na legenda de um gráfico de pizza, exibir o tooltip
+                      this.select();
+                      this.series.chart.tooltip.refresh(this);
+                      return false;
+                    }
+                  }
+                },
+                states: {
+                  hover: {
+                    halo: {
+                      size: 3
+                    }
+
+                  }
+                },
+                tooltip: {
+                  pointFormat: '<b>{point.percentage:.2f}%</b>'
+                }
+              }
+            },
+            legend: {
+              align: 'right',
+              backgroundColor: null,
+              borderColor: null,
+              borderRadius: 0,
+              borderWidth: null,
+              enabled: true,
+              floating: false,
+              labelFormatter: function () {
+                //Truncate very long labels
+                var max = 22;
+                var val = (this.name != " " ? this.name : "...");
+                return (val.length > max ? val.slice(0, max) + '...' : val);
+              },
+              itemMarginTop: 3,
+              itemMarginBottom: 3,
+              itemStyle: {
+                color:'#ffffff',
+                fontFamily: defaultFonts.sourceSansFontStack,
+                fontSize: '13.6px',
+                fontWeight: 'normal',
+                textTransform: 'uppercase'
+              },
+              itemHoverStyle: {
+                color: '#6AAAD6'
+              },
+              itemWidth: null,
+              layout: 'horizontal',
+              maxHeight: null,
+              symbolRadius: 0,
+              symbolPadding: 0,
+              symbolHeight:0,
+              symbolWidth: 0,
+              x: 20,
+              y: 0,
+              verticalAlign: 'top',
+              title: {
+                text: null,
+                style: {
+                  color: '#4c93cf',
+                  fontFamily: defaultFonts.sourceSansFontStack,
+                  fontSize: '12px',
+                  fontWeight: 'normal'
+                }
+              }
+            },
+            title: {
+              text: '',
+              style: {
+                color: '#0078AE',
+                fontFamily: defaultFonts.sourceSansFontStack,
+                fontSize: '16px'
+              },
+              y: 0
+            },
+            tooltip: {
+              animation: true,
+              shared: true,
+              style: {
+                color: '#444444',
+                fontFamily: defaultFonts.sourceSansFontStack,
+                fontSize: '12px',
+                fontWeight: 'normal',
+                padding: 0,
+                'z-index':1
+              },
+              useHTML: true,
+              headerFormat: '<div class="tooltip-date">{point.key}</div>'
+            }
+          });
+
+          //workaround para posicionar o rangeSelector para a direita (quando necessário)
+          //Não está sendo usado no momento por alguns bugs do proprio highcharts
+          /*var orgHighchartsRangeSelectorPrototypeRender = Highcharts.RangeSelector.prototype.render;
+          Highcharts.RangeSelector.prototype.render = (function(func) {
+          return function(){
+          var leftPosition = 0;
+          if (this.zoomText) {
+          leftPosition += this.zoomText.getBBox().width;
+        }
+        for (var i = 0; i < this.buttons.length; i++) {
+        leftPosition += this.buttons[i].width;
+      }
+
+      var percentageToUse = (70 / 100) * this.chart.plotWidth;
+      this.options.buttonPosition.x = (percentageToUse)-leftPosition;
+      console.log(this.options.buttonPosition.x);
+
+      func.apply(this, arguments);
+    }
+  } (Highcharts.RangeSelector.prototype.render));*/
+
+
+  (function (H) {
+    //workaround no number format do highcharts
+    H.wrap(Highcharts, 'numberFormat', function (proceed) {
+      if (arguments[1] && angular.isNumber(arguments[1])) {
+        var value = arguments[1],
+        fractionSize = arguments[2];
+
+        strimmedNumber = String(value).split('.')
+        .map(function (d, i) { return i && (typeof fractionSize != 'undefined' && !window.isNaN(fractionSize)) ? d.substr(0, fractionSize) : d; })
+        .join('.');
+        arguments[1] = parseFloat(strimmedNumber);
+      }
+      var ret = proceed.apply(0, [].slice.call(arguments, 1));
+      return ret;
+    });
+
+    //workaround para posicionar o as checkboxes em legendas (quando existirem)
+    H.wrap(H.Legend.prototype, 'positionCheckboxes', function (p, scrollOffset) {
+      var alignAttr = this.group.alignAttr,
+      translateY,
+      clipHeight = this.clipHeight || this.legendHeight;
+
+      if (alignAttr) {
+        translateY = alignAttr.translateY;
+        H.each(this.allItems, function (item) {
+          var checkbox = item.checkbox,
+          bBox = item.legendItem.getBBox(true),
+          top;
+
+
+          if (checkbox) {
+            top = (translateY + checkbox.y + (scrollOffset || 0) + 4);
+            H.css(checkbox, {
+              left: (alignAttr.translateX + item.checkboxOffset + checkbox.x - 60 - bBox.width) + 'px',
+              top: top + 'px',
+              display: top > translateY - 6 && top < translateY + clipHeight - 6 ? '' : 'none'
+            });
+
+
+            var $checkbox = angular.element(checkbox);
+
+            if (!$checkbox.parent().hasClass('checkHandler')) {
+              $checkbox.wrap('<span class="checkHandler" />');
+
+              $checkbox.parents('.checkHandler').attr('style',$checkbox.attr('style'));
+              $checkbox.after('<span class="checkRadioStyleAux"></span>');
+
+            }
+
+            $checkbox.removeAttr('style');
+          }
+        });
+      }
+    });
+  })(Highcharts);
+}
+};
+
+}]);
+
+
+});

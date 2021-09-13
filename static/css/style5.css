@@ -1,0 +1,923 @@
+/* reset usando Boilerplate
+----------------------------------*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+ 
+
+/* Estilo básico
+----------------------------- */
+
+
+body, select, input, textarea { 
+  color: #444; 
+}
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+
+a:hover, a:active { outline: none; }
+a:link, a:visited { color: #ee2e24; }
+a:hover, a:active { color: #ee2e24; }
+
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+nav ul, nav li { margin: 0; } 
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+textarea { overflow: auto; }
+
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+button, input, select, textarea { margin: 0; }
+
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+::-moz-selection{ background: #a5c3d1; color:#fff; text-shadow: none; }
+::selection { background:#a5c3d1; color:#fff; text-shadow: none; } 
+
+a:link { -webkit-tap-highlight-color: #a5c3d1; } 
+
+button {  width: auto; overflow: visible; }
+
+.placeholder { color: #aaa; }
+ 
+
+/* Clearfix
+-------------*/
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+/* Viniltec
+-------------------------- */
+
+body {
+	background: #e1e1e1 url(../images/barra-superior.gif) left top repeat-x;
+	height: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	overflow-y: hidden !important;
+	overflow-x: auto;  
+	position: relative;
+	font-size: 12px;
+}
+
+.ie7 body{
+	z-index: 1000;
+	position:absolute
+}
+
+ul li {
+	list-style: none;
+}
+html {
+	height: 100%;
+}
+a:link, a:visited {
+	color: #ee2e24;
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+/*  menu
+--------------------*/
+
+header {
+	width: 265px;
+	background-color: #FFFFFF;
+	height: 500px;
+	top:50%;
+	margin-top:-250px;
+	display: block;
+	position: fixed;
+	z-index: 110;
+	font-size: 12px;
+}
+
+
+.ie6 header {
+	position: absolute;
+}
+
+.ie7 header {
+	left: 0;
+	position: fixed;
+}
+
+
+
+h1 {
+	margin: 15px auto 0 52px;
+	width: 201px;
+	height: 201px;
+}
+
+h1 span{
+	display: none
+}
+
+
+/* Menu principal
+-------------------*/
+
+#principal {
+	width: 201px;
+	margin: 22px auto 22px 52px;
+
+}
+#principal li {
+	display: inline;
+	margin:0;
+	padding: 0;
+}
+#principal a {
+	height: 28px;
+	line-height: 28px;
+	display: block;
+	text-transform: uppercase;
+	padding: 0;
+	margin:0;
+	background:url(../images/sprite-menu.png);
+}
+
+#principal span{display:none}
+
+#nav-apresentacao a {
+	background-position: -15px 0;
+}
+#nav-servicos a {
+	background-position: -15px -28px;
+}
+#nav-trabalhos a {
+	background-position: -15px -56px;
+}
+#nav-responsabilidade a {
+	background-position: -15px -84px;
+}
+#nav-apresentacao a:hover, 
+.act-apresentacao #nav-apresentacao a {
+	background-position: -15px -112px;
+}
+#nav-servicos a:hover, 
+.act-servicos #nav-servicos a {
+	background-position: -15px -140px;
+}
+#nav-trabalhos a:hover, 
+.act-trabalhos #nav-trabalhos a {
+	background-position: -15px -168px;
+}
+#nav-responsabilidade a:hover, 
+.act-responsabilidade #nav-responsabilidade a {
+	background-position: -15px -196px;
+}
+
+/* Menu secundário
+---------------------*/
+
+#sub {
+	position:absolute;
+	left:0;
+	top:0;
+	margin: 15px 0 0;
+	width: 40px;
+	height:470px;
+	background-color: rgb(31, 26, 23);
+}
+
+#sub ul {
+	margin-top:215px;
+}
+
+#sub li {
+	display: inline;
+	margin:0;
+	padding: 0;
+
+}
+#sub a {
+	height: 52px;
+	line-height: 52px;
+	display: block;
+	padding: 0;
+	margin:0;
+	background:url(../images/barra-lateral-sprite.png);
+	filter:alpha(opacity=60);
+	opacity: 0.6;
+	-moz-opacity:0.6;
+	-webkit-transition: opacity 0.3s ease-in;
+	-moz-transition: opacity 0.3s ease-in;
+	-o-transition: opacity 0.3s ease-in;
+	transition: opacity 0.3s ease-in;
+}
+
+#sub a:hover {
+	filter:alpha(opacity=100);
+	opacity: 1;
+	-moz-opacity:1;
+}
+
+#sub span{
+	display:none;
+	padding: 0;
+	margin:0;
+	}
+
+
+#sub-home a {
+	background-position: -2px 0;
+}
+#sub-twitter a {
+	background-position: -2px -52px;
+}
+#sub-facebook a {
+	background-position: -2px -104px;
+}
+#sub-localizacao a {
+	background-position: -2px -156px;
+}
+#sub-newsletter a {
+	background-position: -2px -208px;
+}
+
+/* Submenu - Trabalhos 
+---------------*/
+
+.intro ul {
+	margin: 0 0 0 0;
+}
+.banners .sub-banners a,
+.empenas .sub-empenas a,
+.eventos .sub-eventos a,
+.lojas .sub-lojas a,
+.midia .sub-midia a,
+.sinalizacao .sub-sinalizacao a,
+.veiculos .sub-veiculos a {
+	/*font-weight: bold;
+	text-decoration: none;*/
+	display: none;
+}
+
+h4{margin-top: 45px}
+
+/*v-card
+---------------*/
+
+#dados-contato{
+	margin-left:52px;
+	}
+
+.organization-name{
+	display: none
+	}
+
+#emails{
+	margin-top: 15px
+	}
+
+header p {
+	margin: 0 auto;
+	}
+
+/*  div container de tudo
+--------------------*/
+#scrollwrap {
+	position:relative;
+	min-height: 100%;
+	margin: 0 0 -120px 270px;
+	padding-top: 120px;
+}
+
+.act-home #scrollwrap {	
+	width:44750px;	
+}
+.act-apresentacao #scrollwrap {	
+	width:3200px;	
+}
+.act-trabalhos #scrollwrap {	
+	width:33025px;	
+}
+.act-trabalhos.banners #scrollwrap {	
+	width:31425px;	
+}
+.act-trabalhos.empenas #scrollwrap {	
+	width:3900px;	
+}
+.act-trabalhos.eventos #scrollwrap {	
+	width:7755px;	
+}
+.act-trabalhos.lojas #scrollwrap {	
+	width:9005px;	
+}
+.act-trabalhos.veiculos #scrollwrap {	
+	width:9600px;	
+}
+.act-trabalhos.sinalizacao #scrollwrap {	
+	width:8980px;	
+}
+.act-trabalhos.midia #scrollwrap {	
+	width:7465px;	
+}
+.act-contato #scrollwrap {	
+	width:800px;	
+}
+.act-servicos #scrollwrap {	
+	width:6550px;	
+}
+.act-responsabilidade #scrollwrap {	
+	width:2900px;	
+}
+
+.ie6 #scrollwrap {
+	top: 0;
+	position: absolute;
+	z-index: 20;
+	height: 100%;
+	clear: both;
+}
+
+
+/*  agrupa os divs
+--------------------*/
+
+#scroll {
+    height: 500px;
+    margin-top: -250px;
+    position: absolute;
+    top: 50%;
+}
+
+/*  divs
+--------------------*/
+
+#scroll div {
+	float: left;
+	margin: 0 20px 0 20px;
+	background: #fff;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+}
+#scroll div div {
+	float: none;
+	margin:0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+#scroll p {
+	padding: 0 10px 15px 10px;
+	line-height: 18px;
+	font-weight: normal;
+}
+
+#scroll .intro {
+	float: left;
+	margin: 0 20px 0 20px;
+	background: none;
+	text-align: center;
+	width: 350px;
+	font-size: 15px;
+}
+#scroll div img {
+	display: block;
+	margin: 0 auto 0 auto;
+	padding: 0 0 0 0;
+}
+#scroll .responsabilidade img {
+	display: block;
+	margin: 0 auto 0 auto;
+	padding: 0;
+}
+
+#scroll .responsabilidade img.morespace , .morespace, #scroll div img.morespace {
+	padding-bottom: 20px;
+}
+
+#scroll .intro img {
+	padding: 0 0 25px 0;
+}
+#scroll .box275 {
+	width: 275px;
+}
+#scroll .box385 {
+	width: 385px;
+}
+#scroll .box315 {
+	width: 315px;
+}
+#scroll .box625 {
+	width: 625px;
+}
+h2 {
+	color: #525a64;
+	font-size: 22px;
+	line-height: 20px;
+	padding: 10px;
+}
+#scroll div span {
+	background: url(../images/bi-numero.png) -56px top no-repeat;
+	color:#fff;
+	text-align: center;
+	width: 56px;
+	height: 54px;
+	line-height: 54px;
+	display: block;
+	margin: -32px auto 0 auto;
+	font-size: 22px;
+	font-weight: bold;
+}
+#scroll .responsabilidade span {
+	background-position: 0 0;
+}
+#scroll .servicos span {
+	background-position: -168px 0;
+}
+#scroll .trabalhos span {
+	background-position: -112px 0;
+}
+
+/* Slideshow
+------------*/
+
+.slideshow{
+	max-height: 335px;
+	overflow:hidden
+}
+
+.no-js #scroll div .slideshow img{
+	display: none
+	}
+	
+#scroll div .slideshow img.first {
+	display: block
+}
+
+
+
+/* voltar
+------------------*/
+
+#scroll .voltar {
+    background: none;;
+    float: right;
+    margin: 0 -150px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+
+.voltar a{
+	height: 400px;
+	width: 150px;
+	background: url(../images/bi-voltar.png) 25px center no-repeat;
+	display: block;
+	-webkit-transition: all 0.1s ease-in;
+	-moz-transition: all 0.1s ease-in;
+	-o-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+}
+
+.voltar a:hover{
+background: url(../images/bi-voltar.png) 17px center no-repeat;
+}
+
+
+/* Footer - Assinatura
+------------------------*/
+
+footer{
+	position:fixed;
+	bottom: 15px;
+	right:10px;
+}
+
+.ie6 footer{
+	position:absolute;
+	bottom: 30px;
+}
+
+.ie7 footer{
+	bottom: 30px;
+}
+
+footer a{
+	width: 69px;
+	height: 16px;
+	margin: 0 0 0 15px;
+	background: url(../images/logo-cumplice.png) left top no-repeat;
+	display: block;
+	bottom: 10px;
+}
+footer a:hover {
+	background-position: 0 -16px;
+}
+
+footer span {
+	display: none;
+}
+
+
+/* TipTip CSS - Version 1.2 */
+
+#tiptip_holder {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+	padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+	padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+	padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+	padding-right: 5px;
+}
+
+#tiptip_content {
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 0 0 2px #000;
+	padding: 4px 8px;
+	border: 1px solid rgb(25,25,25);
+	background-color: rgb(25,25,25);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 0 0 3px #555;
+	-webkit-box-shadow: 0 0 3px #555;
+	-moz-box-shadow: 0 0 3px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+	border-top-color: #fff;
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+	border-bottom-color: #fff;
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+	border-right-color: #fff;
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+	border-left-color: #fff;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+	margin-top: -7px;
+	margin-left: -6px;
+	border-top-color: rgb(25,25,25);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+	margin-top: -5px;
+	margin-left: -6px;
+	border-bottom-color: rgb(25,25,25);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -5px;
+	border-right-color: rgb(25,25,25);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -7px;
+	border-left-color: rgb(25,25,25);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {	
+	#tiptip_content {
+		padding: 4px 8px 5px 8px;
+		background-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+		border-bottom-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_top #tiptip_arrow_inner { 
+		border-top-color: rgba(20,20,20,0.92);
+	}
+}
+
+
+/* Google Maps
+--------------------*/
+
+body.mapa {
+overflow-x:auto;
+overflow-y: auto;
+width:100%;
+height:100%;
+}
+
+#mapcontainer{
+width: 100%;
+height:100%
+}
+
+
+/* Contato e newsletter
+-------------*/
+
+.act-contato #scroll{
+margin-top:-280px;
+}
+
+.act-contato #scroll .intro{
+text-align: left;
+}
+
+.act-contato #scroll p{
+text-align: center;
+}
+
+input, textarea{
+
+    border: medium none;
+    color: #AAAAAA;
+    margin-bottom: 3px;
+    padding: 10px;
+    width: 300px;
+    font-size:12px;
+    text-align: left;
+    margin-left: 10px;
+    
+    -moz-border-radius: 3px; /* FF1+ */
+  -webkit-border-radius: 3px; /* Saf3-4, iOS 1+, Android 1.5+ */
+          border-radius: 3px; /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+
+}
+input.error, textarea.error {
+	background: #FFFFCC;
+}
+
+textarea{
+	height:100px;
+}
+
+
+input[type="submit"]{
+	color:white;
+	width:auto;
+	padding:10px 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align:left;
+	background-color: #ee2e24;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ee2e24), to(#ee2e24));
+   background: -moz-linear-gradient(top, #ee2e24, #ee2e24)
+}
+
+input[type="submit"]:hover{
+	background-color: #525a64;
+}
+#scroll #loading, #scroll #loadingNewsletter, #scroll #loadingOrcamento, #scroll #sucesso_contato, #scroll #sucesso_newsletter {
+	display: none;
+	clear: both;
+	background: #e1e1e1;
+	width: auto;
+	overflow: hidden;
+}
+#scroll #sucesso_contato p , #scroll #sucesso_newsletter p {
+	color: #ee2e24;
+	font-weight: bold;
+}
+
+#scroll #loading img, #scroll #loadingNewsletter img, #scroll #loadingOrcamento img {
+	float: left;
+	margin: 12px 0 0 10px;
+}
+#scroll #loading p, #scroll #loadingNewsletter p, #scroll #loadingOrcamento p {
+	color:white;
+	width:80px;
+	padding:0 0 0 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align:center;
+	background-color: #999;
+	-moz-border-radius: 3px; /* FF1+ */
+  	-webkit-border-radius: 3px; /* Saf3-4, iOS 1+, Android 1.5+ */
+    border-radius: 3px; /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+	font-size: 12px;
+	line-height: 37px;
+	height: 37px;
+	 margin-left: 10px;
+	 float: left;
+}
+
+
+
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:#fff;}
+#colorbox{}
+    #cboxContent{margin-top:32px; overflow:visible;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{background:#000; padding:1px;}
+        #cboxLoadingGraphic{background:url(/images/colorbox/loading.gif) no-repeat center center;}
+        #cboxLoadingOverlay{background:#000;}
+        #cboxTitle{position:absolute; top:-22px; left:0; color:#000;}
+        #cboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
+        #cboxSlideshow, #cboxPrevious, #cboxNext, #cboxClose{text-indent:-9999px; width:20px; height:20px; position:absolute; top:-20px; background:url(/images/colorbox/controls.png) no-repeat 0 0;}
+        #cboxPrevious{background-position:0px 0px; right:44px;}
+        #cboxPrevious.hover{background-position:0px -25px;}
+        #cboxNext{background-position:-25px 0px; right:22px;}
+        #cboxNext.hover{background-position:-25px -25px;}
+        #cboxClose{background-position:-50px 0px; right:0;}
+        #cboxClose.hover{background-position:-50px -25px;}
+        .cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious{right:66px;}
+        .cboxSlideshow_on #cboxSlideshow{background-position:-75px -25px; right:44px;}
+        .cboxSlideshow_on #cboxSlideshow.hover{background-position:-100px -25px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-100px 0px; right:44px;}
+        .cboxSlideshow_off #cboxSlideshow.hover{background-position:-75px -25px;}
+
+
+/* zoom nas fotos */
+
+#scroll .trabalhos span.iconezoom,
+#scroll div span.iconezoom {
+	background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 30px;
+    height: auto;
+    margin: -40px 0 0 0;
+    padding: 0 0 0 10px;
+    text-align: right;
+    width: 20px;
+    line-height: inherit;
+    z-index:100;
+    position: absolute;
+}
+
+/* orcamento 20/09/2011 */
+.act-orcamento #scroll .intro {
+	text-align: left;
+	width: 660px;
+}
+#sucessoOrcamento, #scroll #loadingOrcamento {
+	display: none;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+label.error {
+	display: none !important;
+}
+.act-orcamento #scroll {
+	margin-top: -300px;
+}
+#formOrc {
+	width: 350px;
+	float: left;
+}
+.orcamento article {
+	width: 310px; 
+	float: right;
+	-moz-border-radius: 3px; /* FF1+ */
+  	-webkit-border-radius: 3px; /* Saf3-4, iOS 1+, Android 1.5+ */
+    border-radius: 3px; /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+	background: #525a64;
+	color: #a9adb2;
+	padding: 15px 0 10px 0;
+}
+#scroll .orcamento article p {
+	padding: 0 15px 8px 15px;
+	line-height: 15px;
+	font-size: 12px;
+}
+#btn-orcamento span {
+	display: none;
+}
+#btn-orcamento {
+	width: 188px;
+	height: 29px;
+	display: block;
+	background: url(../images/botao-orcamento.png) left top no-repeat;
+	margin: 20px 0 0 0;
+}
+#btn-orcamento:hover {
+	background-position: left -29px;
+}

@@ -1,0 +1,300 @@
+define([], function (app) {
+  /*
+
+  ######  ########    ###    ########  ########
+  ##    ##    ##      ## ##   ##     ##    ##
+  ##          ##     ##   ##  ##     ##    ##
+  ######     ##    ##     ## ########     ##
+  ##    ##    ######### ##   ##      ##
+  ##    ##    ##    ##     ## ##    ##     ##
+  ######     ##    ##     ## ##     ##    ##
+  */
+
+
+  var app = angular.module('core', ['ngAnimate','ui.mask','ui.validate','highcharts-ng','tmh.dynamicLocale','ui.router']);
+
+  /*
+  #####                                                       #
+  #     #  ####  #    # ###### #  ####     #####    ##        # #   #####  #####
+  #       #    # ##   # #      # #    #    #    #  #  #      #   #  #    # #    #
+  #       #    # # #  # #####  # #         #    # #    #    #     # #    # #    #
+  #       #    # #  # # #      # #  ###    #    # ######    ####### #####  #####
+  #     # #    # #   ## #      # #    #    #    # #    #    #     # #      #
+  #####   ####  #    # #      #  ####     #####  #    #    #     # #      #
+  */
+  app.config(['$httpProvider','$animateProvider','$compileProvider','$provide','$stateProvider','$urlRouterProvider','tmhDynamicLocaleProvider','$locationProvider',
+  function($httpProvider,$animateProvider,$compileProvider, $provide, $stateProvider, $urlRouterProvider,tmhDynamicLocaleProvider,$locationProvider){
+
+    app.provide = $provide;
+    app.stateProvider = $stateProvider;
+    app.urlRouterProvider = $urlRouterProvider;
+    app.localeProvider = tmhDynamicLocaleProvider;
+    app.locationProvider = $locationProvider;
+
+
+    //otimizar a performance utilizando multiplas httpresponses com applyAsync, evitando overload no browser
+    $httpProvider.useApplyAsync(true);
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false,
+        rewriteLinks: false
+    });
+
+
+    //registrar ng-animate apenas para os elementos com a classe ng-animate-enabled
+    $animateProvider.classNameFilter(/ng-animate-enabled/);
+
+    //desativa dados de debugs (utilizados pelo batarang e etc) otimizando a performance
+    // https://docs.angularjs.org/guide/production#disabling-debug-data
+    $compileProvider.debugInfoEnabled(false);
+
+    //configura o path para arquivos do angular-locale
+    tmhDynamicLocaleProvider.localeLocationPattern('static/js/libraries/locale/angular-locale_pt-br.js');
+
+    //decorator para executar antes do filter de number para driblar o arredondamento e só strimmar o valor.
+    app.provide.decorator('numberFilter', ['$delegate', function($delegate) {
+      var srcFilter = $delegate;
+
+      var extendsFilter = function() {
+        //se o valor tiver com o argumento de fractionSize, inicia o processo (somente se o mesmo for um float).
+        if (angular.isNumber(arguments[0]) && angular.btgUtilities.isFloat(arguments[0]) && angular.isNumber(parseInt(arguments[1]))) {
+          var value = arguments[0],
+          fractionSize = parseInt(arguments[1]);
+
+
+          var numberStrimmed = String(value).split('.')
+          .map(function (d, i) { return i && (typeof fractionSize != 'undefined' && !window.isNaN(fractionSize)) ? d.substr(0, fractionSize) : d; })
+          .join('.');
+          arguments[0] = numberStrimmed;
+        }
+        var g = srcFilter.apply(this, arguments);
+        return g;
+      };
+
+      return extendsFilter;
+    }]);
+
+
+
+
+
+  }]);
+
+  /*
+  #####  ####### ######  #
+  #     #    #    #     # #
+  #          #    #     # #
+  #          #    ######  #
+  #          #    #   #   #
+  #     #    #    #    #  #
+  #####     #    #     # #######
+  */
+
+
+
+  app.controller('AppCtrl',['$rootScope','$scope','$timeout','$http','$filter','$window','HighchartsDefaults','tmhDynamicLocale',
+  function($rootScope,$scope,$timeout,$http,$filter, $window, HighchartsDefaults,tmhDynamicLocale) {
+
+    $rootScope.loadingScreen = true,
+    $rootScope.URIbaseContext = angular.btgUtilities.URIbaseContext,
+    $rootScope.serviceURI = '/digital/services/';
+
+    tmhDynamicLocale.set("pt-br");
+
+
+
+    //retira a tela de loading
+    $timeout(function(){
+      $rootScope.loadingScreen = false;
+    },300);
+
+    HighchartsDefaults.init();
+    //link para o PDF com o catalago de produtos - usado no header.html e na index.html
+    $scope.openProductsCatalog = function(){
+      window.open("https://www.btgpactualdigital.com/content/catalogo/catalogo_investimentos.pdf", "_blank");
+    };
+
+
+    //menu flyout investimentos
+
+    $rootScope.submenuInvestimentos = false;
+    $rootScope.openSubMenu = function (menu) {
+
+      switch (menu) {
+        case 'investimentos':
+        $rootScope.submenuInvestimentos = true;
+        break;
+        default: $rootScope.submenuInvestimentos = false;
+        break;
+      }
+    };
+
+
+    //calcula a altura do header para fixar o header
+    angular.element(window).on('scroll', function() {
+      var distanciaTop = $(this).scrollTop();
+      var alturaHero = angular.element('div.hero').outerHeight();
+      if(distanciaTop >= alturaHero){
+        angular.element('#header').addClass('sticky');
+      } else{
+        angular.element('#header').removeClass('sticky');
+      }
+    });
+
+    $scope.openMenuOnMobile = function(){
+      var el = angular.element('.buttonscontainer');
+      if(el.hasClass('hiddenMobile')){
+        el.removeClass('hiddenMobile');
+      } else{
+        el.addClass('hiddenMobile');
+      }
+    };
+
+    //broadcast para avisar funções que precisam de bind do resize da viewport para executar algo
+    angular.element(window).on('resize.doResizeBroadcast', function () {
+      $rootScope.$broadcast("viewPort_changed");
+      $rootScope.$applyAsync();
+    });
+    $scope.$on('$destroy', function () {
+      angular.element(window).off('resize.doResizeBroadcast');
+    });
+  }]);
+
+
+
+
+  app.controller('QuemSomosCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q', 'HighchartsDefaults',
+  function($rootScope,$scope,$timeout,$http,$filter,$q, HighchartsDefaults) {
+
+    /*Executa o service inicial do Highcharts para setar todos os defaults do plugin*/
+    HighchartsDefaults.init();
+    /*
+    Busca os dados de destaques financeiros
+    */
+    $scope.financialData = function(){
+      var language = 4;
+      $scope.financial = {};
+      $scope.financial.carregando = true;
+      $scope.financial.success = false;
+      var deferred = $q.defer();
+      if(language) {
+        $http({
+          method: 'GET',
+          url:'/financial'
+        }).success(function (data) {
+          $scope.dados = data;
+
+          $timeout(function () {
+            $scope.financial.carregando = false;
+            $scope.financial.success = true;
+          }, 10);
+
+        }).error(function (data) {
+          $scope.financial.carregando = false;
+          $scope.financial.success = false;
+        })
+      } else {
+      }
+    }
+    $scope.financialData();
+    $scope.modalGrandeHistoria = {};
+    $scope.modalGrandeHistoria.openCardUm = false;
+    $scope.modalGrandeHistoria.openCardDois = false;
+    $scope.modalGrandeHistoria.openCardTres = false;
+    $scope.modalGrandeHistoria.openCardQuatro = false;
+    /*
+    Template para o Gráfico Posição Consolidada
+    (os dados são alimentados posteriormente)
+    */
+    $scope.financialAverageNetWorthChart= {
+      options: {
+        chart: {
+          type: 'pie'
+        },
+        legend: {enabled: false},
+        tooltip:{
+          enabled: false
+        },
+        plotOptions: {
+          pie: {
+            innerSize: '85%',
+            minSize: '50%',
+            startAngle: 0,
+            endAngle: 360,
+            center: ['50%', '50%'],
+            dataLabels: {
+              enabled:false
+            },
+            states: {
+              hover: {
+                enabled: false
+              }
+            }
+          }
+        }
+      },
+      series: [{
+        data: []
+      }],
+      title: {
+        text: null
+      },
+      loading: false,
+      callback: function(chart) {
+        $timeout(function() {
+          if(chart) chart.reflow();
+        },100,false);
+      }
+    };
+
+    $scope.changeAba = function(ano){
+      angular.forEach($scope.dados,function(data){
+        data.current = false;
+      });
+      $scope.financialAverageNetWorthChart.series[0].data = [
+        {
+          color: "#FFF",
+          y: (100-(parseFloat(ano.average_netWorth.value)))
+        },
+        {
+          color: "#008fd4",
+          y:parseFloat(ano.average_netWorth.value)
+        }
+      ];
+      ano.current = true;
+    };
+
+
+  }]);
+
+
+
+  app.controller('ComoFuncionaCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q',
+  function($rootScope,$scope,$timeout,$http,$filter,$q) {
+
+
+  }]);
+
+  app.controller('FundoDeInvestimentoCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q',
+  function($rootScope,$scope,$timeout,$http,$filter,$q) {
+
+
+  }]);
+
+  app.controller('PrevidenciaPrivadaCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q',
+  function($rootScope,$scope,$timeout,$http,$filter,$q) {
+
+
+  }]);
+
+  app.controller('RendaFixaCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q',
+  function($rootScope,$scope,$timeout,$http,$filter,$q) {
+  }]);
+
+
+  app.controller('CatalogoCtrl',['$rootScope','$scope','$timeout','$http','$filter','$q',
+  function($rootScope,$scope,$timeout,$http,$filter,$q) {
+  }]);
+
+  return app;
+});

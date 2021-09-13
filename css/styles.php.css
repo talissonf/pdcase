@@ -1,0 +1,121 @@
+
+/******************/
+/* FRONTENT ONLY  */
+/******************/
+
+	/******************/
+	/* Main Site Tags */
+	/******************/
+
+	body {padding: 0; margin: 0; background: #ecedee; color: #2b2a2f; overflow-x: hidden; -webkit-text-size-adjust: none; text-rendering: optimizelegibility;}
+	body.darkTemplate {color: #ecedee; background: #2b2a2f;} 
+	
+   
+	/******************/
+	/* Main Menu      */
+	/******************/
+	
+    /* LEVEL 1 */
+        /* surrounding div if needed */
+        .levelOnecontainer {
+        }
+        
+        /* ul styles */
+        .levelOne { padding: 0; margin: 0;}
+        
+        .levelOne li {
+			list-style: none;
+		}
+        
+        
+    /* LEVEL 2 */
+        /* surrounding div if needed */
+		
+        
+		.levelTwo { padding: 0; margin: 0;}
+        
+		.levelTwo li {
+		    list-style: none;
+		}
+        
+        
+
+
+/*******************/
+/* FRONTENT & CMS  */
+/*******************/
+	img {border: none;}
+	p {margin: 0; font-size: 16px;}
+	ul,ol,li,form { margin: 0px; font-size: 16px; }
+    .toggleArea ul { margin-left: 18px;}
+
+	a{text-decoration: none; color: #A6A7AD;}
+
+	#levelOnecontainer a, #slide-title a {text-decoration: none; color: #A6A7AD;}
+	#levelOnecontainer.light a, #slide-title.light a, #slide-overlay.light a {text-decoration: none; color: #A6A7AD;}
+
+	#levelOnecontainer a:hover, #levelOnecontainer a.active, #levelOnecontainer a:focus, #slide-title a:hover {color: #2b2a2f !important;}
+
+	a:hover, a.active, a:focus 
+		{color: #2b2a2f !important; outline: 0 none;}
+
+	#levelOnecontainer.light a:hover, #levelOnecontainer.light a.active, #levelOnecontainer.light a:focus, #slide-title.light a:hover, #slide-overlay.light a:hover {color: #ecedee !important;}
+
+	body.darkTemplate a:hover, body.darkTemplate a.active, body.darkTemplate a:focus
+		{color: #ecedee !important;}
+
+	body.darkTemplate #levelOnecontainer a
+		{color: #A6A7AD !important;}
+
+	body.darkTemplate #levelOnecontainer a:hover, body.darkTemplate #levelOnecontainer a.active, body.darkTemplate #levelOnecontainer a:focus
+		{color: #ecedee !important;}
+
+
+	body.darkTemplate #levelOnecontainer.light a:hover, 
+	body.darkTemplate #levelOnecontainer.light a.active, 
+	body.darkTemplate #levelOnecontainer.light a:focus
+		{color: #ecedee !important;}
+
+	@media screen and (max-width: 767px) {
+		#levelOnecontainer a {color: #A6A7AD !important;}
+		#levelOnecontainer a:hover, 
+		#levelOnecontainer.light a:hover, 
+		#levelOnecontainer a.active, 
+		#levelOnecontainer.light a.active, 
+		#levelOnecontainer a:focus,
+		#levelOnecontainer.light a:focus 
+		{color: #ecedee !important;}
+	}
+
+
+    
+    .column-small a.active h1, .column-small a:hover h1 {color: #2b2a2f}
+    darkTemplate .column-small a.active h1, darkTemplate  .column-small a:hover h1 {color: #ecedee}
+    
+    td { color: #000; font-size:16px; }
+    
+	h1{ margin: 0; color: #2b2a2f; font-weight: normal;}
+	body.darkTemplate h1 {color: #ecedee;} 
+	h2{ color: #2b2a2f; font-weight: normal; font-size: 54px;}
+	body.darkTemplate h2 {color: #ecedee;} 
+    h3 { }
+
+    hr {
+        border-color: #636874;
+        border-style: solid none none;
+        border-width: 1px medium medium;
+    }
+	/**********************/
+	/* CMS Style Dropdown */
+	/**********************/
+	
+	.grey {color: #8A94A4;}
+	.white {color: #f6f6f6;}
+	.underline { border-bottom: 1px solid #8b8b8d; }
+	
+    
+    /* content boxes */
+    
+	#wo-manager {z-index: 150 !important;}
+    #wo-manager-maximized {z-index: 154 !important;}
+    

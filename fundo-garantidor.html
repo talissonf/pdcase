@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fundo Garantidor | PD Case</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="author" content="Izabely Furtado" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, case, sistema de informação, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="Nesse módulo são atendidos os modelo do FAMPE – Fundo de Aval de Micro e Pequenas Empresas (SEBRAE), FGI – Fundo Garantidor de Investimentos(BNDES) e FGO – Fundo Garantidor de Operações(Banco do Brasil)."
+    />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="canonical" href="https://www.pdcase.com/fundo-garantidor.html" />
+    <script type="text/javascript" src="./menuProperties.js"></script>
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+        $("#rodape").load("rodape.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+    <!-- SLIDE -->
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./canais-digitais.html';"
+          class="light"
+          style="
+            background: url(./editando/canaisDigitais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./captacoes-de-mercado.html';"
+          class="light"
+          style="
+            background: url(./editando/captacoesMercado.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./controladoria.html';"
+          class="light"
+          style="
+            background: url(./editando/controladoria.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./emprestimos.html';"
+          class="light"
+          style="
+            background: url(./editando/emprestimos.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./gestao-de-risco.html';"
+          class="light"
+          style="
+            background: url(./editando/gestaoRisco.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./conheca-seu-cliente.html';"
+          class="light"
+          style="
+            background: url(./editando/conhecaSeuCliente.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./servicos-bancarios.html';"
+          class="light"
+          style="
+            background: url(./editando/servicosBancarios.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./suporte-e-apoio-cadastral.html';"
+          class="light"
+          style="
+            background: url(./editando/suporte.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./informativos-e-sistemas-legais.html';"
+          class="light"
+          style="
+            background: url(./editando/infoSisLegais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./portal-de-credito.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credito.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+
+        <div
+          onclick="window.location='./pdSRC.html';"
+          class="light"
+          style="
+            background: url(./editando/pdSGC_banner.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./credito-comercial.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credico.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+      <div id="hero-statement">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div id="slide-title"></div>
+      <!-- slide controls -->
+      <div class="slide-nav-prev">
+        <div id="slide-prev" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+      <div class="slide-nav-next">
+        <div id="slide-next" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO SLIDE -->
+    <br />
+
+    <div id="main">
+      <article id="node-2000" class="node node-product-page clearfix">
+        <div class="widnr second">
+          <div class="span8 offset2 text-center">
+            <h1>Fundo Garantidor</h1>
+            <h3>Diluindo risco de eventuais perdas</h3>
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/contextoteste.png"
+              alt="Fundo garantidor"
+              title="Fundo garantidor"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br /><br />
+            <h2>Objetivo</h2>
+            <p>
+              A possibilidade de alocação de garantias de operações de crédito
+              através de fundo garantidor instituído pelas fontes financiadoras,
+              tais como, BNDES e Banco do Brasil, é uma alternativa de mercado
+              para diluir o risco de eventuais perdas. Nesse módulo são
+              atendidos os modelo do FAMPE – Fundo de Aval de Micro e Pequenas
+              Empresas (SEBRAE), FGI – Fundo Garantidor de Investimentos(BNDES)
+              e FGO – Fundo Garantidor de Operações(Banco do Brasil).
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Troca de informações</h2>
+            <p>
+              Todos esses fundos possuem especificações de troca de informações
+              que são associadas ao processo de concessão, que criam travas para
+              liberação de operações, quando existe a opção por garantia via
+              fundo.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/fale_conoscoteste2.png"
+              alt="Fale conosco"
+              title="Fale conosco"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img src="./images/pessoa3teste.png" alt="custos" title="custos" />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Custos</h2>
+            <p>
+              Os custos de contratação de aval via fundo é atrelado ao processo
+              de simulação das operações, de modo que o tomador de crédito possa
+              saber o impacto do valor a ser incluso no financiamento. Sobre o
+              valor financiado existe a segregação do crédito a ser direcionado
+              para fundo como custo sobre garantia parcial ou total da operação.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+        <script src="./js/modernizr.custom.js"></script>
+        <script src="js/jquery.dlmenu.js"></script>
+        <script>
+          $(function () {
+            $("#dl-menu").dlmenu({
+              animationClasses: {
+                classin: "dl-animate-in-2",
+                classout: "dl-animate-out-2",
+              },
+            });
+          });
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "303px";
+            document.getElementById("main").style.marginLeft = "303px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+        </script>
+      </article>
+      <div id="rodape"></div>
+
+      <div id="notification" style="display: none"></div>
+    </div>
+  </body>
+</html>

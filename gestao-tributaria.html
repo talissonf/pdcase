@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestão Tributária | PD Case</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Izabely Furtado" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, case, sistema de informação, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="A GESTÃO DE TRIBUTOS  permite centralizar todas as demandas de tributos retidos das empresas integrantes do conglomerado através da integração aos aplicativos operacionais."
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link
+      rel="canonical"
+      href="https://www.pdcase.com/gestao-tributaria.html"
+    />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+    <script type="text/javascript" src="./menuProperties.js"></script>
+
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+        $("#rodape").load("rodape.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+
+    <!-- SLIDE -->
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./canais-digitais.html';"
+          class="light"
+          style="
+            background: url(./editando/canaisDigitais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./captacoes-de-mercado.html';"
+          class="light"
+          style="
+            background: url(./editando/captacoesMercado.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./controladoria.html';"
+          class="light"
+          style="
+            background: url(./editando/controladoria.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./emprestimos.html';"
+          class="light"
+          style="
+            background: url(./editando/emprestimos.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./gestao-de-risco.html';"
+          class="light"
+          style="
+            background: url(./editando/gestaoRisco.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./conheca-seu-cliente.html';"
+          class="light"
+          style="
+            background: url(./editando/conhecaSeuCliente.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./servicos-bancarios.html';"
+          class="light"
+          style="
+            background: url(./editando/servicosBancarios.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./suporte-e-apoio-cadastral.html';"
+          class="light"
+          style="
+            background: url(./editando/suporte.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./informativos-e-sistemas-legais.html';"
+          class="light"
+          style="
+            background: url(./editando/infoSisLegais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./portal-de-credito.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credito.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+      <div id="hero-statement">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div id="slide-title"></div>
+      <!-- slide controls -->
+      <div class="slide-nav-prev">
+        <div id="slide-prev" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+      <div class="slide-nav-next">
+        <div id="slide-next" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO SLIDE -->
+    <br />
+
+    <div id="main">
+      <article id="node-2000" class="node node-product-page clearfix">
+        <div class="widnr second">
+          <div class="span8 offset2 text-center">
+            <h1>GESTÃO TRIBUTÁRIA</h1>
+            <h3>Gerenciamento de Obrigações Tributárias</h3>
+            <p>
+              A GESTÃO DE TRIBUTOS requer a integração de uma série de
+              informações originadas por aplicações de clientes tais como,
+              fundos de investimentos, Crédito, e CONTAS CORRENTES, que estão
+              suportadas normalmente por sistemas distintos. Da mesma forma se
+              aplica aos sistemas de crédito, câmbio, seguros. Leasing etc
+            </p>
+            <p>
+              A GESTÃO DE TRIBUTOS permite centralizar todas as demandas de
+              tributos retidos das empresas integrantes do conglomerado através
+              da integração aos aplicativos operacionais. A sumarização de uma
+              série de tributos pode ser feita automaticamente por uma unidade
+              centralizadora, que agilizam os controles, apuração,
+              recolhecimento e repasse de acordo com o calendário determinado
+              pela RECEITA FEDERAL e municípios.
+            </p>
+          </div>
+        </div>
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/trib1teste.png"
+              alt="Processo de Gestão"
+              title="Processo de Gestão"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Processo de Gestão</h2>
+            <p>
+              A sumarização de uma série de tributos pode ser feita
+              automaticamente por uma unidade centralizadora, que agilizam os
+              controles, apuração, recolhecimento e repasse de acordo com o
+              calendário determinado pela RECEITA FEDERAL e municípios.
+            </p>
+            <p>
+              Assim passando por um processo para viabilizar a gestão de
+              tributos, ao qual pode ser notado através da imagem ao lado.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Apuração Contábil</h2>
+            <p>
+              O balizamento os dados de apuração na CONTABILIDADE e dos sistemas
+              de origem de retenção permite uma pré-conferência entre os dados
+              retidos/calculados. Ao utilizar duas fontes de dados distintas, é
+              viabilizada a conformidade de valores a repassar.
+            </p>
+            <p>
+              Todos os tributos da empresa ou retenção de cliente, fornecedores
+              e funcionários devem ser configurados no sistema com uma série de
+              parâmetros de controle.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/gerencial2teste.png"
+              alt="apuração contabil"
+              title="Apuração contabil"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/trib5teste.png"
+              alt="Regras de apuração"
+              title="Regras de apuração"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Regras de Apuração</h2>
+            <p>
+              As regras e esquemas de apuração definem como são calculados os
+              valores baseados em dados da CONTABILIDADE e é permitido criar uma
+              agenda tributária de acordo com calendário especifico de cada
+              tributo.
+            </p>
+            <p>
+              A abrangência de cálculo dos dados pode ser restringida em função
+              da origem das receitas, muito comum nas legislações de tributos
+              municipais.
+            </p>
+            <p>
+              Na centralização de pagamentos de serviços prestados, onde existe
+              a incidência de ISS, porém, com mão-de-obra alocada em diferentes
+              locais, os valores a repassar podem ser distribuídos de acordo com
+              percentual definido para cada órgão.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Apuração de Tributos a partir de Agenda</h2>
+            <p>
+              As atividades de retenção, apuração, recolhimento, repasse e
+              prestação de contas de TRIBUTOS possui complexidade devido às
+              diversas fontes de informações e aos calendários diferenciados
+              definidos pela RECEITA FEDERAL. Os riscos embutidos nas tarefas
+              podem acarretar em penalização por recolhimentos errados ou até
+              por apropriação indébita.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/trib21teste.png"
+              alt="Apuração de Tributos"
+              title="Apuração de Tributos"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/trib6teste.png"
+              alt="Processo de Apuração"
+              title="Processo de Apuração"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Processo de Apuração</h2>
+            <p>
+              Todos os processos de cálculo de tributos a recolher são baseados
+              em regras de apuração. A agenda tributária permite programar
+              automaticamente os períodos de cálculo dos valores, que podem ser
+              feitos por prévia ou de forma definitiva.
+            </p>
+            <p>
+              Na forma definitiva os valores são contabilizados automaticamente,
+              podendo ainda ser integrados a aplicativos de TESOURARIA.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Resultado da Apuração</h2>
+            <p>
+              O resultado do processo de apuração gera controle de valores
+              dentro do trâmite definido por cada órgão, de modo que possa ter a
+              qualquer momento um mapa apuração por cada empresa integrante do
+              conglomerado. Dentro dessa mesma visão podem ser fornecidos
+              extratos de retenção por contribuinte, tendo como fontes de origem
+              os sistemas corporativos de produtos(cliente), folha de
+              pagamentos(Funcionários) e contas a pagar(fornecedores).
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/depjud2teste.png"
+              alt="Resultado da Apuração"
+              title="Resultado da Apuração"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/trib4teste.png"
+              alt="Tributos Fiscais"
+              title="Tributos Fiscais"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Tributos Fiscais</h2>
+            <p>
+              No caso de tributos federais a prestação de contas é feita através
+              da geração de arquivo no padrão DCTF. Para os tributos municipais
+              deve ser feita a adequação conforme especificação de cada
+              secretária da Fazenda.
+            </p>
+            <p>
+              As contribuições de PIS/COFINS apuradas via processo automático
+              subsidiam a composição das informações do EFD-Contribuições
+              regulamentada no SPED da RFB - Receita Federal do Brasil.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+        <script src="./js/modernizr.custom.js"></script>
+        <script src="js/jquery.dlmenu.js"></script>
+        <script>
+          $(function () {
+            $("#dl-menu").dlmenu({
+              animationClasses: {
+                classin: "dl-animate-in-2",
+                classout: "dl-animate-out-2",
+              },
+            });
+          });
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "303px";
+            document.getElementById("main").style.marginLeft = "303px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+        </script>
+      </article>
+
+      <div id="rodape"></div>
+    </div>
+
+    <div id="notification" style="display: none"></div>
+  </body>
+</html>

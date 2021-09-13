@@ -1,0 +1,122 @@
+
+/*---------------------------------------------------------------
+	GENERALS
+----------------------------------------------------------------*/
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.node-type-works-index {
+  background-color: black;
+}
+section .more {
+  position: absolute;
+}
+section a.sticker {
+  display: inline-block;
+  font-family: 'LemonMilk';
+  font-size: 25px;
+  padding: 3px 12px 5px 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #e74275;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #e74275 0%, #e6362b 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #e74275 0%, #e6362b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #e74275 0%, #e6362b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e74275', endColorstr='#e6362b', GradientType=0);
+  /* IE6-9 */
+}
+@media (max-width: 480px) {
+  section a.sticker {
+    font-size: 15px;
+    padding: 4px 8px;
+  }
+}
+section a.sticker:hover,
+section a.sticker:visited,
+section a.sticker:focus,
+section a.sticker:active {
+  color: white;
+  text-decoration: none;
+}
+section a.sticker i {
+  background: url('../img/ico-plus.svg') 0 0 no-repeat;
+  background-size: 30px;
+  width: 29px;
+  height: 29px;
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: bottom;
+}
+@media (max-width: 480px) {
+  section a.sticker i {
+    background-size: 18px;
+    width: 17px;
+    height: 17px;
+    margin-right: 8px;
+  }
+}
+span.xtnd {
+  line-height: 16px;
+}
+.indent-texte {
+  text-indent: -999999em;
+}
+/*---------------------------------------------------------------
+	HEADER & MENU
+----------------------------------------------------------------*/
+a.return-btn {
+  position: absolute;
+  top: 30px;
+  height: 43px;
+  width: 43px;
+  right: 0;
+  margin-right: 13px;
+  cursor: pointer;
+  text-indent: -999993em;
+  background: url(../img/btn_works_back.svg) 0px 0px no-repeat;
+}
+#header {
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+#header .container {
+  position: relative;
+}
+#header .menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  margin-right: 91%;
+  cursor: pointer;
+  border: 1px solid white;
+  background: black;
+  display: inline-block;
+  padding: 6px 8px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+@media (max-width: 480px) {
+  #header .menu-btn {
+    top: 22px;
+  }
+}
+#header .menu-btn .line {
+  background-color: #fff;
+  height: 2px;
+  width: 24px;
+  display: block;
+  right: 0;
+  margin: 5px 0;
+}
+

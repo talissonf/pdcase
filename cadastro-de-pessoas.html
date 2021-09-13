@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro de Pessoas | PD Case</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Izabely Furtado" />
+    <meta
+      name="keywords"
+      content="Outsourcing, fábrica de software, gestão de projetos, software, empresa de ti, desenvolvimento de software, tecnologia da informação, consultoria, sistema, case, desenvolvimento, sistemas, desenvolvimento web, empresas de tecnologia, desenvolvimento de aplicativos"
+    />
+    <meta
+      name="description"
+      content="O CADASTRO DE PESSOAS permite parametrizar as exigências de informações de CLIENTES em função da intenção de contratação de PRODUTOS ou SERVIÇOS quando nas visitas de negócios."
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link
+      rel="canonical"
+      href="https://www.pdcase.com/cadastro-de-pessoas.html"
+    />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <script type="text/javascript" src="./menuProperties.js"></script>
+    <!-- Styles -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/layout2.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.php.css"
+      type="text/css"
+      media="screen,projection"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento.css"
+      media="all"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/magento2.css"
+      media="all"
+    />
+    <link href="./css/global.min.css" rel="stylesheet" />
+    <link href="./css/prodserv.css" rel="stylesheet" />
+    <link href="./css/colunas.css" rel="stylesheet" />
+    <!-- JQuery Library -->
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cycle2.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/jquery.cycle2.swipe.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/passa.js"></script>
+    <link rel="stylesheet" href="./css/index4.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      $(function () {
+        $("#header").load("header.html");
+        $("#dl-menu").dlmenu({
+          animationClasses: {
+            classin: "dl-animate-in-2",
+            classout: "dl-animate-out-2",
+          },
+        });
+        $("#rodape").load("rodape.html");
+        $("#notification").load("cookies-notification.html");
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
+      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
+
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body
+    class="
+      home
+      page-template-default page page-id-1584 page-parent
+      wpb-js-composer
+      js-comp-ver-4.11.1
+      vc_responsive
+    "
+  >
+    <div id="header" style="z-index: 999999" class="demo-2"></div>
+
+    <!-- SLIDE -->
+    <div id="slideshow-outer" style="padding-top: 74px">
+      <div
+        class="cycle-slideshow"
+        data-cycle-fx="scrollHorz"
+        data-cycle-speed="1000"
+        data-cycle-timeout="7000"
+        data-cycle-slides="div"
+        data-cycle-prev="#slide-prev"
+        data-cycle-next="#slide-next"
+        data-cycle-overlay="#slide-title"
+        data-cycle-overlay-template="<div><p><a href='{{link}}'>{{title}}</a></p></div>"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
+      >
+        <div
+          onclick="window.location='./canais-digitais.html';"
+          class="light"
+          style="
+            background: url(./editando/canaisDigitais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./captacoes-de-mercado.html';"
+          class="light"
+          style="
+            background: url(./editando/captacoesMercado.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./controladoria.html';"
+          class="light"
+          style="
+            background: url(./editando/controladoria.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./emprestimos.html';"
+          class="light"
+          style="
+            background: url(./editando/emprestimos.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./gestao-de-risco.html';"
+          class="light"
+          style="
+            background: url(./editando/gestaoRisco.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./conheca-seu-cliente.html';"
+          class="light"
+          style="
+            background: url(./editando/conhecaSeuCliente.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./servicos-bancarios.html';"
+          class="light"
+          style="
+            background: url(./editando/servicosBancarios.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./suporte-e-apoio-cadastral.html';"
+          class="light"
+          style="
+            background: url(./editando/suporte.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./informativos-e-sistemas-legais.html';"
+          class="light"
+          style="
+            background: url(./editando/infoSisLegais.jpg) no-repeat center
+              center;
+            background-size: cover;
+          "
+        ></div>
+        <div
+          onclick="window.location='./portal-de-credito.html';"
+          class="light"
+          style="
+            background: url(./editando/pd_credito.jpg) no-repeat center center;
+            background-size: cover;
+          "
+        ></div>
+      </div>
+      <div id="hero-statement">
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <div id="slide-title"></div>
+      <!-- slide controls -->
+      <div class="slide-nav-prev">
+        <div id="slide-prev" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+      <div class="slide-nav-next">
+        <div id="slide-next" class="slide-nav">
+          <a class="btn btn-circle" href="#">
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO SLIDE -->
+    <br />
+
+    <div id="main">
+      <article id="node-2000" class="node node-product-page clearfix">
+        <div class="widnr second">
+          <div class="span8 offset2 text-center">
+            <h1>CADASTRO DE PESSOAS</h1>
+            <h3>Controle e Revisão de Dados Cadastrais</h3>
+            <p>
+              As informações cadastrais são os instrumentos essenciais para
+              conhecimento dos perfis de clientes e seus relacionados. As
+              práticas de negócios demandam revisões sistemáticas para
+              alavancagem da oferta de novos PRODUTOS e SERVIÇOS.
+            </p>
+            <p>
+              O CADASTRO DE PESSOAS permite parametrizar as exigências de
+              informações de CLIENTES em função da intenção de contratação de
+              PRODUTOS ou SERVIÇOS quando nas visitas de negócios.
+            </p>
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/pessoa1teste.png"
+              alt="Cadastro de pessoas - PD Case"
+              title="Cadastro de pessoas - PD Case"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br /><br />
+            <h2>Objetivo</h2>
+            <p>
+              Objetivando mitigar riscos de informações imprecisas, o CADASTRO
+              DE PESSOAS segmenta o processo cadastramento do CLIENTES em fases
+              distintas desde a coleta inicial pelas ÁREAS DE NEGÓCIOS, passando
+              pela operacionalização das informações, e consequente validação e
+              autorização pela ÁREA GERENCIAL.
+            </p>
+            <p>
+              Os mecanismos associados ao trâmite cadastral seguem as
+              recomendações do “KYC – Know Your Customer” – emitida pelo BIS.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Fluxo Operacional</h2>
+            <p>
+              O fluxo operacional é ilustrado através da figura ao lado desde a
+              CONTRATAÇÃO DE PRODUTOS & SERVIÇOS até após a autorização a
+              continuidade de processo de cadastramento.
+            </p>
+            <p>
+              As ÁREAS OPERACIONAIS internas devem se responsabilizar pela
+              verificação e entrada dos dados de cada FLUXO CADASTRAL, que
+              somente será concluído desde que obedeçam todos os requisitos
+              exigíveis nos PILARES DE INFORMAÇOES.
+            </p>
+            <p>
+              Para inicio de operacionalização de qualquer operação junto ao
+              banco, a ÁREA GERENCIAL é convocada a fazer a VALIDAÇÃO E
+              AUTORIZAÇÃO CADASTRAL.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/pessoa2teste.png"
+              alt="Fluxo Operacional - cadastro de pessoas"
+              title="Fluxo Operacional - cadastro de pessoas"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/pessoa3teste.png"
+              alt="Cadastro de Cliente"
+              title="Cadastro de Cliente"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Cadastro de Cliente</h2>
+            <p>
+              O CADASTRO DE PESSOAS aplica as recomendações de segregação de
+              funções realizadas no processo cadastral. Todo o trâmite cadastral
+              releva os fatores de conflitos de interesses, diminuindo assim, a
+              ocorrências de erros e fraudes na IDENTIFICAÇÃO.
+            </p>
+            <p>
+              Através das requisições de LOCALIZAÇÃO, RELACIONAMENTO, OCUPAÇÃO E
+              RENDA, ATIVIDADE E FATURAMENTO e PATRIMÔNIO, podem ser registradas
+              todas as informações relevantes a qualquer produto.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-1"></div>
+          <div class="coluna-4 esquerda">
+            <br />
+            <h2>Executando o Ciclo Cadastral de Cliente</h2>
+            <p>
+              A figura abaixo ilustra um exemplo do CICLO CADASTRAL desde a
+              realização da entrevista gerencial, quando o CLIENTE define a
+              intenção de relacionamento com o banco. Todas as etapas do ciclo
+              são mantidas pelo num TRÂMITE DO PROCESSO, quando são armazenadas
+              as informações de SINALIZADORES e FASES DE PERMANÊNCIA de cada
+              registro.
+            </p>
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-5">
+            <img
+              src="./images/pessoa4teste.png"
+              alt="Ciclo Cadastral de Cliente"
+              title="Ciclo Cadastral de Cliente"
+            />
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="coluna-5">
+            <img
+              src="./images/pessoa5teste.png"
+              alt="Base de Informações - Pessoas"
+              title="Base de Informações - Pessoas"
+            />
+          </div>
+          <div class="coluna-2"></div>
+          <div class="coluna-4 direita">
+            <br />
+            <h2>Base de Informações</h2>
+            <p>
+              Toda a base de informações do CADASTRO DE PESSOAS permite o
+              registro automático para vinculação a PRODUTOS E SERVIÇOS, que
+              serve de instrumento de avaliação de reciprocidades dos clientes .
+            </p>
+            <p>
+              A formatação de transações nos esquemas de EXIGÊNCIA, NAVEGAÇÃO e
+              REVISÃO de dados resultam na adequação do PROCESSO CADASTRAL aos
+              requisitos de CONTROLES INTERNOS definidos pelo COMITÊ DE
+              BASILÉIA.
+            </p>
+          </div>
+          <div class="coluna-1"></div>
+        </div>
+        <script src="./js/modernizr.custom.js"></script>
+        <script src="js/jquery.dlmenu.js"></script>
+        <script>
+          $(function () {
+            $("#dl-menu").dlmenu({
+              animationClasses: {
+                classin: "dl-animate-in-2",
+                classout: "dl-animate-out-2",
+              },
+            });
+          });
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "303px";
+            document.getElementById("main").style.marginLeft = "303px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+        </script>
+      </article>
+      <div id="rodape"></div>
+
+      <div id="notification" style="display: none"></div>
+    </div>
+  </body>
+</html>
