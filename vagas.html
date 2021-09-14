@@ -238,7 +238,20 @@ window.onAcceptCookie();
               $('#formCv')[0].reset();
               $("#btnEnviarEmail").prop('value', 'Enviar');
               $("#btnEnviarEmail").removeClass('disabled');
-          alert("Email enviado com sucesso!!!");
+              alert("Email enviado com sucesso!!!");
+              // envia para api informações de consentimento
+              $.get('https://api.db-ip.com/v2/free/self', function(data) {
+                return $.ajax({
+                  url: "https://www.pdcase.com/pdcase_site_api/index.html",
+                  data: {
+                    secret: "8d45f94399544c89bfce9148cc9027c1",
+                    device: window.navigator.userAgent,
+                    ipAdress: data.ipAddress,
+                    accessType: 2,
+                  },
+                  dataType: 'json',
+                })
+              })
         },
         error: function (xhr, textStatus, errorThrown) {
           $("#btnEnviarEmail").prop('value', 'Enviar');
