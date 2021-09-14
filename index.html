@@ -56,6 +56,7 @@
 
 					window.acceptCookies = function () {
 						Cookies.set('CookieConsent', 1)
+						window.onAcceptCookie()
 						gtag('consent', 'update', {
 							'ad_storage': 'granted',
 							'analytics_storage': 'granted'
