@@ -68,37 +68,37 @@
 
         $("#header").load("header.html");
         $("#notification").load("cookies-notification.html");
-						if (!Cookies.get("CookieConsent")) {
-							console.log(Cookies.get("CookieConsent"));
-							document.getElementById("notification").style.display = "block";
-						}
+        if (!Cookies.get("CookieConsent")) {
+          console.log(Cookies.get("CookieConsent"));
+          document.getElementById("notification").style.display = "block";
+        }
       });
 
       window.dataLayer = window.dataLayer || [];
-					function gtag() {
-						dataLayer.push(arguments);
-					}
-					gtag("js", new Date());
-					gtag("config", "UA-139247637-1");
-					gtag("consent", "default", {
-						ad_storage: "denied",
-						analytics_storage: "denied",
-					});
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-139247637-1");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
 
-					window.acceptCookies = function () {
-						Cookies.set('CookieConsent', 1)
-window.onAcceptCookie();
-						gtag("consent", "update", {
-							ad_storage: "granted",
-							analytics_storage: "granted",
-						});
-						document.getElementById("notification").style.display = "none";
-					};
+      window.acceptCookies = function () {
+        Cookies.set("CookieConsent", 1);
+        window.onAcceptCookie();
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+        });
+        document.getElementById("notification").style.display = "none";
+      };
 
-					window.declineCookies = function () {
-						Cookies.set("CookieConsent", 0);
-						document.getElementById("notification").style.display = "none";
-					};
+      window.declineCookies = function () {
+        Cookies.set("CookieConsent", 0);
+        document.getElementById("notification").style.display = "none";
+      };
     </script>
 
     <style>
@@ -118,7 +118,7 @@ window.onAcceptCookie();
 
         color: #282320;
         margin-bottom: 55px;
-        margin-top: 55px
+        margin-top: 55px;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -140,9 +140,9 @@ window.onAcceptCookie();
             <div class="col-12">
               <b
                 >Política de Privacidade do Site e dos Serviços da PD Case
-                (www.pdcase.com)</b
-              >
-              <p>Esta política entrou em vigor em 01 de maio de 2021.</p>
+                (www.pdcase.com)
+              </b>
+              <p>Esta política entrou em vigor em 16 de agosto de 2021.</p>
               <p>
                 Recomendamos fortemente que você realize a leitura desta
                 Política e só continue a navegar por nosso site e/ou utilizar
@@ -228,7 +228,7 @@ window.onAcceptCookie();
 
               <p>
                 Entre os Dados Pessoais que este site coleta estão os seguintes:
-                nome completo; email, perfil no “LinkedIn” e currículo
+                nome completo; e- mail, perfil no “LinkedIn” e currículo
                 disponibilizado pelo interessado, todos fornecidos livremente
                 pelo titular ao preencher nossa seção “Envie seu Currículo”.
                 Informamos que não existe a necessidade de envio de foto em seu
@@ -420,43 +420,7 @@ window.onAcceptCookie();
 
           <section>
             <div class="col-12">
-              <b>Cookies</b>
-              <p>
-                Este site utiliza cookies. Alguns cookies personalizam seu
-                acesso, lembram de suas preferências ou simplesmente nos
-                fornecem estatísticas de acesso. O uso dessa tecnologia é comum
-                em sites e plataformas em geral, consistindo em um pequeno
-                arquivo de texto, que pode ser armazenado em seus dispositivos
-                quando você visita websites ou utiliza os serviços on-line da
-                organização. Utilizamos o Google Analytics em nosso site apenas
-                a título de estatísticas de utilização do site para ajudar a
-                melhorar sua experiência de navegação, mas somente se você
-                permitir. Não coletamos nenhuma informação pessoal utilizando
-                este mecanismo.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <div class="col-12">
-              <b>Google Analytics:</b>
-
-              <p>
-                Serviço de análise web fornecido pela Google, Inc. (“Google”).
-                Cookies: _ga, _gat, _gid O Google Analytics armazena endereços
-                IP anonimamente em seus servidores nos Estados Unidos. Não
-                associamos seu endereço IP a nenhuma informação de identificação
-                pessoal. Esses cookies permitem que o Google determine se você é
-                um visitante recorrente do site e rastreie as páginas que visita
-                durante sua sessão com fins estatísticos. Validade: 2 anos
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <div class="col-12">
-              <b>Versões desta Política</b>
-
+              <b>Versões desta Política </b>
               <p>
                 A PD Case se reserva ao direito de fazer alterações nesta
                 política de privacidade a qualquer momento, caso em que enviará
